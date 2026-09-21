@@ -8,7 +8,7 @@ import { initCounters } from './counter.js';
 import { initGallery } from './gallery.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('🌱 IN WEST TAMP - Integrated Wellness-Tourism Area Tampirkulon initialized.');
+  console.log('IN WEST TAMP: Integrated Wellness-Tourism Area Tampirkulon initialized.');
 
   // 1. Initialize 360 Panorama Virtual Tour Hub
   init360Viewer();

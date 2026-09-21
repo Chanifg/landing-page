@@ -239,14 +239,15 @@ img {
   font-weight: 600;
 }
 
-/* Utility Animations */
-@keyframes floatSlow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+/* Accessible Focus Indicator (R-32) */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
 }
 
-.animate-float {
-  animation: floatSlow 4s ease-in-out infinite;
+button:focus-visible, a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
 }
 
 /* Custom Scrollbar */

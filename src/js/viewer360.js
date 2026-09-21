@@ -218,7 +218,7 @@ function updateSpotInfo(spot) {
 
   if (highlightsEl) {
     highlightsEl.innerHTML = spot.highlights.map(h => 
-      `<span class="highlight-tag">✓ ${h}</span>`
+      `<span class="highlight-tag">${h}</span>`
     ).join('');
   }
 }
