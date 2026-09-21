@@ -1,107 +1,131 @@
-# DESIGN.md — Identitas & Panduan Desain "IN WEST TAMP"
-**Proyek:** Landing Page PPK Ormawa Himagi Universitas Tidar 2025  
-**Fokus Evaluasi:** Penilaian Poster Paling Kreatif  
-**Standar Kualitas:** antislop-ui (Craftsmanship & Anti-Generic Standard)
+# DESIGN.md — Desain Sistem "IN WEST TAMP" (Referensi Editorial Showcase)
+
+**Proyek:** Landing Page Interaktif PPK Ormawa Himagi Universitas Tidar 2025  
+**Kategori Penilaian:** Poster Paling Kreatif  
+**Referensi Visual:** `desainweb.webp` (High-Impact Editorial Showcase Architecture)  
+**Standar Kualitas:** antislop-ui & antislop core  
 
 ---
 
-## 1. Identitas & Karakter Produk (Soul of the Brand)
+## 1. Identitas & Karakter Desain (The Soul of the Brand)
 
-- **Nama Program:** IN WEST TAMP (Integrated Wellness-Tourism Area Tampirkulon).
-- **Entitas:** Program Penguatan Kapasitas Organisasi Kemahasiswaan (PPK Ormawa) Himpunan Mahasiswa Gizi (Himagi), Fakultas Ilmu Kesehatan, Universitas Tidar.
-- **Karakter Visual (Personality):** 
-  - *Otentik & Membumi (Earthy & Grounded):* Menyatu dengan alam pedesaan Tampirkulon, pertanian, air sungai pegunungan, dan kearifan lokal warga.
-  - *Profesional Akademis (Rigorous & Credible):* Menyajikan data hasil intervensi yang terukur dan dapat diverifikasi, bukan klaim kosong.
-  - *Segar & Bugar (Wellness & Vitality):* Mengusung kesehatan masyarakat, gizi keluarga, keamanan wisata air, dan ruang terbuka hijau.
-- **Uji Anti-Generik:** Jika logo dan nama program ditukar, halaman ini **tidak boleh terasa seperti template SaaS / startup generik**. Halaman ini harus terasa seperti **karya dokumentasi & portal pariwisata sehat desa binaan mahasiswa yang nyata**.
+- **Nama Entitas:** IN WEST TAMP (Integrated Wellness-Tourism Area Tampirkulon).
+- **Esensi Konsep:** Mengubah laporan pengabdian masyarakat konvensional menjadi sebuah **"Showcase Destinasi & Dampak Premium"**.
+- **Karakter Visual (Personality):**
+  - **Bold & Authoritative:** Tipografi condensed yang tegas dan berani, memancarkan percaya diri bahwa program ini telah membawa dampak besar bagi desa.
+  - **High-Contrast Dark Canvas:** Memadukan nuansa gelap arang (*Deep Charcoal/Obsidian*) dengan sentuhan warna alam pedesaan, membuat foto panorama 360 dan dokumentasi kegiatan "menyala" (*pop-out*) di layar.
+  - **Geometric Craftsmanship:** Menggunakan bentuk heksagonal geometris (*hexagon cards & honeycomb cluster*) yang melambangkan presisi sains gizi dan keterpaduan ekosistem.
+- **Uji Keunikan (Anti-Generik):** Desain ini tidak meniru template SaaS startup ungu/biru, melainkan mengadopsi gaya *magazine editorial showcase* kelas dunia yang disesuaikan untuk pariwisata sehat pedesaan.
 
 ---
 
-## 2. Tiga Pengaturan Utama (Three Dials)
+## 2. Pengaturan Tiga Dial (The Three Dials)
 
-| Pengaturan | Level | Penjelasan & Alasan |
+| Dial | Nilai | Penjelasan Berdasarkan Referensi `desainweb.webp` |
 |---|---|---|
-| **ENERGY** | **2 (Balanced)** | Tidak terlalu hening/kaku (Level 1) dan tidak berlebihan penuh efek visual mencolok (Level 3). Menyeimbangkan keseriusan laporan ilmiah PPK Ormawa dengan daya tarik visual pariwisata pedesaan. |
-| **RHYTHM** | **2 (Consistent with Few Breaks)** | Tata letak mengalir teratur dengan variasi komposisi yang bermakna: dimulai dari hero naratif, berlanjut ke panggung panorama 360 yang lapang, komparasi kartu pilar yang interaktif, dan galeri berfoto nyata. |
-| **MOTION** | **1.5 (Purposeful & Restrained)** | Animasi hanya hadir saat ada interaksi pengguna (hover sentuh, buka modal peta, rotasi 360, scroll counter). **Dilarang keras ada animasi looping tanpa henti (endless pulse, floating infinite bounce)** yang mengganggu fokus membaca. |
+| **ENERGY** | **3 (Bold)** | Tipografi judul raksasa (*condensed uppercase*), kontras tinggi antara latar gelap dan aksen cerah, serta visual fotografi berukuran besar yang langsung menarik perhatian juri (*high impact*). |
+| **RHYTHM** | **3 (Varied & Asymmetric)** | Susunan section sangat dinamis dan bervariasi: perpaduan layout split asimetris, kartu slider horizontal, baris metrik berbentuk heksagon, dan cluster sarang lebah (*honeycomb*). Tidak ada dua section yang memiliki tata letak monoton. |
+| **MOTION** | **2 (Scroll-Reveal & Fluid Transitions)** | Transisi tab mulus, interaksi rotasi sentuh 360, animasi counter angka saat scroll, dan efek hover kartu yang terukur tanpa loop mengambang liar. |
 
 ---
 
-## 3. Palet Warna & Kontras (Color Restraint)
+## 3. Palet Warna & Penerapan Aksen (Color System)
 
-Membatasi palet aktif menjadi **2 warna utama + 1 aksen hangat + netral alami** (memenuhi batas maksimal R-29 dan standar kontras WCAG AA 4.5:1):
+Mengadopsi formula kontras tinggi dari referensi: **Kanvas Gelap Obsidian + Hijau Alam Pedesaan + Aksen Oranye Emas / Electric Lime + Teks Putih Bersih**:
 
 ```
-┌──────────────────────────────────────────────────────────────────┐
-│  Primary: Forest Wellness Green (#1B4332 / #2D6A4F)              │
-│  Accent: Terracotta Sun Gold (#D97706 / #E58B24)                 │
-│  Neutral Base: Warm Cream (#FAF8F5 / #F4EFE6)                    │
-│  Deep Slate Text: High Contrast Ink (#111827 / #1F2937)          │
-└──────────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────┐
+│  Background Base: Deep Obsidian Slate (#0A0F0D / #111827)              │
+│  Surface Card: Dark Card Surface (#141E18 / #1F2937)                   │
+│  Primary Wellness Green: Forest Pine (#2D6A4F / #40916C)               │
+│  Accent Highlight: Solar Gold / Electric Lime (#E58B24 / #C6F135)      │
+│  Text Primary: Crisp White (#F9FAFB)                                   │
+│  Text Secondary: Muted Silver (#9CA3AF / #D1D5DB)                      │
+│  Border: Subtle Geometric Stroke (#2A3A30 / rgba(255,255,255,0.12))   │
+└────────────────────────────────────────────────────────────────────────┘
 ```
 
-- **Alasan Pemilihan Warna:**
-  - *Forest Green (`#1B4332`)*: Merefleksikan vegetasi alami pedesaan, tanaman TOGA, dan air sungai Tampirkulon.
-  - *Terracotta Sun Gold (`#D97706`)*: Warna aksen yang diambil langsung dari kata "TAMP" dan warna pelampung tubing pada poster asli.
-  - *Warm Cream (`#FAF8F5`)*: Memberikan kehangatan kertas cetak alami, menghindari warna putih dingin silau `#FFFFFF` yang terasa seperti template Bootstrap/Tailwind bawaan.
-- **Batas Penggunaan Aksen (Dose Cap):**
-  - Aksen oranye hanya digunakan untuk tombol aksi utama (*Primary CTA*), angka metrik penting, dan penanda spot aktif.
-  - Dilarang mewarnai semua garis, icon, dan latar belakang dengan warna aksen sekaligus.
+### Aturan Penggunaan Warna (Dose Cap):
+- **Kanvas Gelap:** Menjadi latar utama untuk menghadirkan kontras dramatis pada foto 360 dan poster.
+- **Aksen Tunggal (*One Deliberate Accent*):** Warna emas surya / limau tajam (`#E58B24` / `#C6F135`) hanya dialokasikan untuk tombol tindakan utama (*CTA button*), status aktif (*active state*), pin peta, dan badge angka penting.
 
 ---
 
-## 4. Tipografi & Hirarki Teks (Typography with Reason)
+## 4. Tipografi Editorial (Typography Architecture)
 
-- **Headings:** `Plus Jakarta Sans` (Semi-bold / Bold / Extra-bold)
-  - *Alasan:* Karakter geometris modern Indonesia yang tegas dan berwibawa untuk judul program kemahasiswaan.
-- **Body Text:** `Inter` (Regular / Medium, line-height 1.65)
-  - *Alasan:* Keterbacaan optimal pada layar ponsel juri ketika membaca paragraf hasil program.
-- **Aturan Tipografi Anti-Slop:**
-  - **Dilarang Em Dash (`—`):** Ganti semua tanda pisah panjang dengan tanda koma (`,`), titik (`.`), tanda hubung pendek (`-`), atau tanda kurung `()`. (Sesuai R-02).
-  - **Dilarang Huruf Kapital Ekstrem dengan Spasi Jauh:** Hindari `H O W  I T  W O R K S`. Gunakan Sentence Case atau Title Case wajar.
-  - **Dilarang Emoji Dekoratif:** Hapus semua emoji (🚀, 🔥, 💡, ✓, ⚠) dari heading, badge, dan tombol. Gunakan ikon SVG fungsional yang relevan atau cukup teks lugas. (Sesuai R-04).
+Mengikuti hierarki tipografi dramatis pada referensi `desainweb.webp`:
 
----
+- **Display Headline (Hero & Judul Section):**  
+  `Bebas Neue` / `Oswald`, display sans-serif condensed uppercase.
+  - *Karakter:* Sangat tinggi, tebal, dan padat. Membawa wibawa visual poster cetak ke dalam layar digital.
+  - *Penerapan:* `IN WEST TAMP`, `FEATURED DESTINATIONS`, `LOCATION`, `EMPAT PILAR`, `PROGRAM DALAM ANGKA`.
+- **Sub-headline & Label Kategori:**  
+  `Plus Jakarta Sans`, font sans-serif modern berbobot *Bold* (700/800) untuk badge, angka, dan tombol.
+- **Body Text:**  
+  `Inter`, font dengan keterbacaan tinggi di layar smartphone, line-height 1.6, warna abu-abu perak (#D1D5DB) agar nyaman dibaca.
 
-## 5. Tata Letak, Komponen & Hirarki Bentuk (Component Hygiene)
-
-### A. Radii & Bentuk Sudut (Anti-Pill Default)
-- Hindari membuat *seluruh* elemen berbentuk pil kapsul (*uniform pill shape*).
-- Terapkan hierarki radius yang tegas:
-  - Tombol aksi utama (CTA): Radius melengkung nyaman (`24px` atau `100px` untuk button utama saja).
-  - Kartu pilar & container informasi: Sudut tegas melengkung halus (`12px` hingga `16px`).
-  - Tag kategori & thumbnail: Sudut ringkas (`6px`).
-
-### B. Batasan Efek Dekoratif (Anti-Trend Stacking)
-- **Glassmorphism (Dose Cap: Max 1):** Hanya gunakan efek blur pada navbar sticky. Hapus efek glassmorphism berlebihan dari kartu statis di body agar teks tidak kehilangan kontras.
-- **Shadow (Depth Hierarchy):** Sebagian besar kartu duduk rata (*flat*) dengan garis tepi (*border*) halus `1px solid #E6DFD3`. Bayangan (*shadow*) hanya muncul saat kursor melakukan *hover* atau pada modal popup yang memang melayang.
-- **Glow:** Dilarang menggunakan efek pendaran cahaya (*glow / box-shadow neon*) pada kartu dan border.
-
-### C. Hero Section Re-alignment
-- **Hapus Eyebrow Badge Berulang di Atas H1:** Hapus pil kecil *"Kandidat Poster Paling Kreatif"* yang menempel di atas judul. Pindahkan konteks kompetisi ke subjudul atau navbar secara natural agar judul `IN WEST TAMP` menjadi fokus visual utama (*One Focal Point*).
+### Aturan Anti-Slop (R-02 & R-04):
+- **Tanpa Em Dash (`—`):** Gunakan titik dua (`:`), tanda koma (`,`), atau tanda kurung `()`.
+- **Tanpa Emoji Dekoratif:** Semua penanda menggunakan tipografi bersih atau ikon SVG vektor proporsional.
 
 ---
 
-## 6. Otentisitas Konten & Bukti Nyata (Evidence Over Claims)
+## 5. Pemetaan Komponen dari Referensi `desainweb.webp` ke "IN WEST TAMP"
 
-1. **Semua Data Bersumber Nyata:**
-   - 4 Pilar Program, 15 Mahasiswa, 5 Bulan, 6 Kelompok Sasaran, 95% Kenaikan Pengunjung, 25 Pengelola Terlatih K3/P3K, 21 m² Taman Sehat, 6 Jenis TOGA.
-   - Tidak ada angka palsu "10K+ Pengguna" atau "99.9% Uptime".
-2. **Dokumentasi Asli Lapangan:**
-   - Menggunakan foto asli pelatihan Basarnas, PMI, PKK, dan pembangunan taman sehat Desa Tampirkulon yang diambil selama kegiatan PPK Ormawa berlangsung.
-3. **Tur 360 Transparan:**
-   - Menandai secara jujur mana foto panorama 360 yang sudah aktif (*Sunset di Persawahan*) dan mana yang sedang dalam jadwal pengambilan foto lapangan (*Basecamp, Keripik Tempe, Gula Jawa, Karawitan, Tuk Putri, Tubing River*).
+Berikut adalah adaptasi langsung dari setiap blok referensi ke fitur website PPK Ormawa:
+
+### A. Hero Section (Inspirasi: *Next Gen Athlete Summit*)
+- Latar belakang foto alam Tampirkulon dengan gradien gelap vertikal dramatis.
+- Judul raksasa: **IN WEST TAMP** (Condensed Display).
+- Subjudul: **Integrated Wellness-Tourism Area Tampirkulon**.
+- **Location Badge (Pojok Kanan Atas Hero):** Pin lokasi bercahaya halus dengan teks: `Desa Tampirkulon, Kec. Candimulyo, Kab. Magelang`.
+- **Stat Box Ringkas (Kiri Bawah Hero):** Kotak bergaris tipis minimalis: `2.61 KM² Luas`, `4.893 Jiwa`, `13 Dusun`.
+- Tombol Aksi: `Jelajahi Paket Wisata 360° ↗` (Aksen utama) dan `Lihat 4 Pilar` (Garis tepi).
+
+### B. Rute Paket Wisata 360 Slider (Inspirasi: *Featured Athletes Carousel*)
+- Judul Section: **FEATURED DESTINATIONS / 7 TITIK PAKET WISATA**.
+- Format kartu berlatar gelap sudut melengkung (`border-radius: 16px`).
+- **Tag Pilar di Kiri Atas Foto:** Badge melengkung (`Tubing Care`, `Green Wellness`, `Local Creative`, `Ecosystem`).
+- **Foto Destinasi:** Foto lanskap panorama / lokasi paket wisata.
+- **Bagian Bawah Kartu:** Nama destinasi dengan font condensed tebal (`SUNSET PERSAWAHAN`, `BASECAMP TUBING`, `SENTRA KERIPIK TEMPE`, dst.) + subline dusun di bawahnya.
+
+### C. Modul "Location & Virtual Tour 360" (Inspirasi: *Location Split Showcase*)
+- Layout split modern dalam kartu besar (`border-radius: 20px`):
+  - **Sisi Kiri:** Judul masif `LOCATION & TUR VIRTUAL`, deskripsi wilayah, tombol `Buka Peta Sebaran Desa ↗`, dan tombol `Aktifkan Gyroscope HP`.
+  - **Sisi Kanan:** Frame penampil 360 interaktif (Pannellum WebGL) dengan kontrol navigasi zoom dan rotasi di pojok bawah.
+
+### D. "Program Dalam Angka" (Inspirasi: *Hexagon Metrics Row*)
+- Angka statistik program dikemas ke dalam **kartu berbentuk segi enam (heksagon geometris)** yang ikonik:
+  - ⬡ **4** — Pilar Program
+  - ⬡ **15** — Mahasiswa Terlibat
+  - ⬡ **5** — Bulan Pelaksanaan
+  - ⬡ **6** — Kelompok Sasaran
+  - ⬡ **95%** — Lonjakan Pengunjung
+  - ⬡ **25** — Pengelola Bersertifikat K3
+- Menggunakan CSS `clip-path: polygon(...)` untuk menghasilkan bentuk heksagon presisi dengan angka tebal di tengah dan label di bawahnya.
+
+### E. Empat Pilar, Satu Ekosistem (Inspirasi: *Split Promo & Story Banner*)
+- Disajikan sebagai perbandingan kartu split berukuran besar:
+  - Tab interaktif untuk beralih antara kondisi *Sebelum* vs *Hasil Intervensi*.
+  - Menampilkan foto asli lapangan dan kotak pencapaian terukur.
+
+### F. Mitra Kolaborasi Honeycomb (Inspirasi: *Our Partners Cluster*)
+- Logo mitra resmi (Untidar, Kemendikbudristek, Basarnas, PMI, Puskesmas, Posyandu, BPPSDMP) disusun dalam **formasi heksagonal saling terhubung (*honeycomb cluster*)**, melambangkan filosofi *"Satu Ekosistem Terpadu"*.
+
+### G. Giant Watermark Footer (Inspirasi: *Athlete Showcase Watermark*)
+- Di kaki halaman (*footer*), teks raksasa bergaya editorial majalah terpampang megah melintasi lebar layar:  
+  **IN WEST TAMP — TAMPIRKULON 2025**  
+  dalam format hollow outline tipografi berukuran masif (80px - 140px).
 
 ---
 
-## 7. Audit & Checklist Revisi antislop-ui
+## 6. Rencana Eksekusi Revisi Kode
 
-Daftar poin perbaikan konkret yang akan diterapkan pada kode sumber:
-
-- [ ] **[R-02 Copywriting]** Hapus seluruh karakter em dash (`—`) pada `index.html`, `main.js`, dan CSS. Ganti dengan koma, titik dua, atau tanda kurung.
-- [ ] **[R-04 No Decorative Emoji]** Hapus emoji dekoratif (`💡`, `✓`, `⚠`, `🌱`) pada teks UI, modal, dan badge pilar. Ganti dengan visual layout yang bersih atau ikon SVG relevan.
-- [ ] **[R-09 No Eyebrow Clutter]** Rapikan area atas H1 di Hero Section agar judul program tampil sebagai focal point utama yang kuat.
-- [ ] **[R-10 & R-13 Glass & Glow Cap]** Hilangkan efek backdrop blur dan glow berlebihan pada kartu metrik dan badge; gunakan permukaan solid bertekstur hangat yang ramah mata.
-- [ ] **[R-11 Border Radius Balance]** Ganti gaya pill seragam pada kartu dan filter menjadi radius terstruktur (`12px` untuk kartu, `6px` untuk tag).
-- [ ] **[R-19 Motion Restraint]** Hapus animasi loop melayang (`animate-float`) yang bergerak terus-menerus tanpa pemicu interaksi pengguna.
-- [ ] **[R-32 Keyboard Accessibility]** Pastikan status fokus `:focus-visible` memiliki ring kontras tinggi yang jelas saat tombol atau tautan dinavigasi dengan keyboard (Tab).
+1. **Import Tipografi Baru:** Menambahkan font Google `Bebas Neue` dan `Oswald` ke `index.html`.
+2. **Update Variabel Warna (`src/styles/main.css`):** Menerapkan tema gelap obsidian berpadu dengan hijau alam dan aksen surya/limau.
+3. **Restrukturisasi Komponen Hero (`src/styles/hero.css`):** Mengadaptasi tipografi condensed raksasa, countdown/stat bar kotak minimalis, dan floating location badge.
+4. **Implementasi Hexagon CSS untuk Metrik (`src/styles/counter.css`):** Mengganti kartu kotak biasa dengan bentuk heksagon geometris via `clip-path`.
+5. **Restrukturisasi Modul Lokasi 360 (`src/styles/viewer360.css`):** Menyesuaikan tata letak split card sesuai section `LOCATION` pada referensi.
+6. **Desain Honeycomb Logo Mitra (`src/styles/gallery.css`):** Menata logo mitra ke dalam pola sarang lebah heksagonal.
+7. **Giant Watermark Footer:** Menambahkan teks raksasa di dasar footer.
+8. **Build & Verifikasi:** Menjalankan `npm run build` dan menguji di browser.
