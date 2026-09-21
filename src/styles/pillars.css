@@ -1,0 +1,230 @@
+/* ==========================================================================
+   4 Pillars Component Styles (Empat Pilar, Satu Ekosistem)
+   ========================================================================== */
+
+.pillars-section {
+  background: var(--bg-main);
+  position: relative;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.pillar-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-normal);
+  position: relative;
+}
+
+.pillar-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Pillar Card Color Accents */
+.pillar-card[data-pillar="tubing-care"] {
+  border-top: 5px solid #E58B24;
+}
+
+.pillar-card[data-pillar="integrated-ecosystem"] {
+  border-top: 5px solid #1B4332;
+}
+
+.pillar-card[data-pillar="local-creative"] {
+  border-top: 5px solid #D97706;
+}
+
+.pillar-card[data-pillar="green-wellness"] {
+  border-top: 5px solid #2D6A4F;
+}
+
+/* Pillar Card Header */
+.pillar-card-header {
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.pillar-icon-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #FFFFFF;
+}
+
+.pillar-card[data-pillar="tubing-care"] .pillar-icon-badge {
+  background: linear-gradient(135deg, #F59E0B, #E58B24);
+}
+
+.pillar-card[data-pillar="integrated-ecosystem"] .pillar-icon-badge {
+  background: linear-gradient(135deg, #2D6A4F, #1B4332);
+}
+
+.pillar-card[data-pillar="local-creative"] .pillar-icon-badge {
+  background: linear-gradient(135deg, #FBBF24, #D97706);
+}
+
+.pillar-card[data-pillar="green-wellness"] .pillar-icon-badge {
+  background: linear-gradient(135deg, #52B788, #2D6A4F);
+}
+
+.pillar-icon-badge svg {
+  width: 24px;
+  height: 24px;
+}
+
+.pillar-titles h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.2rem;
+}
+
+.pillar-tagline {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Interactive Toggle Switch */
+.pillar-toggle-wrapper {
+  padding: 0 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.pillar-toggle-btn-group {
+  display: flex;
+  background: var(--surface-alt);
+  padding: 0.25rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+}
+
+.pillar-toggle-btn {
+  flex: 1;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-full);
+  border: none;
+  background: transparent;
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  text-align: center;
+}
+
+.pillar-toggle-btn.active {
+  background: #FFFFFF;
+  color: var(--primary-dark);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Pillar Content Views */
+.pillar-content-body {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.pillar-view {
+  display: none;
+  animation: viewFade 200ms ease;
+  flex-direction: column;
+  gap: 0.85rem;
+  flex: 1;
+}
+
+.pillar-view.active {
+  display: flex;
+}
+
+@keyframes viewFade {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.view-badge-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  align-self: flex-start;
+}
+
+.view-badge-indicator.before {
+  background: #FEE2E2;
+  color: #DC2626;
+}
+
+.view-badge-indicator.after {
+  background: #DCFCE7;
+  color: #16A34A;
+}
+
+.pillar-image-container {
+  width: 100%;
+  height: 180px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.pillar-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pillar-desc-text {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Results Box */
+.pillar-result-box {
+  background: #F8FAF9;
+  border: 1px dashed var(--primary-light);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+  margin-top: auto;
+}
+
+.pillar-result-title {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--primary);
+  margin-bottom: 0.35rem;
+}
+
+.pillar-result-value {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
