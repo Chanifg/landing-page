@@ -10,9 +10,15 @@
     "generate-qr": "node scripts/generate-qr.js"
   },
   "dependencies": {
-    "pannellum": "^2.5.7"
+    "@supabase/supabase-js": "^2.45.4",
+    "lucide-react": "^0.441.0",
+    "pannellum": "^2.5.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2"
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
     "qrcode": "^1.5.4",
     "vite": "^5.4.0"
   }
