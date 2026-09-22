@@ -45,7 +45,7 @@
 }
 
 .pillar-card[data-pillar="local-creative"] {
-  border-top: 4px solid #D97706;
+  border-top: 4px solid #C68503;
 }
 
 .pillar-card[data-pillar="green-wellness"] {
@@ -72,19 +72,23 @@
 }
 
 .pillar-card[data-pillar="tubing-care"] .pillar-icon-badge {
-  background: linear-gradient(135deg, #F59E0B, #E58B24);
+  background: linear-gradient(135deg, #F0A515, #DF9705);
+  color: #0B0F09;
 }
 
 .pillar-card[data-pillar="integrated-ecosystem"] .pillar-icon-badge {
-  background: linear-gradient(135deg, #2D6A4F, #1B4332);
+  background: linear-gradient(135deg, #4A6520, #304115);
+  color: #FFFFFF;
 }
 
 .pillar-card[data-pillar="local-creative"] .pillar-icon-badge {
-  background: linear-gradient(135deg, #FBBF24, #D97706);
+  background: linear-gradient(135deg, #E5A93C, #C68503);
+  color: #0B0F09;
 }
 
 .pillar-card[data-pillar="green-wellness"] .pillar-icon-badge {
-  background: linear-gradient(135deg, #52B788, #2D6A4F);
+  background: linear-gradient(135deg, #789F35, #304115);
+  color: #FFFFFF;
 }
 
 .pillar-icon-badge svg {
@@ -206,8 +210,8 @@
 
 /* Results Box */
 .pillar-result-box {
-  background: rgba(45, 106, 79, 0.1);
-  border: 1px dashed rgba(45, 106, 79, 0.4);
+  background: rgba(48, 65, 21, 0.15);
+  border: 1px dashed rgba(48, 65, 21, 0.45);
   border-radius: var(--radius-sm);
   padding: 0.85rem 1rem;
   margin-top: auto;

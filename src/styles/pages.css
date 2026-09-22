@@ -6,7 +6,7 @@
 /* Page Header Banner */
 .page-header-banner {
   padding: 5rem 0 3rem;
-  background: linear-gradient(180deg, rgba(45, 106, 79, 0.22) 0%, rgba(10, 15, 13, 0.98) 100%);
+  background: linear-gradient(180deg, rgba(48, 65, 21, 0.3) 0%, rgba(11, 15, 9, 0.98) 100%);
   border-bottom: 1px solid var(--border-color);
   position: relative;
 }
@@ -22,8 +22,8 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.35rem 0.85rem;
-  background: rgba(45, 106, 79, 0.25);
-  border: 1px solid rgba(82, 183, 136, 0.35);
+  background: rgba(48, 65, 21, 0.35);
+  border: 1px solid rgba(120, 159, 53, 0.4);
   border-radius: var(--radius-full);
   color: var(--primary-lighter);
   font-size: 0.8125rem;
@@ -98,7 +98,7 @@
 }
 
 .content-card:hover {
-  border-color: rgba(229, 139, 36, 0.4);
+  border-color: rgba(223, 151, 5, 0.45);
   transform: translateY(-3px);
 }
 
@@ -347,7 +347,7 @@
 .form-input:focus, .form-textarea:focus, .form-select:focus {
   border-color: var(--accent);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(229, 139, 36, 0.2);
+  box-shadow: 0 0 0 3px rgba(223, 151, 5, 0.25);
 }
 
 .form-textarea {

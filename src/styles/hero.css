@@ -7,7 +7,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(10, 15, 13, 0.92);
+  background: rgba(11, 15, 9, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-color);
@@ -36,6 +36,32 @@
 @media (max-width: 640px) {
   .nav-logos img {
     height: 30px;
+  }
+}
+
+.nav-logo-team {
+  background: #FFFFFF;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.nav-logo-team img {
+  height: 26px;
+  width: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 640px) {
+  .nav-logo-team {
+    height: 30px;
+    padding: 2px 6px;
+  }
+  .nav-logo-team img {
+    height: 20px;
   }
 }
 
@@ -106,7 +132,7 @@
     top: 100%;
     left: 0;
     right: 0;
-    background: rgba(10, 15, 13, 0.98);
+    background: rgba(11, 15, 9, 0.98);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     padding: 1.5rem 1.25rem 2rem;
@@ -216,7 +242,7 @@
   left: 0;
   width: 100%;
   height: 8px;
-  background: rgba(229, 139, 36, 0.3);
+  background: rgba(223, 151, 5, 0.35);
   border-radius: 4px;
   z-index: -1;
 }
@@ -347,7 +373,7 @@
   bottom: 1.25rem;
   left: 1.25rem;
   right: 1.25rem;
-  background: rgba(10, 15, 13, 0.88);
+  background: rgba(11, 15, 9, 0.88);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -366,9 +392,9 @@
 
 .poster-floating-badge a {
   background: var(--accent);
-  color: #FFFFFF;
+  color: #0B0F09;
   padding: 0.25rem 0.65rem;
   border-radius: var(--radius-full);
   font-size: 0.6875rem;
-  font-weight: 700;
+  font-weight: 800;
 }

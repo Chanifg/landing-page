@@ -16,9 +16,8 @@ export default function Navbar() {
           <img src="/images/logos/untidar.png" alt="Logo Universitas Tidar" title="Universitas Tidar" />
           <img src="/images/logos/blu.png" alt="Logo BLU" title="BLU Unggul Berbudaya" />
           <img src="/images/logos/desa-wisata.png" alt="Desa Wisata Tampirkulon" title="Desa Wisata Tampirkulon" />
-          <div className="nav-badge-program">
-            <span className="nav-badge-title">PPK ORMAWA 2025</span>
-            <span className="nav-badge-sub">Himagi Untidar</span>
+          <div className="nav-logo-team" title="PPK Ormawa Himagi Untidar">
+            <img src="/images/logos/ppk-ormawa-himagi.png" alt="Logo PPK Ormawa Himagi Untidar" />
           </div>
         </Link>
 

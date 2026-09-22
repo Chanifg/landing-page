@@ -197,7 +197,7 @@ export default function PannellumViewer({ activeSpot, onSpotChange, spots = [], 
           <div className="spot-info-main">
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.35rem', flexWrap: 'wrap' }}>
               <h3>{activeSpot?.name}</h3>
-              <span className="badge" style={{ background: '#2D6A4F', color: '#FFFFFF' }}>
+              <span className="badge badge-category">
                 {activeSpot?.category || 'Destinasi Unggulan'}
               </span>
             </div>

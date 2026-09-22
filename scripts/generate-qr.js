@@ -32,7 +32,7 @@ async function generateQRCodes() {
     width: 1200,
     margin: 2,
     color: {
-      dark: '#1B4332', // Brand Primary Green
+      dark: '#304115', // Official Team Logo Primary Olive Green
       light: '#FFFFFF'
     },
     errorCorrectionLevel: 'H' // High error tolerance
@@ -45,7 +45,7 @@ async function generateQRCodes() {
     type: 'svg',
     margin: 2,
     color: {
-      dark: '#1B4332',
+      dark: '#304115',
       light: '#FFFFFF'
     },
     errorCorrectionLevel: 'H'

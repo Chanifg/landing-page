@@ -49,14 +49,14 @@ Tiga warna inti + satu aksen. Netral (hitam, putih, abu-abu) tidak dihitung (R-2
 
 | Peran | Warna | Hex | Alasan |
 |---|---|---|---|
-| Background base | Deep Obsidian Slate | `#0A0F0D` | Latar gelap supaya foto panorama 360 kontras tinggi terhadap kanvas. Bukan "dark mode karena terlihat tech" (R-21), melainkan kebutuhan fungsional agar gambar menjadi focal point. |
-| Surface / card | Dark Card | `#141E18` | Sedikit lebih terang dari base untuk membentuk elevasi tanpa memerlukan shadow besar di setiap kartu (R-12). |
-| Primary | Forest Pine Green | `#2D6A4F` | Warna dominan pedesaan Jawa: sawah, hutan pinus, taman TOGA. Digunakan pada header pilar, tag kategori, dan elemen navigasi aktif. |
-| Accent (satu saja) | Solar Gold | `#E58B24` | Warna matahari terbenam di persawahan Tampirkulon. Hanya untuk: tombol CTA utama, pin peta aktif, angka counter saat animasi selesai. Tidak untuk border, background, atau ikon biasa (R-13, one deliberate accent). |
-| Teks utama | Crisp White | `#F9FAFB` | Kontras terhadap `#0A0F0D` = 18.9:1. Melampaui AA (4.5:1). |
-| Teks sekunder | Muted Silver | `#D1D5DB` | Kontras terhadap `#0A0F0D` = 12.6:1. Aman untuk body text. |
-| Teks muted | Warm Grey | `#9CA3AF` | Kontras terhadap `#0A0F0D` = 7.1:1. Hanya untuk label pendukung berukuran kecil, tetap di atas batas 4.5:1. |
-| Border | Subtle Stroke | `rgba(255,255,255,0.12)` | Pembatas kartu. Tidak berwarna, tidak bersinar. |
+| Background base | Deep Obsidian Slate | `#0B0F09` | Latar gelap dengan rona daun zaitun supaya foto panorama 360 kontras tinggi terhadap kanvas. |
+| Surface / card | Dark Olive Card | `#151F11` | Sedikit lebih terang dari base untuk membentuk elevasi tanpa memerlukan shadow besar di setiap kartu (R-12). |
+| Primary | Deep Olive Moss Green | `#304115` | Warna primer resmi dari logo PPK Ormawa Himagi Untidar. Digunakan pada header pilar, tag kategori, dan elemen navigasi aktif. |
+| Accent (satu saja) | Solar Warm Amber Gold | `#DF9705` | Warna lingkaran matahari di pusat lambang logo tim pelaksana. Hanya untuk tombol CTA utama, pin peta aktif, dan counter metrik (R-13, one deliberate accent). |
+| Teks utama | Crisp White | `#F9FAFB` | Kontras terhadap `#0B0F09` = 17.5:1. Melampaui AAA (7:1). |
+| Teks sekunder | Muted Silver | `#D1D5DB` | Kontras terhadap `#0B0F09` = 11.1:1. Aman untuk body text. |
+| Teks muted | Warm Grey | `#9CA3AF` | Kontras terhadap `#0B0F09` = 7.1:1. Aman untuk label pendukung. |
+| Border | Subtle Stroke | `rgba(255,255,255,0.10)` | Pembatas kartu. Tidak berwarna, tidak bersinar. |
 
 ### Dose Caps
 
@@ -176,7 +176,7 @@ Setiap animasi memiliki alasan tertulis (R-19):
 ## 8. Aksesibilitas (R-25, R-32)
 
 - **Kontras teks:** Semua pasangan warna di atas AA (4.5:1 normal, 3:1 large). Lihat tabel warna di Section 3.
-- **Focus visible:** `outline: 3px solid #E58B24; outline-offset: 3px` pada setiap elemen interaktif (R-32). Tidak ada `outline: none` tanpa pengganti.
+- **Focus visible:** `outline: 3px solid #DF9705; outline-offset: 3px` pada setiap elemen interaktif (R-32). Tidak ada `outline: none` tanpa pengganti.
 - **Keyboard:** Tab order mengikuti urutan visual. Modal (lightbox, minimap) bisa ditutup dengan Escape. Tombol diaktifkan dengan Enter/Space.
 - **Alt text:** Setiap `<img>` memiliki alt deskriptif. Foto 360 memiliki label ARIA.
 - **Color-only feedback:** Tidak ada status yang hanya dikomunikasikan lewat warna. Filter galeri aktif ditandai warna + font weight.

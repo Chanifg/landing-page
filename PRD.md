@@ -486,11 +486,11 @@ CREATE TABLE public.guestbook (
 Sistem visual platform mengadaptasi penuh spesifikasi [desain.md](file:///home/aniiporangbaik/development/projects/Landing%20Page%20Poster/desain.md) dengan dial **ENERGY 3 / RHYTHM 3 / MOTION 2**:
 
 ### 9.1 Palet Warna Inti
-* **Deep Obsidian Slate (`#0A0F0D`):** Warna dasar kanvas utama. Memberikan kontras tinggi agar foto panorama 360 dan galeri dokumentasi menjadi titik fokus utama.
-* **Dark Card (`#141E18`):** Warna permukaan kartu konten dan panel untuk memberikan elevasi natural tanpa bayangan berlebihan.
-* **Forest Pine Green (`#2D6A4F`):** Warna primer yang merepresentasikan keasrian pedesaan Jawa, sawah, dan taman TOGA. Digunakan pada header pilar, badge kategori, dan status aktif.
-* **Solar Gold (`#E58B24`):** Warna aksen tunggal yang terinspirasi dari matahari terbenam persawahan Tampirkulon. Hanya digunakan pada tombol CTA primer, indikator aktif, dan angka counter metrik.
-* **Subtle Stroke (`rgba(255,255,255,0.12)`):** Garis pembatas kartu yang tipis dan tegas tanpa kesan bersinar.
+* **Deep Obsidian Slate (`#0B0F09`):** Warna dasar kanvas utama dengan rona zaitun alami. Memberikan kontras tinggi agar foto panorama 360 dan galeri dokumentasi menjadi titik fokus utama.
+* **Dark Olive Card (`#151F11`):** Warna permukaan kartu konten dan panel untuk memberikan elevasi natural tanpa bayangan berlebihan.
+* **Deep Olive Moss Green (`#304115`):** Warna primer resmi dari logo PPK Ormawa Himagi Untidar 2026. Digunakan pada header pilar, badge kategori, dan elemen navigasi aktif.
+* **Solar Warm Amber Gold (`#DF9705`):** Warna aksen tunggal dari lingkaran matahari di pusat logo tim pelaksana. Hanya digunakan pada tombol CTA primer, indikator aktif, dan angka counter metrik.
+* **Subtle Stroke (`rgba(255,255,255,0.10)`):** Garis pembatas kartu yang tipis dan tegas tanpa kesan bersinar.
 
 ### 9.2 Tipografi
 * **Display / Headline:** `Bebas Neue` (condensed, huruf kapital). Membawa wibawa poster cetak fisik ke layar digital smartphone agar judul terbaca jelas dalam 2 detik pertama.
