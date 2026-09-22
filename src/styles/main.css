@@ -1,41 +1,48 @@
 /* ==========================================================================
-   IN WEST TAMP - Integrated Wellness-Tourism Area Tampirkulon
-   Core Design System & Global Styles
+   IN WEST TAMP : Dark Editorial Design System
+   Palet: Deep Obsidian + Forest Pine Green + Solar Gold accent
+   Referensi: DESIGN.md Section 3 (Color System)
    ========================================================================== */
 
 :root {
-  /* Brand Palette (Aligned with Poster Identity) */
-  --primary: #1B4332;
-  --primary-light: #2D6A4F;
-  --primary-lighter: #40916C;
-  --primary-dark: #081C15;
-  --primary-50: #E8F5E9;
-  
+  /* Brand Palette : Dark Obsidian Canvas (DESIGN.md Section 3) */
+  --bg-main: #0A0F0D;
+  --bg-section-alt: #0E1512;
+  --surface: #141E18;
+  --surface-alt: #1A2820;
+  --surface-glass: rgba(20, 30, 24, 0.92);
+
+  /* Primary : Forest Pine Green */
+  --primary: #2D6A4F;
+  --primary-light: #40916C;
+  --primary-lighter: #52B788;
+  --primary-dark: #1B4332;
+  --primary-50: rgba(45, 106, 79, 0.15);
+
+  /* Accent : Solar Gold (one deliberate accent, DESIGN.md Section 3) */
   --accent: #E58B24;
   --accent-hover: #D97706;
-  --accent-light: #FEF3C7;
+  --accent-light: rgba(229, 139, 36, 0.15);
   --accent-gradient: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-  
-  --bg-main: #FAF8F5;
-  --surface: #FFFFFF;
-  --surface-alt: #F4EFE6;
-  --surface-glass: rgba(255, 255, 255, 0.85);
-  
-  --text-primary: #111827;
-  --text-secondary: #374151;
-  --text-muted: #6B7280;
-  --text-inverse: #FFFFFF;
-  
-  --border-color: #E6DFD3;
-  --border-subtle: rgba(0, 0, 0, 0.06);
 
-  /* Shadows */
-  --shadow-sm: 0 2px 4px rgba(27, 67, 50, 0.04);
-  --shadow-md: 0 6px 16px rgba(27, 67, 50, 0.08);
-  --shadow-lg: 0 12px 32px rgba(27, 67, 50, 0.12);
+  /* Text : High contrast on dark canvas */
+  --text-primary: #F9FAFB;
+  --text-secondary: #D1D5DB;
+  --text-muted: #9CA3AF;
+  --text-inverse: #0A0F0D;
+
+  /* Borders */
+  --border-color: rgba(255, 255, 255, 0.10);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+
+  /* Shadows : only on viewer card and poster card (DESIGN.md dose cap) */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.4);
   --shadow-glow: 0 0 25px rgba(229, 139, 36, 0.35);
 
-  /* Typography */
+  /* Typography : Bebas Neue (display), Plus Jakarta Sans (UI), Inter (body) */
+  --font-display: 'Bebas Neue', 'Oswald', sans-serif;
   --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
 
@@ -44,7 +51,7 @@
   --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-smooth: 400ms cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* Container */
+  /* Layout */
   --container-max: 1200px;
   --radius-sm: 8px;
   --radius-md: 14px;
@@ -52,7 +59,7 @@
   --radius-full: 9999px;
 }
 
-/* Reset & Box Sizing */
+/* Reset */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -71,15 +78,9 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
-  background-image: 
-    radial-gradient(#2D6A4F 0.75px, transparent 0.75px),
-    radial-gradient(#E58B24 0.75px, #FAF8F5 0.75px);
-  background-size: 30px 30px;
-  background-position: 0 0, 15px 15px;
-  background-color: var(--bg-main);
 }
 
-/* Subtle Topographic Contour Background Layer */
+/* Topographic contour motif : village terrain identity (DESIGN.md Section 3, R-07) */
 .topo-pattern {
   position: relative;
 }
@@ -94,17 +95,16 @@ body {
   opacity: 0.035;
   pointer-events: none;
   z-index: 0;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cpath d='M0 100 C 100 50, 200 150, 300 100 C 400 50, 500 150, 600 100 M0 200 C 100 150, 200 250, 300 200 C 400 150, 500 250, 600 200 M0 300 C 100 250, 200 350, 300 300 C 400 250, 500 350, 600 300' fill='none' stroke='%231B4332' stroke-width='2'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cpath d='M0 100 C 100 50, 200 150, 300 100 C 400 50, 500 150, 600 100 M0 200 C 100 150, 200 250, 300 200 C 400 150, 500 250, 600 200 M0 300 C 100 250, 200 350, 300 300 C 400 250, 500 350, 600 300' fill='none' stroke='%232D6A4F' stroke-width='2'/%3E%3C/svg%3E");
   background-size: 400px 400px;
 }
 
-/* Typography Helpers */
+/* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.25;
-  color: var(--primary-dark);
+  color: var(--text-primary);
 }
 
 a {
@@ -128,7 +128,7 @@ img {
   padding-right: 1.5rem;
 }
 
-/* Section Common */
+/* Section */
 .section {
   padding: 5rem 0;
   position: relative;
@@ -157,16 +157,20 @@ img {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   background: var(--primary-50);
-  color: var(--primary);
-  border: 1px solid rgba(45, 106, 79, 0.2);
+  color: var(--primary-lighter);
+  border: 1px solid rgba(45, 106, 79, 0.3);
   margin-bottom: 1rem;
 }
 
+/* Display font utility for section titles */
 .section-title {
-  font-size: clamp(1.85rem, 3.5vw, 2.75rem);
-  font-weight: 800;
-  color: var(--primary-dark);
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3.5vw, 3.25rem);
+  font-weight: 400;
+  color: var(--text-primary);
   margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .section-subtitle {
@@ -201,31 +205,18 @@ img {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(217, 119, 6, 0.45);
+  box-shadow: 0 6px 20px rgba(217, 119, 6, 0.5);
 }
 
 .btn-secondary {
-  background: #FFFFFF;
-  color: var(--primary);
+  background: var(--surface);
+  color: var(--text-primary);
   border: 1.5px solid var(--border-color);
-  box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary:hover {
   background: var(--surface-alt);
   border-color: var(--primary-light);
-  transform: translateY(-2px);
-}
-
-.btn-outline-green {
-  background: transparent;
-  color: var(--primary);
-  border: 1.5px solid var(--primary-light);
-}
-
-.btn-outline-green:hover {
-  background: var(--primary);
-  color: #FFFFFF;
   transform: translateY(-2px);
 }
 
@@ -239,7 +230,7 @@ img {
   font-weight: 600;
 }
 
-/* Accessible Focus Indicator (R-32) */
+/* Focus Indicator (R-32, DESIGN.md Section 8) */
 :focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 3px;
@@ -250,7 +241,7 @@ button:focus-visible, a:focus-visible {
   outline-offset: 2px;
 }
 
-/* Custom Scrollbar */
+/* Scrollbar : dark theme */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -261,10 +252,22 @@ button:focus-visible, a:focus-visible {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
+  background: #2A3A30;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94A3B8;
+  background: #3A5040;
+}
+
+/* Scroll reveal utility */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 400ms ease-out, transform 400ms ease-out;
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
 }

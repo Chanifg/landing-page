@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Documentation Gallery, Lightbox & Partners Styles
+   Documentation Gallery, Lightbox, Partners & Footer : Dark Editorial
    ========================================================================== */
 
 /* Gallery Filters */
@@ -19,21 +19,20 @@
   font-family: var(--font-heading);
   font-size: 0.8125rem;
   font-weight: 700;
-  color: var(--text-secondary);
+  color: var(--text-muted);
   cursor: pointer;
   transition: var(--transition-fast);
 }
 
 .gallery-filter-btn:hover {
   border-color: var(--primary-light);
-  color: var(--primary);
+  color: var(--text-primary);
 }
 
 .gallery-filter-btn.active {
   background: var(--primary);
   color: #FFFFFF;
   border-color: var(--primary);
-  box-shadow: 0 4px 12px rgba(27, 67, 50, 0.25);
 }
 
 /* Gallery Grid */
@@ -60,7 +59,6 @@
   border-radius: var(--radius-md);
   border: 1px solid var(--border-color);
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
   transition: var(--transition-normal);
   cursor: pointer;
   display: flex;
@@ -69,7 +67,6 @@
 
 .gallery-item:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
   border-color: var(--accent);
 }
 
@@ -94,7 +91,7 @@
 .gallery-zoom-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(15, 23, 42, 0.4);
+  background: rgba(10, 15, 13, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -132,7 +129,7 @@
 .lightbox-modal {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.9);
+  background: rgba(10, 15, 13, 0.92);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   z-index: 1000;
@@ -149,7 +146,8 @@
 .lightbox-content {
   max-width: 900px;
   width: 100%;
-  background: #FFFFFF;
+  background: var(--surface);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
@@ -182,12 +180,12 @@
 
 .lightbox-footer h4 {
   font-size: 1.1rem;
-  color: var(--primary-dark);
+  color: var(--text-primary);
 }
 
 .lightbox-close-btn {
-  background: var(--surface-alt);
-  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-color);
   border-radius: 50%;
   width: 36px;
   height: 36px;
@@ -201,7 +199,7 @@
 
 /* Partners & Collaboration Section */
 .partners-section {
-  background: #FFFFFF;
+  background: var(--surface);
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
   padding: 4rem 0;
@@ -219,13 +217,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  filter: grayscale(80%) opacity(0.8);
+  filter: grayscale(80%) brightness(0.7);
   transition: var(--transition-normal);
   padding: 0.5rem;
 }
 
 .partner-logo-item:hover {
-  filter: grayscale(0%) opacity(1);
+  filter: grayscale(0%) brightness(1);
   transform: translateY(-2px);
 }
 
@@ -244,10 +242,12 @@
 
 /* Footer */
 .site-footer {
-  background: var(--primary-dark);
+  background: #070B09;
   color: #FFFFFF;
-  padding: 3.5rem 0 5.5rem 0; /* extra padding for mobile floating dock */
+  padding: 3.5rem 0 2rem 0;
   font-size: 0.875rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .footer-top-grid {
@@ -264,27 +264,29 @@
 }
 
 .footer-brand h3 {
-  font-size: 1.5rem;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
   color: #FFFFFF;
   margin-bottom: 0.5rem;
+  text-transform: uppercase;
 }
 
 .footer-brand p {
-  color: #94A3B8;
+  color: var(--text-muted);
   max-width: 500px;
   line-height: 1.6;
 }
 
 .footer-credits {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.04);
   border-radius: var(--radius-md);
   padding: 1.25rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
 }
 
 .footer-credits h4 {
   font-size: 0.9375rem;
-  color: #FCD34D;
+  color: var(--accent);
   margin-bottom: 0.5rem;
 }
 
@@ -293,23 +295,46 @@
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
-  color: #CBD5E1;
+  color: var(--text-muted);
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--border-color);
   padding-top: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   align-items: center;
   justify-content: space-between;
-  color: #64748B;
+  color: var(--text-muted);
   font-size: 0.8125rem;
 }
 
 @media (min-width: 768px) {
   .footer-bottom {
     flex-direction: row;
+  }
+}
+
+/* Giant Watermark Footer (DESIGN.md Section 5G) */
+.footer-watermark {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 10vw, 8rem);
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.06);
+  text-align: center;
+  line-height: 1;
+  margin-top: 2rem;
+  padding-bottom: 4rem;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: 0.04em;
+}
+
+/* Extra bottom padding for mobile floating dock */
+@media (max-width: 991px) {
+  .site-footer {
+    padding-bottom: 5.5rem;
   }
 }
