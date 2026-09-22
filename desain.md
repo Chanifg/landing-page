@@ -49,20 +49,20 @@ Tiga warna inti + satu aksen. Netral (hitam, putih, abu-abu) tidak dihitung (R-2
 
 | Peran | Warna | Hex | Alasan |
 |---|---|---|---|
-| Background base | Deep Obsidian Slate | `#0B0F09` | Latar gelap dengan rona daun zaitun supaya foto panorama 360 kontras tinggi terhadap kanvas. |
-| Surface / card | Dark Olive Card | `#151F11` | Sedikit lebih terang dari base untuk membentuk elevasi tanpa memerlukan shadow besar di setiap kartu (R-12). |
-| Primary | Deep Olive Moss Green | `#304115` | Warna primer resmi dari logo PPK Ormawa Himagi Untidar. Digunakan pada header pilar, tag kategori, dan elemen navigasi aktif. |
+| Background base | Clean Light Canvas | `#F8FAF6` | Kanvas terang bernuansa putih zaitun alami. Memberikan keterbacaan tinggi dan menyatu selaras dengan logo tim pelaksana. |
+| Surface / card | Pure White Card | `#FFFFFF` | Permukaan kartu bersih dengan elevasi natural dan border halus tanpa bayangan berlebihan (R-12). |
+| Primary | Deep Olive Moss Green | `#304115` | Warna primer resmi dari logo PPK Ormawa Himagi Untidar. Digunakan pada judul utama, header pilar, dan elemen navigasi aktif. |
 | Accent (satu saja) | Solar Warm Amber Gold | `#DF9705` | Warna lingkaran matahari di pusat lambang logo tim pelaksana. Hanya untuk tombol CTA utama, pin peta aktif, dan counter metrik (R-13, one deliberate accent). |
-| Teks utama | Crisp White | `#F9FAFB` | Kontras terhadap `#0B0F09` = 17.5:1. Melampaui AAA (7:1). |
-| Teks sekunder | Muted Silver | `#D1D5DB` | Kontras terhadap `#0B0F09` = 11.1:1. Aman untuk body text. |
-| Teks muted | Warm Grey | `#9CA3AF` | Kontras terhadap `#0B0F09` = 7.1:1. Aman untuk label pendukung. |
-| Border | Subtle Stroke | `rgba(255,255,255,0.10)` | Pembatas kartu. Tidak berwarna, tidak bersinar. |
+| Teks utama | Forest Charcoal | `#182210` | Kontras terhadap `#F8FAF6` = 15.7:1. Melampaui AAA (7:1). |
+| Teks sekunder | Muted Olive Slate | `#425239` | Kontras terhadap `#F8FAF6` = 8.0:1. Melampaui AAA untuk body text. |
+| Teks muted | Soft Sage Grey | `#63755A` | Kontras terhadap `#F8FAF6` = 4.6:1. Aman untuk label pendukung (AA pass). |
+| Border | Subtle Olive Stroke | `rgba(48, 65, 21, 0.12)` | Pembatas kartu rapi, berpadu harmonis dengan palet logo. |
 
 ### Dose Caps
 
 - **Glow:** hanya pada tombol CTA utama saat hover (1 elemen). Tidak pada kartu, badge, ikon, atau border (R-13).
 - **Shadow:** hanya pada viewer card 360 dan poster preview card (2 elemen, keduanya perlu elevasi karena berisi konten interaktif). Sisa elemen rata dengan kanvas (R-12).
-- **Glassmorphism:** tidak digunakan. Latar gelap sudah memberikan kedalaman tanpa blur. (R-10).
+- **Glassmorphism:** tidak digunakan. Kanvas terang bersih sudah memberikan kedalaman lewat elevasi kartu putih dan border halus (R-10).
 - **Background pattern:** motif kontur topografi SVG pada opacity 3.5%. Alasan: merefleksikan kontur peta desa, bukan grid teknis generik (R-07). Satu pola saja, tidak ditumpuk.
 
 ---

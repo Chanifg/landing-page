@@ -486,11 +486,11 @@ CREATE TABLE public.guestbook (
 Sistem visual platform mengadaptasi penuh spesifikasi [desain.md](file:///home/aniiporangbaik/development/projects/Landing%20Page%20Poster/desain.md) dengan dial **ENERGY 3 / RHYTHM 3 / MOTION 2**:
 
 ### 9.1 Palet Warna Inti
-* **Deep Obsidian Slate (`#0B0F09`):** Warna dasar kanvas utama dengan rona zaitun alami. Memberikan kontras tinggi agar foto panorama 360 dan galeri dokumentasi menjadi titik fokus utama.
-* **Dark Olive Card (`#151F11`):** Warna permukaan kartu konten dan panel untuk memberikan elevasi natural tanpa bayangan berlebihan.
-* **Deep Olive Moss Green (`#304115`):** Warna primer resmi dari logo PPK Ormawa Himagi Untidar 2026. Digunakan pada header pilar, badge kategori, dan elemen navigasi aktif.
+* **Clean Light Canvas (`#F8FAF6`):** Warna dasar kanvas utama dengan rona zaitun terang yang segar. Memberikan keterbacaan optimal dan menyatu selaras dengan logo tim pelaksana.
+* **Pure White Card (`#FFFFFF`):** Warna permukaan kartu konten dan panel untuk memberikan elevasi bersih tanpa bayangan berat.
+* **Deep Olive Moss Green (`#304115`):** Warna primer resmi dari logo PPK Ormawa Himagi Untidar 2026. Digunakan pada judul utama, header pilar, badge kategori, dan elemen navigasi aktif.
 * **Solar Warm Amber Gold (`#DF9705`):** Warna aksen tunggal dari lingkaran matahari di pusat logo tim pelaksana. Hanya digunakan pada tombol CTA primer, indikator aktif, dan angka counter metrik.
-* **Subtle Stroke (`rgba(255,255,255,0.10)`):** Garis pembatas kartu yang tipis dan tegas tanpa kesan bersinar.
+* **Subtle Olive Stroke (`rgba(48, 65, 21, 0.12)`):** Garis pembatas kartu yang halus dan tegas, menyatu alami dengan palet logo.
 
 ### 9.2 Tipografi
 * **Display / Headline:** `Bebas Neue` (condensed, huruf kapital). Membawa wibawa poster cetak fisik ke layar digital smartphone agar judul terbaca jelas dalam 2 detik pertama.

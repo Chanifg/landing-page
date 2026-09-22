@@ -40,7 +40,7 @@
 .admin-brand-title {
   font-family: var(--font-display);
   font-size: 1.5rem;
-  color: var(--text-primary);
+  color: var(--primary);
   line-height: 1;
 }
 
@@ -76,13 +76,13 @@
 }
 
 .admin-nav-item:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text-primary);
+  background: var(--bg-section-alt);
+  color: var(--primary);
 }
 
 .admin-nav-item.active {
   background: var(--primary);
-  color: var(--text-primary);
+  color: #FFFFFF;
 }
 
 .admin-nav-footer {
@@ -132,13 +132,14 @@
 }
 
 .admin-stat-card {
-  background: var(--surface);
+  background: #FFFFFF;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: 1.25rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  box-shadow: var(--shadow-sm);
 }
 
 .admin-stat-label {
@@ -156,10 +157,11 @@
 
 /* Tables */
 .admin-table-wrap {
-  background: var(--surface);
+  background: #FFFFFF;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   overflow-x: auto;
+  box-shadow: var(--shadow-sm);
 }
 
 .admin-table {
@@ -170,10 +172,10 @@
 }
 
 .admin-table th {
-  background: rgba(0, 0, 0, 0.25);
+  background: #F0F5ED;
   padding: 0.875rem 1.25rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--primary);
   border-bottom: 1px solid var(--border-color);
   white-space: nowrap;
 }
@@ -186,7 +188,7 @@
 }
 
 .admin-table tr:hover td {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(48, 65, 21, 0.03);
 }
 
 /* Status Badge */
@@ -201,9 +203,9 @@
 }
 
 .status-badge.success {
-  background: rgba(48, 65, 21, 0.3);
-  color: var(--primary-lighter);
-  border: 1px solid rgba(120, 159, 53, 0.4);
+  background: rgba(48, 65, 21, 0.08);
+  color: var(--primary);
+  border: 1px solid rgba(48, 65, 21, 0.2);
 }
 
 .status-badge.warning {
@@ -254,11 +256,11 @@
 }
 
 .admin-login-card {
-  background: var(--surface);
+  background: #FFFFFF;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   padding: 2.5rem;
   width: 100%;
   max-width: 440px;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-md);
 }

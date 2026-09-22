@@ -16,13 +16,13 @@ export default function Footer() {
               ruang wellness TOGA, edukasi olahan lele, dan kelembagaan POKDARWIS resmi di Desa Tampirkulon.
             </p>
             <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-              <span className="badge" style={{ background: 'rgba(229, 139, 36, 0.2)', color: '#FBBF24' }}>
+              <span className="badge badge-dusun">
                 Kategori: Poster Paling Kreatif
               </span>
-              <span className="badge" style={{ background: 'rgba(45, 106, 79, 0.3)', color: '#A7D7B5' }}>
+              <span className="badge badge-category">
                 Desa Tampirkulon, Magelang
               </span>
-              <span className="badge" style={{ background: 'rgba(255, 255, 255, 0.08)', color: '#FFFFFF' }}>
+              <span className="badge" style={{ background: 'rgba(48, 65, 21, 0.08)', color: 'var(--primary)', border: '1px solid rgba(48, 65, 21, 0.2)' }}>
                 SK No. 188.45/14/KEP/2025
               </span>
             </div>
@@ -32,15 +32,15 @@ export default function Footer() {
           <div className="footer-credits">
             <h4>Navigasi &amp; Pengelola:</h4>
             <ul>
-              <li>• <Link to="/" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Beranda Utama</Link></li>
-              <li>• <Link to="/tentang" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Profil Tim &amp; PPK Ormawa</Link></li>
-              <li>• <Link to="/program" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Capaian 4 Pilar &amp; Standar K3</Link></li>
-              <li>• <Link to="/luaran" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Katalog Luaran &amp; Dokumen SK</Link></li>
-              <li>• <Link to="/tur-360" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Hub Tur Virtual 360°</Link></li>
-              <li>• <Link to="/dokumentasi" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Galeri Dokumentasi Lapangan</Link></li>
-              <li>• <Link to="/kontak" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Buku Tamu &amp; Masukan Juri</Link></li>
+              <li>• <Link to="/" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Beranda Utama</Link></li>
+              <li>• <Link to="/tentang" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Profil Tim &amp; PPK Ormawa</Link></li>
+              <li>• <Link to="/program" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Capaian 4 Pilar &amp; Standar K3</Link></li>
+              <li>• <Link to="/luaran" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Katalog Luaran &amp; Dokumen SK</Link></li>
+              <li>• <Link to="/tur-360" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Hub Tur Virtual 360°</Link></li>
+              <li>• <Link to="/dokumentasi" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Galeri Dokumentasi Lapangan</Link></li>
+              <li>• <Link to="/kontak" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Buku Tamu &amp; Masukan Juri</Link></li>
               <li>
-                • <Link to="/admin" style={{ color: 'var(--accent)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
+                • <Link to="/admin" style={{ color: 'var(--primary)', fontWeight: 700, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
                   <Lock size={12} />
                   <span>Panel Admin Koordinator</span>
                 </Link>

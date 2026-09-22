@@ -5,41 +5,41 @@
    ========================================================================== */
 
 :root {
-  /* Brand Palette : Dark Obsidian Canvas tuned to Official Team Logo */
-  --bg-main: #0B0F09;
-  --bg-section-alt: #0F160C;
-  --surface: #151F11;
-  --surface-alt: #1C2B17;
-  --surface-glass: rgba(21, 31, 17, 0.92);
+  /* Brand Palette : Clean Light Organic Editorial Canvas */
+  --bg-main: #F8FAF6;
+  --bg-section-alt: #EFF4EC;
+  --surface: #FFFFFF;
+  --surface-alt: #F1F6EE;
+  --surface-glass: rgba(255, 255, 255, 0.94);
 
   /* Primary : Deep Olive Moss Green (Official Logo Brand Color) */
   --primary: #304115;
-  --primary-light: #4A6520;
-  --primary-lighter: #789F35;
+  --primary-light: #445D1E;
+  --primary-lighter: #5D7D29;
   --primary-dark: #1E2B0C;
-  --primary-50: rgba(48, 65, 21, 0.22);
+  --primary-50: rgba(48, 65, 21, 0.08);
 
   /* Accent : Warm Solar Gold (Official Logo Center Accent) */
   --accent: #DF9705;
   --accent-hover: #C68503;
-  --accent-light: rgba(223, 151, 5, 0.15);
-  --accent-gradient: linear-gradient(135deg, #F0A515 0%, #DF9705 100%);
+  --accent-light: rgba(223, 151, 5, 0.12);
+  --accent-gradient: linear-gradient(135deg, #F5A60F 0%, #DF9705 100%);
 
-  /* Text : High contrast on dark canvas */
-  --text-primary: #F9FAFB;
-  --text-secondary: #D1D5DB;
-  --text-muted: #9CA3AF;
-  --text-inverse: #0B0F09;
+  /* Text : High contrast on light canvas (WCAG AAA compliant) */
+  --text-primary: #182210;
+  --text-secondary: #425239;
+  --text-muted: #63755A;
+  --text-inverse: #FFFFFF;
 
   /* Borders */
-  --border-color: rgba(255, 255, 255, 0.10);
-  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-color: rgba(48, 65, 21, 0.12);
+  --border-subtle: rgba(48, 65, 21, 0.06);
 
-  /* Shadows : only on viewer card and poster card (DESIGN.md dose cap) */
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.4);
-  --shadow-glow: 0 0 25px rgba(223, 151, 5, 0.35);
+  /* Shadows : clean natural elevation on light canvas */
+  --shadow-sm: 0 2px 5px rgba(24, 34, 16, 0.04);
+  --shadow-md: 0 6px 18px rgba(24, 34, 16, 0.07);
+  --shadow-lg: 0 16px 36px rgba(24, 34, 16, 0.10);
+  --shadow-glow: 0 0 25px rgba(223, 151, 5, 0.25);
 
   /* Typography : Bebas Neue (display), Plus Jakarta Sans (UI), Inter (body) */
   --font-display: 'Bebas Neue', 'Oswald', sans-serif;
@@ -153,12 +153,12 @@ img {
   padding: 0.35rem 1rem;
   border-radius: var(--radius-full);
   font-size: 0.8125rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   background: var(--primary-50);
-  color: var(--primary-lighter);
-  border: 1px solid rgba(48, 65, 21, 0.4);
+  color: var(--primary);
+  border: 1px solid rgba(48, 65, 21, 0.2);
   margin-bottom: 1rem;
 }
 
@@ -167,7 +167,7 @@ img {
   font-family: var(--font-display);
   font-size: clamp(1.85rem, 3.5vw, 3.25rem);
   font-weight: 400;
-  color: var(--text-primary);
+  color: var(--primary);
   margin-bottom: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.02em;
@@ -211,26 +211,27 @@ img {
 
 .btn-secondary {
   background: var(--surface);
-  color: var(--text-primary);
+  color: var(--primary);
   border: 1.5px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary:hover {
   background: var(--surface-alt);
-  border-color: var(--primary-light);
+  border-color: var(--primary);
   transform: translateY(-2px);
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--text-primary);
-  border: 1.5px solid var(--border-color);
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
 }
 
 .btn-outline:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--primary-light);
-  color: var(--text-primary);
+  background: var(--primary-50);
+  border-color: var(--primary);
+  color: var(--primary-dark);
   transform: translateY(-2px);
 }
 
@@ -247,15 +248,15 @@ img {
 }
 
 .badge-category {
-  background: rgba(48, 65, 21, 0.35);
-  color: var(--primary-lighter);
-  border: 1px solid rgba(120, 159, 53, 0.35);
+  background: rgba(48, 65, 21, 0.08);
+  color: var(--primary);
+  border: 1px solid rgba(48, 65, 21, 0.22);
 }
 
 .badge-dusun {
-  background: rgba(223, 151, 5, 0.18);
-  color: var(--accent);
-  border: 1px solid rgba(223, 151, 5, 0.35);
+  background: rgba(223, 151, 5, 0.12);
+  color: #8C5900;
+  border: 1px solid rgba(223, 151, 5, 0.28);
 }
 
 /* Focus Indicator (R-32, DESIGN.md Section 8) */
@@ -269,7 +270,7 @@ button:focus-visible, a:focus-visible {
   outline-offset: 2px;
 }
 
-/* Scrollbar : dark theme with subtle olive tint */
+/* Scrollbar : clean organic light theme */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -280,12 +281,12 @@ button:focus-visible, a:focus-visible {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #243216;
+  background: #CAD8C2;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #344720;
+  background: #AEC2A4;
 }
 
 /* Scroll reveal utility */
