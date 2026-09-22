@@ -1,24 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ZoomIn, ZoomOut, RotateCw, Maximize, Compass, RefreshCw } from 'lucide-react';
+import { ZoomIn, ZoomOut, RotateCw, Maximize, Compass, Map } from 'lucide-react';
 
-export default function PannellumViewer({ activeSpot, onSpotChange, spots = [] }) {
+export default function PannellumViewer({ activeSpot, onSpotChange, spots = [], onOpenMap }) {
   const containerRef = useRef(null);
   const viewerRef = useRef(null);
   const [isAutoRotating, setIsAutoRotating] = useState(true);
   const [isGyroActive, setIsGyroActive] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [loadError, setLoadError] = useState(null);
 
-  // Initialize and update Pannellum viewer when activeSpot changes
+  // Initialize and update Pannellum viewer
   useEffect(() => {
     if (!activeSpot || !containerRef.current) return;
 
     setIsLoading(true);
-    setLoadError(null);
 
-    // Ensure window.pannellum exists
     if (!window.pannellum) {
-      setLoadError('Pannellum WebGL library belum siap.');
       setIsLoading(false);
       return;
     }
@@ -37,7 +33,7 @@ export default function PannellumViewer({ activeSpot, onSpotChange, spots = [] }
         compass: false,
         showZoomCtrl: false,
         showFullscreenCtrl: false,
-        mouseZoom: false, // Prevent page scroll hijack
+        mouseZoom: false,
         hfov: 100,
         minHfov: 50,
         maxHfov: 120,
@@ -61,12 +57,10 @@ export default function PannellumViewer({ activeSpot, onSpotChange, spots = [] }
         setIsLoading(false);
       });
 
-      viewer.on('error', (err) => {
-        console.warn('Pannellum load warning:', err);
+      viewer.on('error', () => {
         setIsLoading(false);
       });
 
-      // Stop auto-rotate when user interacts
       viewer.on('mousedown', () => {
         setIsAutoRotating(false);
       });
@@ -76,8 +70,7 @@ export default function PannellumViewer({ activeSpot, onSpotChange, spots = [] }
 
       viewerRef.current = viewer;
     } catch (err) {
-      console.error('Error initializing Pannellum:', err);
-      setLoadError('Gagal memuat visual panorama 360.');
+      console.error('Pannellum init error:', err);
       setIsLoading(false);
     }
 
@@ -93,17 +86,14 @@ export default function PannellumViewer({ activeSpot, onSpotChange, spots = [] }
     };
   }, [activeSpot]);
 
-  // Controls Handlers
   const handleZoomIn = () => {
     if (!viewerRef.current) return;
-    const currentHfov = viewerRef.current.getHfov();
-    viewerRef.current.setHfov(Math.max(currentHfov - 12, 50));
+    viewerRef.current.setHfov(Math.max(viewerRef.current.getHfov() - 12, 50));
   };
 
   const handleZoomOut = () => {
     if (!viewerRef.current) return;
-    const currentHfov = viewerRef.current.getHfov();
-    viewerRef.current.setHfov(Math.min(currentHfov + 12, 120));
+    viewerRef.current.setHfov(Math.min(viewerRef.current.getHfov() + 12, 120));
   };
 
   const handleToggleAutoRotate = () => {
@@ -122,225 +112,156 @@ export default function PannellumViewer({ activeSpot, onSpotChange, spots = [] }
     viewerRef.current.toggleFullscreen();
   };
 
-  const handleResetView = () => {
-    if (!viewerRef.current) return;
-    viewerRef.current.setPitch(0);
-    viewerRef.current.setYaw(0);
-    viewerRef.current.setHfov(100);
-  };
-
   const handleToggleGyro = async () => {
     if (typeof window.DeviceOrientationEvent !== 'undefined' && typeof window.DeviceOrientationEvent.requestPermission === 'function') {
       try {
         const permission = await window.DeviceOrientationEvent.requestPermission();
         if (permission === 'granted') {
           setIsGyroActive(prev => !prev);
-          if (viewerRef.current) {
-            viewerRef.current.startOrientation();
-          }
+          if (viewerRef.current) viewerRef.current.startOrientation();
         }
       } catch (e) {
-        console.warn('Gyroscope permission error:', e);
+        console.warn('Gyro permission error:', e);
       }
     } else {
       setIsGyroActive(prev => !prev);
       if (viewerRef.current) {
         if (!isGyroActive) {
-          try {
-            viewerRef.current.startOrientation();
-          } catch {
-            // device might not support orientation
-          }
+          try { viewerRef.current.startOrientation(); } catch {}
         } else {
-          try {
-            viewerRef.current.stopOrientation();
-          } catch {
-            // ignore
-          }
+          try { viewerRef.current.stopOrientation(); } catch {}
         }
       }
     }
   };
 
   return (
-    <div className="viewer-card" style={{ position: 'relative' }}>
-      {/* 360 Panorama Canvas Container */}
-      <div 
-        ref={containerRef} 
-        id="pannellum-container" 
-        className="panorama-wrapper" 
-        style={{ width: '100%', height: '480px', background: '#0A0F0D', position: 'relative', overflow: 'hidden' }}
-        role="region"
-        aria-label={`Visual Panorama 360: ${activeSpot?.name || 'Destinasi Wisata'}`}
-      />
+    <>
+      {/* 360 Viewer Card */}
+      <div className="viewer-card">
+        <div className="viewer-frame">
+          <div id="panorama-container" ref={containerRef} />
 
-      {/* Loading Indicator */}
-      {isLoading && (
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'rgba(10, 15, 13, 0.75)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '0.75rem',
-          zIndex: 10,
-          color: 'var(--text-primary)'
-        }}>
-          <div className="spinner-gold" style={{ width: '36px', height: '36px', border: '3px solid rgba(229, 139, 36, 0.2)', borderTopColor: 'var(--accent)', borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
-          <span style={{ fontSize: '0.875rem', fontWeight: 600 }}>Memuat Panorama 360° WebGL...</span>
-        </div>
-      )}
+          {/* Viewer Top Header Overlay */}
+          <div className="viewer-header-overlay">
+            <div className="viewer-badge-group">
+              <div className="viewer-badge">
+                <Compass size={14} />
+                <span>{activeSpot?.name}</span>
+              </div>
+              <div className="viewer-badge pillar-tag">
+                {activeSpot?.pillar_name || activeSpot?.category || 'Kawasan Wisata'}
+              </div>
+            </div>
+          </div>
 
-      {/* Error Fallback */}
-      {loadError && (
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'rgba(10, 15, 13, 0.9)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '1rem',
-          zIndex: 10,
-          color: 'var(--text-primary)',
-          padding: '2rem',
-          textAlign: 'center'
-        }}>
-          <p style={{ color: '#EF4444' }}>{loadError}</p>
+          {/* Gyroscope Pill (Center Bottom) */}
           <button 
-            className="btn btn-primary" 
-            onClick={() => window.location.reload()}
-            style={{ fontSize: '0.8125rem', padding: '0.5rem 1rem' }}
+            className={`gyro-pill-btn ${isGyroActive ? 'active' : ''}`}
+            onClick={handleToggleGyro}
+            aria-label="Aktifkan Sensor Gerak HP"
           >
-            Muat Ulang Halaman
+            <Compass size={16} />
+            <span>{isGyroActive ? 'Sensor Giroskop Aktif' : 'Aktifkan Sensor HP (Gyro)'}</span>
           </button>
+
+          {/* Controls Overlay (Right Bottom) */}
+          <div className="viewer-controls-overlay">
+            {onOpenMap && (
+              <button className="viewer-btn" onClick={onOpenMap} title="Peta Sebaran Desa" aria-label="Buka Peta Desa">
+                <Map size={18} />
+              </button>
+            )}
+            <button className="viewer-btn" onClick={handleZoomIn} title="Perbesar" aria-label="Perbesar Panorama">
+              <ZoomIn size={18} />
+            </button>
+            <button className="viewer-btn" onClick={handleZoomOut} title="Perkecil" aria-label="Perkecil Panorama">
+              <ZoomOut size={18} />
+            </button>
+            <button 
+              className={`viewer-btn ${isAutoRotating ? 'active' : ''}`} 
+              onClick={handleToggleAutoRotate} 
+              title="Putar Otomatis"
+              aria-label="Putar Otomatis"
+            >
+              <RotateCw size={18} />
+            </button>
+            <button className="viewer-btn" onClick={handleFullscreen} title="Layar Penuh" aria-label="Layar Penuh">
+              <Maximize size={18} />
+            </button>
+          </div>
         </div>
-      )}
 
-      {/* Floating Interactive Controls Toolbar */}
-      <div className="viewer-controls" role="toolbar" aria-label="Kontrol Panorama 360">
-        <button 
-          className="viewer-ctrl-btn" 
-          onClick={handleZoomIn} 
-          title="Perbesar Tampilan"
-          aria-label="Perbesar Tampilan"
-        >
-          <ZoomIn size={18} />
-        </button>
-        
-        <button 
-          className="viewer-ctrl-btn" 
-          onClick={handleZoomOut} 
-          title="Perkecil Tampilan"
-          aria-label="Perkecil Tampilan"
-        >
-          <ZoomOut size={18} />
-        </button>
-
-        <button 
-          className={`viewer-ctrl-btn ${isAutoRotating ? 'active' : ''}`} 
-          onClick={handleToggleAutoRotate} 
-          title={isAutoRotating ? 'Hentikan Putar Otomatis' : 'Mulai Putar Otomatis'}
-          aria-label={isAutoRotating ? 'Hentikan Putar Otomatis' : 'Mulai Putar Otomatis'}
-        >
-          <RotateCw size={18} />
-        </button>
-
-        <button 
-          className={`viewer-ctrl-btn ${isGyroActive ? 'active' : ''}`} 
-          onClick={handleToggleGyro} 
-          title="Sensor Giroskop Ponsel"
-          aria-label="Aktifkan Sensor Giroskop Ponsel"
-        >
-          <Compass size={18} />
-        </button>
-
-        <button 
-          className="viewer-ctrl-btn" 
-          onClick={handleResetView} 
-          title="Reset Sudut Pandang"
-          aria-label="Reset Sudut Pandang"
-        >
-          <RefreshCw size={18} />
-        </button>
-
-        <button 
-          className="viewer-ctrl-btn" 
-          onClick={handleFullscreen} 
-          title="Mode Layar Penuh"
-          aria-label="Mode Layar Penuh"
-        >
-          <Maximize size={18} />
-        </button>
+        {/* Spot Info Bar */}
+        <div className="spot-info-bar">
+          <div className="spot-info-main">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.35rem', flexWrap: 'wrap' }}>
+              <h3>{activeSpot?.name}</h3>
+              <span className="badge" style={{ background: '#2D6A4F', color: '#FFFFFF' }}>
+                {activeSpot?.category || 'Destinasi Unggulan'}
+              </span>
+            </div>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.8125rem', marginBottom: '0.5rem' }}>
+              📍 {activeSpot?.dusun}
+            </p>
+            <p id="current-spot-description">
+              {activeSpot?.description}
+            </p>
+          </div>
+          {activeSpot?.highlights && activeSpot.highlights.length > 0 && (
+            <div className="spot-highlights-tags">
+              {activeSpot.highlights.map((item, idx) => (
+                <span key={idx} className="highlight-tag">
+                  • {item}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
 
-      {/* Active Spot Info Bar */}
-      <div className="viewer-info-bar">
-        <div className="viewer-info-main">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '0.35rem' }}>
-            <span className="badge badge-category">{activeSpot?.category || 'Destinasi Wisata'}</span>
-            <span className="badge badge-dusun">{activeSpot?.dusun}</span>
-            {activeSpot?.is_available === false && (
-              <span className="badge" style={{ background: 'rgba(229, 139, 36, 0.2)', color: 'var(--accent)', border: '1px solid rgba(229, 139, 36, 0.4)' }}>
-                Pratinjau Lapangan
-              </span>
+      {/* 7 Spot Thumbnail Switcher */}
+      {spots.length > 0 && (
+        <div style={{ marginTop: '1.25rem' }}>
+          <div className="spot-switcher-header">
+            <div className="spot-switcher-title">
+              <Map size={20} />
+              <span>Pilih Destinasi Rute Paket Wisata (7 Titik Lokasi)</span>
+            </div>
+            {onOpenMap && (
+              <button 
+                className="btn btn-secondary" 
+                onClick={onOpenMap} 
+                style={{ padding: '0.35rem 0.85rem', fontSize: '0.75rem' }}
+              >
+                Buka Peta Desa
+              </button>
             )}
           </div>
-          <h3 className="viewer-spot-title">{activeSpot?.name}</h3>
-          <p className="viewer-spot-desc">{activeSpot?.description}</p>
-        </div>
 
-        {activeSpot?.highlights && (
-          <div className="viewer-highlights-list" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: '0.75rem' }}>
-            {activeSpot.highlights.map((item, idx) => (
-              <span 
-                key={idx} 
-                style={{
-                  fontSize: '0.75rem',
-                  color: 'var(--text-secondary)',
-                  background: 'rgba(255, 255, 255, 0.05)',
-                  padding: '0.2rem 0.6rem',
-                  borderRadius: 'var(--radius-sm)',
-                  border: '1px solid var(--border-subtle)'
-                }}
-              >
-                • {item}
-              </span>
-            ))}
-          </div>
-        )}
-      </div>
-
-      {/* 7 Spots Carousel Strip */}
-      {spots.length > 0 && (
-        <div className="spots-strip-wrapper">
-          <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', color: 'var(--text-muted)', letterSpacing: '0.05em', display: 'block', marginBottom: '0.75rem' }}>
-            Pilih 7 Titik Destinasi Wisata Terpadu
-          </span>
-          <div className="spots-thumbnails-row" role="tablist" aria-label="Daftar 7 Titik Destinasi 360">
+          <div className="spot-thumbnails-track">
             {spots.map((spot, index) => {
               const isSelected = spot.id === activeSpot?.id;
               return (
                 <button
                   key={spot.id}
-                  className={`spot-thumb-card ${isSelected ? 'selected' : ''}`}
+                  className={`spot-card-btn ${isSelected ? 'active' : ''}`}
                   onClick={() => onSpotChange && onSpotChange(spot)}
-                  role="tab"
                   aria-selected={isSelected}
-                  aria-label={`Pilih Spot ${index + 1}: ${spot.name}`}
+                  role="tab"
                 >
-                  <img 
-                    src={spot.thumbnail_url} 
-                    alt={`Foto ${spot.name}`} 
-                    className="spot-thumb-img" 
-                    loading="lazy" 
-                  />
-                  <div className="spot-thumb-meta">
-                    <span className="spot-thumb-index">SPOT {index + 1}</span>
-                    <span className="spot-thumb-name">{spot.name}</span>
+                  <div 
+                    className="spot-card-preview" 
+                    style={{ backgroundImage: `url(${spot.thumbnail_url})` }}
+                  >
+                    <span className="spot-card-number">SPOT {index + 1}</span>
+                    <span className="spot-card-badge">
+                      {isSelected ? 'Aktif Ditampilkan' : 'Lihat 360°'}
+                    </span>
+                  </div>
+                  <div className="spot-card-info">
+                    <h4>{spot.name}</h4>
+                    <span>{spot.dusun}</span>
                   </div>
                 </button>
               );
@@ -348,6 +269,6 @@ export default function PannellumViewer({ activeSpot, onSpotChange, spots = [] }
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }

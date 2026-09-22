@@ -220,14 +220,41 @@ img {
   transform: translateY(-2px);
 }
 
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1.5px solid var(--border-color);
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--primary-light);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
 /* Badges */
 .badge {
   display: inline-flex;
   align-items: center;
+  gap: 0.35rem;
   padding: 0.25rem 0.65rem;
   border-radius: var(--radius-full);
   font-size: 0.75rem;
   font-weight: 600;
+  line-height: 1.2;
+}
+
+.badge-category {
+  background: rgba(45, 106, 79, 0.25);
+  color: var(--primary-lighter);
+  border: 1px solid rgba(82, 183, 136, 0.35);
+}
+
+.badge-dusun {
+  background: rgba(229, 139, 36, 0.18);
+  color: var(--accent);
+  border: 1px solid rgba(229, 139, 36, 0.35);
 }
 
 /* Focus Indicator (R-32, DESIGN.md Section 8) */

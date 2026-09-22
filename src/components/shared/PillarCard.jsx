@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShieldCheck, Layers, Sparkles, Leaf, CheckCircle, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Layers, Sparkles, Leaf } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const iconMap = {
@@ -9,97 +9,93 @@ const iconMap = {
   'green-wellness': Leaf
 };
 
+// Default images for each pillar
+const pillarImages = {
+  'tubing-care': '/images/documentation/pelatihan-k3-basarnas.jpg',
+  'integrated-ecosystem': '/images/documentation/pembentukan-pokdarwis.jpg',
+  'local-creative': '/images/documentation/edukasi-olahan-lele.jpg',
+  'green-wellness': '/images/documentation/taman-sehat-toga.jpg'
+};
+
 export default function PillarCard({ pillar }) {
   const [activeTab, setActiveTab] = useState('after'); // 'after' (Hasil Intervensi) or 'before' (Sebelum Program)
   const IconComponent = iconMap[pillar.id] || ShieldCheck;
+  const pillarImg = pillarImages[pillar.id] || '/images/documentation/aksi-wisata-tubing.jpg';
 
   return (
-    <div className="pillar-card" style={{ borderTopColor: pillar.tag_color || 'var(--primary)' }}>
+    <div className="pillar-card" data-pillar={pillar.id}>
       {/* Pillar Card Header */}
-      <div className="pillar-header">
-        <div 
-          className="pillar-icon-box"
-          style={{ background: `${pillar.tag_color || 'var(--primary)'}22`, color: pillar.tag_color || 'var(--accent)' }}
-        >
+      <div className="pillar-card-header">
+        <div className="pillar-icon-badge">
           <IconComponent size={24} />
         </div>
-        <div>
-          <span className="pillar-tagline" style={{ color: pillar.tag_color || 'var(--accent)' }}>
-            {pillar.tagline}
-          </span>
-          <h3 className="pillar-title">{pillar.name}</h3>
+        <div className="pillar-titles">
+          <h3>{pillar.name}</h3>
+          <span className="pillar-tagline">{pillar.tagline}</span>
         </div>
       </div>
 
-      <p className="pillar-summary">{pillar.summary}</p>
-
-      {/* Interactive Toggle Tab: Hasil Intervensi vs Sebelum Program */}
-      <div className="pillar-tabs" role="tablist" aria-label={`Pilihan Kondisi ${pillar.name}`}>
-        <button 
-          className={`pillar-tab-btn ${activeTab === 'after' ? 'active' : ''}`}
-          onClick={() => setActiveTab('after')}
-          role="tab"
-          aria-selected={activeTab === 'after'}
-        >
-          Hasil Intervensi
-        </button>
-        <button 
-          className={`pillar-tab-btn ${activeTab === 'before' ? 'active' : ''}`}
-          onClick={() => setActiveTab('before')}
-          role="tab"
-          aria-selected={activeTab === 'before'}
-        >
-          Sebelum Program
-        </button>
+      {/* Interactive Toggle Switch */}
+      <div className="pillar-toggle-wrapper">
+        <div className="pillar-toggle-btn-group" role="tablist" aria-label={`Pilihan Kondisi ${pillar.name}`}>
+          <button 
+            className={`pillar-toggle-btn ${activeTab === 'after' ? 'active' : ''}`}
+            onClick={() => setActiveTab('after')}
+            role="tab"
+            aria-selected={activeTab === 'after'}
+          >
+            Hasil Intervensi &amp; Capaian
+          </button>
+          <button 
+            className={`pillar-toggle-btn ${activeTab === 'before' ? 'active' : ''}`}
+            onClick={() => setActiveTab('before')}
+            role="tab"
+            aria-selected={activeTab === 'before'}
+          >
+            Sebelum Program
+          </button>
+        </div>
       </div>
 
-      {/* Tab Content Display */}
-      <div className="pillar-tab-content">
+      {/* Pillar Content Views */}
+      <div className="pillar-content-body">
         {activeTab === 'after' ? (
-          <div className="tab-pane active fade-in">
-            <div className="pillar-condition-badge after">Capaian Saat Ini (PPK Ormawa 2025)</div>
-            <p className="pillar-condition-text">{pillar.after_condition}</p>
-            
+          <div className="pillar-view active">
+            <span className="view-badge-indicator after">Hasil Intervensi &amp; Capaian</span>
+            <div className="pillar-image-container">
+              <img src={pillarImg} alt={pillar.name} loading="lazy" />
+            </div>
+            <p className="pillar-desc-text">
+              {pillar.after_condition || pillar.intervention}
+            </p>
             {pillar.key_metrics && pillar.key_metrics.length > 0 && (
-              <div className="pillar-metrics-box">
-                {pillar.key_metrics.map((km, idx) => (
-                  <div key={idx} className="pillar-metric-chip">
-                    <CheckCircle size={14} style={{ color: 'var(--primary-lighter)' }} />
-                    <span className="km-label">{km.label}:</span>
-                    <strong className="km-val">{km.value}</strong>
-                  </div>
-                ))}
+              <div className="pillar-result-box">
+                <div className="pillar-result-title" style={{ color: 'var(--primary-lighter)', marginBottom: '0.25rem' }}>
+                  Hasil Terukur:
+                </div>
+                <div className="pillar-result-value" style={{ color: 'var(--text-primary)', fontSize: '0.8125rem', fontWeight: 600 }}>
+                  {pillar.key_metrics.map(km => `${km.label}: ${km.value}`).join(' | ')}
+                </div>
               </div>
             )}
           </div>
         ) : (
-          <div className="tab-pane active fade-in">
-            <div className="pillar-condition-badge before">Kondisi Awal (Pra-Intervensi)</div>
-            <p className="pillar-condition-text">{pillar.before_condition}</p>
-            <div style={{ marginTop: '0.75rem', padding: '0.65rem 0.85rem', background: 'rgba(255,255,255,0.03)', borderRadius: 'var(--radius-sm)', border: '1px dashed var(--border-color)', fontSize: '0.8125rem', color: 'var(--text-muted)' }}>
-              <strong>Intervensi Mahasiswa:</strong> {pillar.intervention}
+          <div className="pillar-view active">
+            <span className="view-badge-indicator before">Kondisi Awal Desa</span>
+            <p className="pillar-desc-text" style={{ paddingTop: '0.5rem' }}>
+              {pillar.before_condition}
+            </p>
+            <div style={{ marginTop: 'auto', padding: '0.85rem 1rem', background: 'rgba(255, 255, 255, 0.03)', borderRadius: 'var(--radius-sm)', border: '1px dashed var(--border-color)', fontSize: '0.8125rem', color: 'var(--text-muted)' }}>
+              <strong style={{ color: 'var(--accent)' }}>Intervensi Tim Mahasiswa:</strong> {pillar.intervention}
             </div>
           </div>
         )}
-      </div>
 
-      {/* Footer Link to /program */}
-      <div style={{ marginTop: 'auto', paddingTop: '1.25rem', borderTop: '1px solid var(--border-subtle)' }}>
-        <Link 
-          to="/program" 
-          style={{ 
-            display: 'inline-flex', 
-            alignItems: 'center', 
-            gap: '0.35rem', 
-            color: 'var(--accent)', 
-            fontSize: '0.8125rem', 
-            fontWeight: 700, 
-            textDecoration: 'none' 
-          }}
-        >
-          <span>Pelajari detail intervensi & SOP</span>
-          <ArrowRight size={14} />
-        </Link>
+        <div style={{ marginTop: '1.25rem', paddingTop: '0.75rem', borderTop: '1px solid var(--border-subtle)', textAlign: 'right' }}>
+          <Link to="/program" style={{ color: 'var(--accent)', fontSize: '0.8125rem', fontWeight: 700, textDecoration: 'none' }}>
+            Lihat SOP &amp; Rincian &rarr;
+          </Link>
+        </div>
       </div>
     </div>
   );

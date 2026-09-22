@@ -1,9 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Layers, Users, Calendar, HeartHandshake, TrendingUp, ShieldCheck } from 'lucide-react';
 
-function SingleMetricCard({ metric }) {
+const metricIcons = {
+  'metric-1': Layers,
+  'metric-2': Users,
+  'metric-3': Calendar,
+  'metric-4': HeartHandshake,
+  'metric-5': TrendingUp,
+  'metric-6': ShieldCheck
+};
+
+function SingleMetricCard({ metric, index }) {
   const [count, setCount] = useState(0);
   const cardRef = useRef(null);
   const hasAnimated = useRef(false);
+  const IconComponent = metricIcons[metric.id] || Layers;
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -12,7 +23,7 @@ function SingleMetricCard({ metric }) {
           hasAnimated.current = true;
           
           const target = metric.target_value || 0;
-          const duration = 1500; // 1.5 seconds (MOTION 2)
+          const duration = 1200;
           const steps = 30;
           const stepTime = duration / steps;
           const increment = target / steps;
@@ -29,7 +40,7 @@ function SingleMetricCard({ metric }) {
           }, stepTime);
         }
       });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.15 });
 
     if (cardRef.current) {
       observer.observe(cardRef.current);
@@ -39,15 +50,15 @@ function SingleMetricCard({ metric }) {
   }, [metric.target_value]);
 
   return (
-    <div ref={cardRef} className="hex-metric-card" role="group" aria-label={`${metric.label}: ${metric.target_value}${metric.suffix || ''}`}>
-      <div className="hex-metric-inner">
-        <div className="metric-number-wrap">
-          <span className="metric-number">{count}</span>
-          {metric.suffix && <span className="metric-suffix">{metric.suffix}</span>}
-        </div>
-        <h4 className="metric-label">{metric.label}</h4>
-        <p className="metric-desc">{metric.description}</p>
+    <div ref={cardRef} className="metric-card" role="group" aria-label={`${metric.label}: ${metric.target_value}${metric.suffix || ''}`}>
+      <div className="metric-icon">
+        <IconComponent size={20} />
       </div>
+      <div className="metric-number-wrapper">
+        <span className="metric-number">{count}</span>
+        {metric.suffix && <span className="metric-suffix">{metric.suffix}</span>}
+      </div>
+      <span className="metric-label">{metric.label}</span>
     </div>
   );
 }
@@ -55,8 +66,8 @@ function SingleMetricCard({ metric }) {
 export default function MetricsCounter({ metrics = [] }) {
   return (
     <div className="metrics-grid">
-      {metrics.map((item) => (
-        <SingleMetricCard key={item.id} metric={item} />
+      {metrics.map((item, index) => (
+        <SingleMetricCard key={item.id} metric={item} index={index} />
       ))}
     </div>
   );
