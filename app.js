@@ -149,11 +149,15 @@
 
     container.innerHTML = window.PROGRAM_DATA.subprograms.map((sub, index) => {
       const numStr = `0${index + 1}`;
+      const itemsHtml = Array.isArray(sub.items) && sub.items.length > 0
+        ? `<ul class="pillar-list">${sub.items.map(item => `<li>${item}</li>`).join('')}</ul>`
+        : `<p class="pillar-focus">${sub.focus}</p>`;
+
       return `
         <div class="pillar-card">
           <span class="pillar-number">Pilar ${numStr}</span>
           <h3 class="pillar-name">${sub.name}</h3>
-          <p class="pillar-focus">${sub.focus}</p>
+          ${itemsHtml}
         </div>
       `;
     }).join('');

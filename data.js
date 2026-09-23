@@ -39,7 +39,7 @@ const PROGRAM_DATA = {
       badge: "Layanan Wisata",
       badgeType: "green",
       icon: "ticket",
-      url: "#",
+      url: "https://wisatatampirkulon.com/",
       actionText: "Kunjungi Portal Tiket",
       isPrimary: false
     }
@@ -49,15 +49,15 @@ const PROGRAM_DATA = {
   socials: [
     {
       name: "Instagram",
-      handle: "@InWestTamp26",
-      url: "https://instagram.com/InWestTamp26",
+      handle: "@ppkormawa.himagiuntidar",
+      url: "https://www.instagram.com/ppkormawa.himagiuntidar/",
       icon: "instagram",
       description: "Galeri foto & update harian"
     },
     {
       name: "TikTok",
-      handle: "@InWestTamp26",
-      url: "https://tiktok.com/@InWestTamp26",
+      handle: "@ppkormawahimagi26",
+      url: "https://www.tiktok.com/@ppkormawahimagi26",
       icon: "tiktok",
       description: "Konten video seru & edukasi"
     },
@@ -82,22 +82,41 @@ const PROGRAM_DATA = {
     {
       id: "west-integrated-ecosystem",
       name: "West Integrated Ecosystem",
-      focus: "Pembentukan POKDARWIS, Digitalisasi Tiket & Promosi Wisata"
+      focus: "Pembentukan POKDARWIS, Digitalisasi Tiket & Promosi Wisata",
+      items: [
+        "Pembentukan & Penguatan POKDARWIS",
+        "Digitalisasi Tiket & Promosi Wisata",
+        "Revitalisasi Basecamp Wisata"
+      ]
     },
     {
       id: "tubing-care",
       name: "Tubing Care",
-      focus: "Pelatihan K3, P3K PMI, Pelayanan Kesehatan Dasar & PHBS Wisata"
+      focus: "Pelatihan K3 bersama BASARNAS, P3K bersama PMI, Layanan kesehatan & PHBS, Health Screening Day",
+      items: [
+        "Pelatihan: K3 bersama BASARNAS, P3K bersama PMI, Layanan kesehatan & PHBS",
+        "Health Screening Day"
+      ]
     },
     {
       id: "local-creative",
       name: "Local Creative",
-      focus: "Pemberdayaan Bakso Lele PKK, Budidaya TOGA KWT, Eduwisata & Resep ISBN"
+      focus: "Pemberdayaan Bakso Lele PKK, Budidaya TOGA KWT, Eduwisata & Resep ISBN",
+      items: [
+        "Pemberdayaan Bakso Lele PKK",
+        "Budidaya Tanaman Obat Keluarga (TOGA) KWT",
+        "Pelatihan Eduwisata & Buku Resep Ber-ISBN"
+      ]
     },
     {
       id: "green-wellness-space",
       name: "Green Wellness Space",
-      focus: "Pembangunan Taman Sehat, Mini Outdoor Gym & West Angkringan Sehat"
+      focus: "Pembangunan Taman Sehat, Fasilitas Gym Sederhana, Angkringan Sehat Berbasis Lokal",
+      items: [
+        "Pembangunan Taman Sehat",
+        "Fasilitas Gym Sederhana",
+        "Angkringan Sehat Berbasis Lokal"
+      ]
     }
   ],
 
@@ -127,13 +146,13 @@ const PROGRAM_DATA = {
     {
       id: 2,
       no: "02",
-      title: "Media Sosial Publikasi (@InWestTamp26)",
+      title: "Media Sosial Publikasi (@ppkormawa.himagiuntidar)",
       category: "media",
       categoryLabel: "Media & Edukasi",
       status: "Aktif & Terverifikasi",
       statusBadge: "primary",
-      description: "Saluran promosi dan publikasi berkala melalui platform TikTok dan Instagram @InWestTamp26.",
-      url: "https://instagram.com/InWestTamp26",
+      description: "Saluran promosi dan publikasi berkala melalui Instagram @ppkormawa.himagiuntidar dan TikTok @ppkormawahimagi26.",
+      url: "https://www.instagram.com/ppkormawa.himagiuntidar/",
       type: "Media Sosial",
       isAvailable: true
     },

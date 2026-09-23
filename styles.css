@@ -550,6 +550,31 @@ body {
   line-height: 1.45;
 }
 
+.pillar-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 0.2rem;
+}
+
+.pillar-list li {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  position: relative;
+  padding-left: 0.95rem;
+}
+
+.pillar-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0.1rem;
+  color: var(--gold-primary);
+  font-size: 1rem;
+  line-height: 1;
+}
+
 /* 14 Luaran Program Section */
 .luaran-header {
   display: flex;
