@@ -1,47 +1,97 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Compass, Layers, MapPin, Eye, ArrowRight, BarChart2, ShieldCheck, Image as ImageIcon } from 'lucide-react';
-import { getDestinations, getPillars, getMetrics, getDocumentation } from '../lib/supabase.js';
+import React, { useState, useEffect, useCallback } from 'react';
+import { 
+  Compass, 
+  Layers, 
+  MapPin, 
+  Eye, 
+  BarChart2, 
+  Image as ImageIcon, 
+  Map, 
+  Smartphone, 
+  X, 
+  CheckCircle, 
+  FileText, 
+  ExternalLink,
+  Award
+} from 'lucide-react';
+
+import { 
+  getDestinations, 
+  getPillars, 
+  getMetrics, 
+  getDocumentation, 
+  getDeliverables 
+} from '../lib/supabase.js';
+
 import PannellumViewer from '../components/viewer/PannellumViewer.jsx';
 import VillageMapModal from '../components/viewer/VillageMapModal.jsx';
-import PillarCard from '../components/shared/PillarCard.jsx';
 import MetricsCounter from '../components/shared/MetricsCounter.jsx';
 import LightboxModal from '../components/shared/LightboxModal.jsx';
+
+import AboutSection from '../components/sections/AboutSection.jsx';
+import ProgramsSection from '../components/sections/ProgramsSection.jsx';
+import DeliverablesSection from '../components/sections/DeliverablesSection.jsx';
+import LocationSection from '../components/sections/LocationSection.jsx';
 
 export default function HomePage() {
   const [spots, setSpots] = useState([]);
   const [activeSpot, setActiveSpot] = useState(null);
   const [pillars, setPillars] = useState([]);
   const [metrics, setMetrics] = useState([]);
-  const [recentPhotos, setRecentPhotos] = useState([]);
-  
+  const [deliverables, setDeliverables] = useState([]);
+  const [photos, setPhotos] = useState([]);
+  const [galleryFilter, setGalleryFilter] = useState('all');
+
   // Modals state
   const [isMapOpen, setIsMapOpen] = useState(false);
   const [isPosterOpen, setIsPosterOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(null);
+  const [selectedDoc, setSelectedDoc] = useState(null);
 
   useEffect(() => {
-    async function loadHomeData() {
-      const [destData, pillarData, metricData, docData] = await Promise.all([
+    async function loadAllData() {
+      const [destData, pillarData, metricData, docData, deliverableData] = await Promise.all([
         getDestinations(),
         getPillars(),
         getMetrics(),
-        getDocumentation()
+        getDocumentation(),
+        getDeliverables()
       ]);
+
       setSpots(destData || []);
       if (destData && destData.length > 0) {
         setActiveSpot(destData[0]);
       }
       setPillars(pillarData || []);
       setMetrics(metricData || []);
-      setRecentPhotos((docData || []).slice(0, 8));
+      setPhotos(docData || []);
+      setDeliverables(deliverableData || []);
     }
-    loadHomeData();
+    loadAllData();
   }, []);
 
+  // Global Escape key handler for accessible modal closing
+  const handleKeyDown = useCallback((e) => {
+    if (e.key === 'Escape') {
+      setIsPosterOpen(false);
+      setIsMapOpen(false);
+      setSelectedDoc(null);
+      setLightboxIndex(null);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [handleKeyDown]);
+
+  const filteredPhotos = galleryFilter === 'all'
+    ? photos
+    : photos.filter(p => p.pillar_id === galleryFilter);
+
   return (
-    <div>
-      {/* ================= HERO SECTION ================= */}
+    <div className="single-page-layout">
+      {/* ================= 1. HERO SECTION ================= */}
       <section id="hero" className="hero-section">
         <div className="container hero-grid">
           <div className="hero-content">
@@ -83,11 +133,11 @@ export default function HomePage() {
             </div>
             
             <div className="hero-cta-group">
-              <a href="#virtual-tour" className="btn btn-primary">
+              <a href="#tur-360" className="btn btn-primary">
                 <Compass size={18} />
                 <span>Jelajahi Paket Wisata 360°</span>
               </a>
-              <a href="#empat-pilar" className="btn btn-secondary">
+              <a href="#pilar" className="btn btn-secondary">
                 <Layers size={18} />
                 <span>Lihat Capaian 4 Pilar</span>
               </a>
@@ -96,7 +146,15 @@ export default function HomePage() {
           
           {/* High-Res Poster Preview Card */}
           <div className="hero-poster-wrapper">
-            <div className="poster-preview-card" onClick={() => setIsPosterOpen(true)} style={{ cursor: 'pointer' }}>
+            <div 
+              className="poster-preview-card" 
+              onClick={() => setIsPosterOpen(true)} 
+              style={{ cursor: 'pointer' }}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && setIsPosterOpen(true)}
+              aria-label="Buka pratinjau resolusi tinggi poster resmi IN WEST TAMP"
+            >
               <img src="/images/poster.png" alt="Poster Resmi IN WEST TAMP PPK Ormawa Himagi Untidar" />
               <div className="poster-floating-badge">
                 <span>Poster Hasil Program</span>
@@ -116,8 +174,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ================= VIRTUAL TOUR HUB 360° ================= */}
-      <section id="virtual-tour" className="section tour-section">
+      {/* ================= 2. VIRTUAL TOUR HUB 360° ================= */}
+      <section id="tur-360" className="section tour-section" style={{ padding: '5rem 0 3.5rem' }}>
         <div className="container tour-wrapper">
           <div className="section-header">
             <div className="section-pill">
@@ -126,10 +184,31 @@ export default function HomePage() {
             </div>
             <h2 className="section-title">Tur Virtual Paket Wisata Terpadu</h2>
             <p className="section-subtitle">
-              Rasakan langsung suasana 7 destinasi unggulan paket wisata Desa Tampirkulon yang berhasil diintegrasikan oleh tim PPK Ormawa Himagi Untidar.
+              Rasakan suasana 7 destinasi unggulan paket wisata Desa Tampirkulon yang berhasil diintegrasikan oleh tim PPK Ormawa Himagi Untidar.
             </p>
           </div>
           
+          {/* Top Control Bar */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.25rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+              <span className="badge badge-category" style={{ fontSize: '0.875rem', padding: '0.4rem 0.85rem' }}>
+                SPOT AKTIF: {activeSpot?.name}
+              </span>
+              <span style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>
+                {activeSpot?.dusun}
+              </span>
+            </div>
+
+            <button 
+              className="btn btn-outline"
+              onClick={() => setIsMapOpen(true)}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.8125rem', padding: '0.5rem 1rem' }}
+            >
+              <Map size={16} />
+              <span>Buka Peta Rute Desa</span>
+            </button>
+          </div>
+
           {/* 360 Viewer Card & Thumbnails */}
           {activeSpot && (
             <PannellumViewer 
@@ -140,46 +219,39 @@ export default function HomePage() {
             />
           )}
 
-          <div style={{ textAlign: 'center', marginTop: '1rem' }}>
-            <Link to="/tur-360" className="btn btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem' }}>
-              <span>Buka Halaman Lengkap Hub Tur 360° &amp; Panduan Rute</span>
-              <ArrowRight size={16} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= 4 PILAR PROGRAM SECTION ================= */}
-      <section id="empat-pilar" className="section pillars-section">
-        <div className="container">
-          <div className="section-header">
-            <div className="section-pill">
-              <Layers size={14} />
-              <span>Substansi Hasil PPK Ormawa</span>
+          {/* Smartphone Gyroscope Guidance Notice */}
+          <div style={{ 
+            marginTop: '2rem', 
+            background: 'var(--surface)', 
+            border: '1px solid var(--border-color)', 
+            borderRadius: 'var(--radius-md)', 
+            padding: '1.25rem 1.5rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '1rem',
+            flexWrap: 'wrap'
+          }}>
+            <Smartphone size={24} style={{ color: 'var(--accent)', flexShrink: 0 }} />
+            <div style={{ flexGrow: 1 }}>
+              <strong style={{ color: 'var(--text-primary)', fontSize: '0.9375rem', display: 'block' }}>
+                Panduan Smartphone (Mobile Gyroscope)
+              </strong>
+              <span style={{ color: 'var(--text-secondary)', fontSize: '0.8125rem' }}>
+                Sentuh layar untuk memutar sudut pandang 360 derajat atau aktifkan sensor giroskop ponsel melalui tombol kompas di bilah kontrol.
+              </span>
             </div>
-            <h2 className="section-title">Empat Pilar, Satu Ekosistem</h2>
-            <p className="section-subtitle">
-              Empat intervensi strategis yang dirancang oleh mahasiswa Himagi Untidar untuk mengintegrasikan wisata, kesehatan, ekonomi lokal, dan ruang wellness di Desa Tampirkulon.
-            </p>
-          </div>
-          
-          <div className="pillars-grid">
-            {pillars.map((pillar) => (
-              <PillarCard key={pillar.id} pillar={pillar} />
-            ))}
-          </div>
-
-          <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
-            <Link to="/program" className="btn btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem' }}>
-              <span>Pelajari Rincian Pelatihan K3 &amp; Linimasa Program</span>
-              <ArrowRight size={16} />
-            </Link>
           </div>
         </div>
       </section>
 
-      {/* ================= PROGRAM DALAM ANGKA SECTION ================= */}
-      <section id="program-angka" className="section metrics-section">
+      {/* ================= 3 & 9. ABOUT & TIM SECTIONS ================= */}
+      <AboutSection />
+
+      {/* ================= 4 & 5. 4 PILAR & LINIMASA SECTIONS ================= */}
+      <ProgramsSection pillars={pillars} />
+
+      {/* ================= 6. PROGRAM DALAM ANGKA (METRIK) ================= */}
+      <section id="metrik" className="section metrics-section" style={{ padding: '5rem 0' }}>
         <div className="container">
           <div className="section-header">
             <div className="section-pill metrics-banner-pill">
@@ -196,35 +268,55 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ================= GALERI DOKUMENTASI SECTION ================= */}
-      <section id="galeri-dokumentasi" className="section" style={{ background: 'var(--bg-main)' }}>
-        <div className="container">
-          <div className="section-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <div>
-              <div className="section-pill">
-                <ImageIcon size={14} />
-                <span>Dokumentasi Kegiatan Nyata</span>
-              </div>
-              <h2 className="section-title">Galeri Lapangan PPK Ormawa</h2>
-              <p className="section-subtitle">
-                Rekam visual proses transformasi: pelatihan water rescue Basarnas, pendampingan P3K PMI, pos kesehatan, dan pembangunan ruang hijau desa.
-              </p>
-            </div>
+      {/* ================= 7. KATALOG LUARAN & SK ================= */}
+      <DeliverablesSection 
+        deliverables={deliverables} 
+        onSelectDoc={setSelectedDoc} 
+      />
 
-            <Link to="/dokumentasi" className="btn btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem' }}>
-              <span>Buka Seluruh Galeri ({recentPhotos.length}+)</span>
-              <ArrowRight size={16} />
-            </Link>
+      {/* ================= 8. GALERI DOKUMENTASI LAPANGAN ================= */}
+      <section id="galeri" className="section" style={{ background: 'var(--bg-main)', padding: '5rem 0' }}>
+        <div className="container">
+          <div className="section-header">
+            <div className="section-pill">
+              <ImageIcon size={14} />
+              <span>Dokumentasi Kegiatan Nyata</span>
+            </div>
+            <h2 className="section-title">Galeri Lapangan PPK Ormawa</h2>
+            <p className="section-subtitle">
+              Rekam visual proses transformasi: pelatihan water rescue Basarnas, pendampingan P3K PMI, pos pemeriksaan gizi, dan pembangunan ruang hijau desa.
+            </p>
           </div>
 
+          {/* Filter Bar Pilar */}
+          <div className="gallery-filters" style={{ marginBottom: '2.5rem' }}>
+            <button 
+              className={`gallery-filter-btn ${galleryFilter === 'all' ? 'active' : ''}`}
+              onClick={() => setGalleryFilter('all')}
+            >
+              Semua Dokumentasi ({photos.length})
+            </button>
+            {pillars.map(p => (
+              <button 
+                key={p.id}
+                className={`gallery-filter-btn ${galleryFilter === p.id ? 'active' : ''}`}
+                onClick={() => setGalleryFilter(p.id)}
+              >
+                {p.name}
+              </button>
+            ))}
+          </div>
+
+          {/* Photo Grid */}
           <div className="gallery-grid">
-            {recentPhotos.map((photo, idx) => (
+            {filteredPhotos.map((photo, idx) => (
               <div 
                 key={photo.id}
                 className="gallery-item"
                 onClick={() => setLightboxIndex(idx)}
                 role="button"
                 tabIndex={0}
+                onKeyDown={(e) => e.key === 'Enter' && setLightboxIndex(idx)}
                 aria-label={`Buka foto: ${photo.title}`}
               >
                 <div className="gallery-thumb-wrapper">
@@ -243,8 +335,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ================= MITRA KOLABORASI ================= */}
-      <section id="mitra-kolaborasi" className="partners-section">
+      {/* ================= 10. PANDUAN AKSES & LOKASI ================= */}
+      <LocationSection />
+
+      {/* ================= 11. MITRA KOLABORASI MULTI-SEKTOR ================= */}
+      <section id="mitra" className="partners-section" style={{ padding: '4rem 0' }}>
         <div className="container">
           <p style={{ textAlign: 'center', fontSize: '0.8125rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--text-muted)', marginBottom: '2rem' }}>
             Mitra Kolaborasi &amp; Dukungan Multi-Sektor
@@ -281,6 +376,89 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ================= MODAL PRATINJAU DOKUMEN LUARAN & SK ================= */}
+      {selectedDoc && (
+        <div 
+          className="minimap-modal active" 
+          onClick={() => setSelectedDoc(null)} 
+          role="dialog" 
+          aria-modal="true"
+          aria-labelledby="doc-modal-title"
+        >
+          <div 
+            className="minimap-content" 
+            onClick={(e) => e.stopPropagation()} 
+            style={{ maxWidth: '640px', background: 'var(--surface)', borderRadius: 'var(--radius-lg)' }}
+          >
+            <div className="minimap-header" style={{ padding: '1.25rem 1.5rem', borderBottom: '1px solid var(--border-color)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+                <Award size={20} style={{ color: 'var(--accent)' }} />
+                <h3 id="doc-modal-title" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', color: 'var(--text-primary)', margin: 0, fontWeight: 800 }}>
+                  Pratinjau Luaran Resmi
+                </h3>
+              </div>
+              <button 
+                className="minimap-close-btn" 
+                onClick={() => setSelectedDoc(null)} 
+                aria-label="Tutup pratinjau dokumen"
+              >
+                &times;
+              </button>
+            </div>
+
+            <div className="minimap-body" style={{ padding: '1.5rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+                <span className={`badge ${selectedDoc.category === 'wajib' ? 'badge-dusun' : 'badge-category'}`} style={{ textTransform: 'uppercase' }}>
+                  {selectedDoc.category === 'wajib' ? 'Luaran Wajib Belmawa' : 'Luaran Tambahan & SK'}
+                </span>
+                <span className="status-badge success">
+                  <CheckCircle size={14} />
+                  <span>Status Terverifikasi</span>
+                </span>
+              </div>
+
+              <h4 style={{ fontFamily: 'var(--font-heading)', color: 'var(--text-primary)', fontSize: '1.3rem', fontWeight: 800, marginBottom: '0.4rem' }}>
+                {selectedDoc.title}
+              </h4>
+              <div style={{ color: 'var(--accent)', fontSize: '0.875rem', fontWeight: 700, marginBottom: '1.25rem' }}>
+                {selectedDoc.type}
+              </div>
+
+              <div style={{ background: 'var(--surface-alt)', padding: '1.25rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', marginBottom: '1.5rem' }}>
+                <strong style={{ color: 'var(--text-primary)', fontSize: '0.875rem', display: 'block', marginBottom: '0.35rem' }}>
+                  Ringkasan &amp; Legalitas Dokumen
+                </strong>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9375rem', lineHeight: 1.6, margin: 0 }}>
+                  {selectedDoc.description}
+                </p>
+              </div>
+
+              <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem', flexWrap: 'wrap' }}>
+                {selectedDoc.file_url && (
+                  <a 
+                    href={selectedDoc.file_url} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="btn btn-primary"
+                    style={{ fontSize: '0.875rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
+                  >
+                    <span>Unduh Berkas Asli</span>
+                    <ExternalLink size={15} />
+                  </a>
+                )}
+                <button 
+                  className="btn btn-secondary" 
+                  onClick={() => setSelectedDoc(null)}
+                  style={{ fontSize: '0.875rem' }}
+                >
+                  Tutup
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* ================= VILLAGE MINI-MAP MODAL ================= */}
       <VillageMapModal 
         isOpen={isMapOpen} 
@@ -292,10 +470,16 @@ export default function HomePage() {
 
       {/* ================= POSTER FULLSCREEN MODAL ================= */}
       {isPosterOpen && (
-        <div className="minimap-modal active" onClick={() => setIsPosterOpen(false)} role="dialog" aria-modal="true">
+        <div 
+          className="minimap-modal active" 
+          onClick={() => setIsPosterOpen(false)} 
+          role="dialog" 
+          aria-modal="true"
+          aria-labelledby="poster-modal-title"
+        >
           <div className="minimap-content" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '800px', background: 'var(--surface)' }}>
             <div className="minimap-header">
-              <h3>Poster Resmi PPK Ormawa IN WEST TAMP 2025</h3>
+              <h3 id="poster-modal-title">Poster Resmi PPK Ormawa IN WEST TAMP 2025</h3>
               <button className="minimap-close-btn" onClick={() => setIsPosterOpen(false)} aria-label="Tutup Poster">
                 &times;
               </button>
@@ -315,7 +499,7 @@ export default function HomePage() {
       <LightboxModal 
         isOpen={lightboxIndex !== null} 
         onClose={() => setLightboxIndex(null)} 
-        photos={recentPhotos} 
+        photos={filteredPhotos} 
         currentIndex={lightboxIndex || 0} 
         onNavigate={setLightboxIndex} 
       />
