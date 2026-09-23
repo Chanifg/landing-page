@@ -104,8 +104,8 @@ const PROGRAM_DATA = {
       focus: "Pemberdayaan Bakso Lele PKK, Budidaya TOGA KWT, Eduwisata & Resep ISBN",
       items: [
         "Pemberdayaan Bakso Lele PKK",
-        "Budidaya Tanaman Obat Keluarga (TOGA) KWT",
-        "Pelatihan Eduwisata & Buku Resep Ber-ISBN"
+        "Budidaya Tanaman Obat Keluarga (TOGA)",
+        "Pelatihan Eduwisata"
       ]
     },
     {
