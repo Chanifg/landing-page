@@ -70,8 +70,8 @@ const PROGRAM_DATA = {
     },
     {
       name: "Narahubung",
-      handle: "Tim Pengelola",
-      url: "https://wa.me/6281234567890?text=Halo%20Tim%20PPK%20Ormawa%20IN%20WEST%20TAMP",
+      handle: "Humas Tim Pelaksana",
+      url: "https://wa.me/62859138732860?text=Halo%20Tim%20PPK%20Ormawa%20IN%20WEST%20TAMP",
       icon: "whatsapp",
       description: "Informasi & Kolaborasi"
     }
