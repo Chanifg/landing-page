@@ -28,7 +28,7 @@ const PROGRAM_DATA = {
       badge: "Utama & Real-time",
       badgeType: "gold",
       icon: "drive",
-      url: "https://drive.google.com",
+      url: "https://drive.google.com/drive/folders/1Jbhjdfii26xz2DDXSqwGGW3LCW9cXUWC?usp=drive_link",
       actionText: "Akses Google Drive",
       isPrimary: true
     },
