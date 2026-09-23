@@ -124,7 +124,6 @@ const PROGRAM_DATA = {
   stats: [
     { value: "15", label: "Mahasiswa Tim Pelaksana" },
     { value: "4", label: "Pilar Subprogram Inovasi" },
-    { value: "14", label: "Luaran Program Tercapai" },
     { value: "1", label: "Desa Wisata Binaan Mandiri" }
   ],
 
