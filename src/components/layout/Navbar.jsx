@@ -1,25 +1,78 @@
-import React, { useState } from 'react';
-import { NavLink, Link } from 'react-router-dom';
-import { Menu, X, Compass, ExternalLink } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Menu, X, Compass } from 'lucide-react';
+
+const navItems = [
+  { id: 'hero', label: 'Beranda' },
+  { id: 'tur-360', label: 'Tur 360°' },
+  { id: 'tentang', label: 'Tentang' },
+  { id: 'pilar', label: '4 Pilar & K3' },
+  { id: 'metrik', label: 'Capaian' },
+  { id: 'luaran', label: 'Luaran & SK' },
+  { id: 'galeri', label: 'Dokumentasi' },
+  { id: 'tim', label: 'Tim' },
+  { id: 'lokasi', label: 'Lokasi & Kontak' }
+];
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
 
   const toggleMenu = () => setMobileMenuOpen(prev => !prev);
   const closeMenu = () => setMobileMenuOpen(false);
+
+  useEffect(() => {
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -60% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    navItems.forEach((item) => {
+      const el = document.getElementById(item.id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleNavClick = (e, id) => {
+    e.preventDefault();
+    closeMenu();
+    setActiveSection(id);
+    const target = document.getElementById(id);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+      window.history.replaceState(null, '', `#${id}`);
+    }
+  };
 
   return (
     <header className="navbar">
       <div className="container navbar-container">
         {/* Brand Logos */}
-        <Link to="/" className="nav-logos" onClick={closeMenu} style={{ textDecoration: 'none' }}>
+        <a 
+          href="#hero" 
+          className="nav-logos" 
+          onClick={(e) => handleNavClick(e, 'hero')} 
+          style={{ textDecoration: 'none' }}
+        >
           <img src="/images/logos/untidar.png" alt="Logo Universitas Tidar" title="Universitas Tidar" />
           <img src="/images/logos/blu.png" alt="Logo BLU" title="BLU Unggul Berbudaya" />
           <img src="/images/logos/desa-wisata.png" alt="Desa Wisata Tampirkulon" title="Desa Wisata Tampirkulon" />
           <div className="nav-logo-team" title="PPK Ormawa Himagi Untidar">
             <img src="/images/logos/ppk-ormawa-himagi.png" alt="Logo PPK Ormawa Himagi Untidar" />
           </div>
-        </Link>
+        </a>
 
         {/* Mobile Toggle Button */}
         <button 
@@ -31,74 +84,28 @@ export default function Navbar() {
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        {/* Desktop Navigation Links */}
+        {/* Desktop & Mobile Navigation Links */}
         <nav className={`nav-links ${mobileMenuOpen ? 'mobile-open' : ''}`}>
-          <NavLink 
-            to="/" 
-            className={({ isActive }) => `nav-link-item ${isActive ? 'active' : ''}`}
-            onClick={closeMenu}
-            end
-          >
-            Beranda
-          </NavLink>
+          {navItems.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              className={`nav-link-item ${activeSection === item.id ? 'active' : ''}`}
+              onClick={(e) => handleNavClick(e, item.id)}
+            >
+              {item.label}
+            </a>
+          ))}
 
-          <NavLink 
-            to="/tentang" 
-            className={({ isActive }) => `nav-link-item ${isActive ? 'active' : ''}`}
-            onClick={closeMenu}
-          >
-            Tentang
-          </NavLink>
-
-          <NavLink 
-            to="/program" 
-            className={({ isActive }) => `nav-link-item ${isActive ? 'active' : ''}`}
-            onClick={closeMenu}
-          >
-            4 Pilar & K3
-          </NavLink>
-
-          <NavLink 
-            to="/luaran" 
-            className={({ isActive }) => `nav-link-item ${isActive ? 'active' : ''}`}
-            onClick={closeMenu}
-          >
-            Luaran & SK
-          </NavLink>
-
-          <NavLink 
-            to="/tur-360" 
-            className={({ isActive }) => `nav-link-item ${isActive ? 'active' : ''}`}
-            onClick={closeMenu}
-          >
-            Tur 360°
-          </NavLink>
-
-          <NavLink 
-            to="/dokumentasi" 
-            className={({ isActive }) => `nav-link-item ${isActive ? 'active' : ''}`}
-            onClick={closeMenu}
-          >
-            Dokumentasi
-          </NavLink>
-
-          <NavLink 
-            to="/kontak" 
-            className={({ isActive }) => `nav-link-item ${isActive ? 'active' : ''}`}
-            onClick={closeMenu}
-          >
-            Buku Tamu
-          </NavLink>
-
-          <Link 
-            to="/tur-360" 
+          <a 
+            href="#tur-360" 
             className="btn btn-primary nav-cta-btn" 
-            onClick={closeMenu}
+            onClick={(e) => handleNavClick(e, 'tur-360')}
             style={{ padding: '0.55rem 1.25rem', fontSize: '0.8125rem', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}
           >
             <Compass size={16} />
             <span>Jelajahi 360°</span>
-          </Link>
+          </a>
         </nav>
       </div>
     </header>
