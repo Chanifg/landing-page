@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="grad-leaf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D5A3B"/>
+      <stop offset="100%" stop-color="#14281B"/>
+    </linearGradient>
+    <linearGradient id="grad-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5B041"/>
+      <stop offset="100%" stop-color="#D9822B"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#grad-leaf)"/>
+  <!-- Leaf and wave motif representing wellness tourism -->
+  <path d="M32 12C20 18 16 30 20 44C24 48 30 51 38 49C46 47 48 39 46 32C44 23 37 15 32 12Z" fill="#E8F4EC" fill-opacity="0.2"/>
+  <path d="M32 14C23 20 20 31 24 42C27 45 32 47 37 45C44 43 45 36 43 30C41 22 36 16 32 14Z" fill="url(#grad-accent)"/>
+  <circle cx="32" cy="32" r="6" fill="#FFFFFF"/>
+</svg>
