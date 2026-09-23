@@ -3,6 +3,15 @@ import { Link } from 'react-router-dom';
 import { Lock } from 'lucide-react';
 
 export default function Footer() {
+  const handleScroll = (e, id) => {
+    e.preventDefault();
+    const target = document.getElementById(id);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+      window.history.replaceState(null, '', `#${id}`);
+    }
+  };
+
   return (
     <footer className="site-footer">
       <div className="container">
@@ -32,14 +41,15 @@ export default function Footer() {
           <div className="footer-credits">
             <h4>Navigasi &amp; Pengelola:</h4>
             <ul>
-              <li>• <Link to="/" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Beranda Utama</Link></li>
-              <li>• <Link to="/tentang" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Profil Tim &amp; PPK Ormawa</Link></li>
-              <li>• <Link to="/program" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Capaian 4 Pilar &amp; Standar K3</Link></li>
-              <li>• <Link to="/luaran" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Katalog Luaran &amp; Dokumen SK</Link></li>
-              <li>• <Link to="/tur-360" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Hub Tur Virtual 360°</Link></li>
-              <li>• <Link to="/dokumentasi" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Galeri Dokumentasi Lapangan</Link></li>
-              <li>• <Link to="/kontak" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Buku Tamu &amp; Masukan Juri</Link></li>
-              <li>
+              <li>• <a href="#hero" onClick={(e) => handleScroll(e, 'hero')} style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Beranda Utama</a></li>
+              <li>• <a href="#tur-360" onClick={(e) => handleScroll(e, 'tur-360')} style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Hub Tur Virtual 360°</a></li>
+              <li>• <a href="#tentang" onClick={(e) => handleScroll(e, 'tentang')} style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Profil &amp; Latar Belakang Desa</a></li>
+              <li>• <a href="#pilar" onClick={(e) => handleScroll(e, 'pilar')} style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Capaian 4 Pilar &amp; Standar K3</a></li>
+              <li>• <a href="#luaran" onClick={(e) => handleScroll(e, 'luaran')} style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Katalog Luaran &amp; Dokumen SK</a></li>
+              <li>• <a href="#galeri" onClick={(e) => handleScroll(e, 'galeri')} style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Galeri Dokumentasi Lapangan</a></li>
+              <li>• <a href="#tim" onClick={(e) => handleScroll(e, 'tim')} style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Susunan 15 Mahasiswa Pelaksana</a></li>
+              <li>• <a href="#lokasi" onClick={(e) => handleScroll(e, 'lokasi')} style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Akses Wilayah &amp; Narahubung</a></li>
+              <li style={{ marginTop: '0.5rem' }}>
                 • <Link to="/admin" style={{ color: 'var(--primary)', fontWeight: 700, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
                   <Lock size={12} />
                   <span>Panel Admin Koordinator</span>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 
 // Layout Components
 import Navbar from './components/layout/Navbar.jsx';
@@ -7,14 +7,8 @@ import Footer from './components/layout/Footer.jsx';
 import FloatingDock from './components/layout/FloatingDock.jsx';
 import ScrollToTop from './components/layout/ScrollToTop.jsx';
 
-// Public Pages
+// Public Single Page
 import HomePage from './pages/HomePage.jsx';
-import AboutPage from './pages/AboutPage.jsx';
-import ProgramsPage from './pages/ProgramsPage.jsx';
-import DeliverablesPage from './pages/DeliverablesPage.jsx';
-import VirtualTourPage from './pages/VirtualTourPage.jsx';
-import GalleryPage from './pages/GalleryPage.jsx';
-import ContactPage from './pages/ContactPage.jsx';
 
 // Admin Pages & Guard
 import ProtectedRoute from './components/admin/ProtectedRoute.jsx';
@@ -38,16 +32,18 @@ export default function App() {
 
       <main className={!isAdminRoute ? 'public-main' : ''}>
         <Routes>
-          {/* Public Routes */}
+          {/* Public Unified Single Page Route */}
           <Route path="/" element={<HomePage />} />
-          <Route path="/tentang" element={<AboutPage />} />
-          <Route path="/program" element={<ProgramsPage />} />
-          <Route path="/luaran" element={<DeliverablesPage />} />
-          <Route path="/tur-360" element={<VirtualTourPage />} />
-          <Route path="/dokumentasi" element={<GalleryPage />} />
-          <Route path="/kontak" element={<ContactPage />} />
 
-          {/* Admin Routes */}
+          {/* Graceful Redirects for Legacy Multi-Page URLs */}
+          <Route path="/tentang" element={<Navigate to="/#tentang" replace />} />
+          <Route path="/program" element={<Navigate to="/#pilar" replace />} />
+          <Route path="/luaran" element={<Navigate to="/#luaran" replace />} />
+          <Route path="/tur-360" element={<Navigate to="/#tur-360" replace />} />
+          <Route path="/dokumentasi" element={<Navigate to="/#galeri" replace />} />
+          <Route path="/kontak" element={<Navigate to="/#lokasi" replace />} />
+
+          {/* Admin Protected Routes */}
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route 
             path="/admin" 
@@ -99,7 +95,7 @@ export default function App() {
           />
 
           {/* Fallback Route */}
-          <Route path="*" element={<HomePage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
 
