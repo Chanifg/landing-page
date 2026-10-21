@@ -486,3 +486,161 @@
   white-space: nowrap;
   pointer-events: none;
 }
+
+/* ==========================================================================
+   Editorial 360 Tour Section (New Mockup Spec)
+   ========================================================================== */
+.tour-editorial-section {
+  padding: 5rem 0;
+  background-color: var(--bg-main);
+}
+
+.tour-editorial-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+}
+
+.tour-editorial-desc {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.tour-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.25rem;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.tour-status-left {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.tour-active-badge {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--primary);
+  color: #FFFFFF;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+}
+
+.tour-active-dusun {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.tour-viewer-frame {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(22, 34, 25, 0.08);
+  border: 1px solid var(--border-color);
+  background: #000000;
+}
+
+/* Switcher Pills Bar (7 Destinasi) */
+.tour-pills-bar-wrapper {
+  margin-top: 1.25rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.tour-pills-bar-wrapper::-webkit-scrollbar {
+  height: 5px;
+}
+
+.tour-pills-bar-wrapper::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 9999px;
+}
+
+.tour-pills-bar {
+  display: flex;
+  gap: 0.65rem;
+  white-space: nowrap;
+}
+
+.tour-pill-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.tour-pill-item .pill-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--border-color);
+  transition: all var(--transition-fast);
+}
+
+.tour-pill-item:hover {
+  border-color: var(--primary);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.tour-pill-item.active {
+  background: var(--primary);
+  color: #FFFFFF;
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(30, 58, 36, 0.18);
+}
+
+.tour-pill-item.active .pill-dot {
+  background-color: var(--accent);
+}
+
+/* Smartphone Gyroscope Guidance */
+.tour-gyro-guidance {
+  margin-top: 1.5rem;
+  background: var(--surface-alt);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.tour-gyro-guidance .gyro-icon {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .tour-editorial-header {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
