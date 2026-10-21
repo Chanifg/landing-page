@@ -1,0 +1,143 @@
+/* ==========================================================================
+   IN WEST TAMP : Editorial Layout & Component Utilities
+   Warm Ivory + Forest Green Modern Editorial Aesthetic
+   ========================================================================== */
+
+.editorial-section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.editorial-section-alt {
+  background-color: var(--bg-section-alt);
+  padding: 5rem 0;
+}
+
+/* Eyebrow Pill Tag */
+.editorial-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.85rem;
+}
+
+.editorial-eyebrow-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--accent-light);
+  color: var(--accent);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Section Titles */
+.editorial-title {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.editorial-subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: 650px;
+}
+
+/* Buttons */
+.btn-pill-forest {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--primary);
+  color: #FFFFFF !important;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.65rem 1.4rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--primary-light);
+  box-shadow: 0 4px 12px rgba(30, 58, 36, 0.15);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-pill-forest:hover {
+  background-color: var(--primary-light);
+  box-shadow: 0 6px 18px rgba(30, 58, 36, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn-pill-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: var(--text-primary) !important;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-pill-outline:hover {
+  background-color: var(--surface);
+  border-color: var(--text-secondary);
+  transform: translateY(-1px);
+}
+
+/* Editorial Cards */
+.editorial-card {
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-editorial);
+  transition: all var(--transition-smooth);
+}
+
+.editorial-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: rgba(30, 58, 36, 0.18);
+}
+
+/* Responsive Container */
+.editorial-container {
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .editorial-title {
+    font-size: 1.75rem;
+  }
+  .editorial-section,
+  .editorial-section-alt {
+    padding: 3.5rem 0;
+  }
+}
