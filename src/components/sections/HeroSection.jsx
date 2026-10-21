@@ -1,36 +1,9 @@
 import React from 'react';
-import { MapPin, Users, Home, Layers } from 'lucide-react';
+import { Compass, Users, MapPin, ShieldCheck } from 'lucide-react';
 import { siteImages } from '../../data/siteImages.js';
 import ImagePlaceholder from '../shared/ImagePlaceholder.jsx';
 
 export default function HeroSection({ onExploreTour }) {
-  const stats = [
-    {
-      id: 'area',
-      icon: <MapPin size={16} />,
-      value: '2.61 km²',
-      label: 'Luas Wilayah'
-    },
-    {
-      id: 'population',
-      icon: <Users size={16} />,
-      value: '±4.893',
-      label: 'Jumlah Penduduk'
-    },
-    {
-      id: 'villages',
-      icon: <Home size={16} />,
-      value: '13',
-      label: 'Dusun Terpadu'
-    },
-    {
-      id: 'pillars',
-      icon: <Layers size={16} />,
-      value: '4 Pilar',
-      label: 'Intervensi Utama'
-    }
-  ];
-
   return (
     <section id="hero" className="hero-editorial-section">
       <div className="editorial-container">
@@ -44,36 +17,82 @@ export default function HeroSection({ onExploreTour }) {
           </p>
         </div>
 
-        {/* Large Rounded Team Image with Floating Stats Overlap */}
+        {/* Large Rounded Photo Frame with Cutout Notch Overlap */}
         <div className="hero-editorial-frame-wrapper">
+          {/* Main Photo Frame with border-radius: 24px */}
           <div className="hero-editorial-frame">
             <ImagePlaceholder
               src={siteImages.hero.mainTeam}
               alt={siteImages.hero.alt}
               label={siteImages.hero.label}
-              aspectRatio="16/9"
+              aspectRatio="16/9.5"
+              height="500px"
               className="hero-editorial-img"
             />
           </div>
 
-          {/* Floating Stats Card */}
-          <div className="hero-floating-stats-card">
-            {stats.map((stat, idx) => (
-              <React.Fragment key={stat.id}>
-                <div className="hero-stat-col">
-                  <div className="hero-stat-icon-wrapper">
-                    {stat.icon}
-                  </div>
-                  <div className="hero-stat-val">
-                    {stat.value}
-                  </div>
-                  <div className="hero-stat-lbl">
-                    {stat.label}
-                  </div>
+          {/* Cutout Notch Container (Kotak di belakang 4 card dengan border-radius: 24px) */}
+          <div className="hero-cutout-notch" aria-label="Ringkasan Wilayah Tampirkulon">
+            {/* The White Floating 4-Column Card */}
+            <div className="hero-floating-stats-card">
+              {/* Stat 1: Luas Wilayah */}
+              <div className="hero-stat-col">
+                <div className="hero-stat-icon-circle">
+                  <Compass size={16} strokeWidth={2.2} />
                 </div>
-                {idx < stats.length - 1 && <div className="hero-stat-divider" />}
-              </React.Fragment>
-            ))}
+                <div className="hero-stat-val">
+                  2.61 <span className="stat-unit">KM²</span>
+                </div>
+                <div className="hero-stat-lbl">
+                  LUAS WILAYAH
+                </div>
+              </div>
+
+              <div className="hero-stat-divider" aria-hidden="true" />
+
+              {/* Stat 2: Jumlah Penduduk */}
+              <div className="hero-stat-col">
+                <div className="hero-stat-icon-circle">
+                  <Users size={16} strokeWidth={2.2} />
+                </div>
+                <div className="hero-stat-val">
+                  4.893+
+                </div>
+                <div className="hero-stat-lbl">
+                  JUMLAH PENDUDUK
+                </div>
+              </div>
+
+              <div className="hero-stat-divider" aria-hidden="true" />
+
+              {/* Stat 3: Dusun Terpadu */}
+              <div className="hero-stat-col">
+                <div className="hero-stat-icon-circle">
+                  <MapPin size={16} strokeWidth={2.2} />
+                </div>
+                <div className="hero-stat-val">
+                  13
+                </div>
+                <div className="hero-stat-lbl">
+                  DUSUN TERPADU
+                </div>
+              </div>
+
+              <div className="hero-stat-divider" aria-hidden="true" />
+
+              {/* Stat 4: Intervensi Program */}
+              <div className="hero-stat-col">
+                <div className="hero-stat-icon-circle">
+                  <ShieldCheck size={16} strokeWidth={2.2} />
+                </div>
+                <div className="hero-stat-val">
+                  4 Pilar
+                </div>
+                <div className="hero-stat-lbl">
+                  INTERVENSI PROGRAM
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

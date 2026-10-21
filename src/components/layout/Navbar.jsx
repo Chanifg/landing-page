@@ -1,50 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 
 const navItems = [
-  { id: 'tentang', label: 'Tentang' },
-  { id: 'pilar', label: '4 Pilar' },
-  { id: 'tur-360', label: 'Tur 360°' },
-  { id: 'galeri', label: 'Dokumentasi' },
-  { id: 'tim', label: 'Tim Pelaksana' }
+  { id: 'tentang', label: 'TENTANG' },
+  { id: 'pilar', label: '4 PILAR INOVASI' },
+  { id: 'galeri', label: 'GALERI' },
+  { id: 'tim', label: 'TIM PELAKSANA' }
 ];
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('');
 
   const toggleMenu = () => setMobileMenuOpen(prev => !prev);
   const closeMenu = () => setMobileMenuOpen(false);
 
-  useEffect(() => {
-    const observerCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    };
-
-    const observerOptions = {
-      root: null,
-      rootMargin: '-20% 0px -60% 0px',
-      threshold: 0
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    navItems.forEach((item) => {
-      const el = document.getElementById(item.id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   const handleNavClick = (e, id) => {
     e.preventDefault();
     closeMenu();
-    setActiveSection(id);
     const target = document.getElementById(id);
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' });
@@ -53,77 +25,84 @@ export default function Navbar() {
   };
 
   return (
-    <header className="navbar">
-      <div className="container navbar-container">
-        {/* Brand Logo & Tag */}
+    <header className="navbar-clean">
+      <div className="editorial-container navbar-clean-container">
+        {/* Brand Logo Only (Matches Mockup) */}
         <a 
           href="#hero" 
-          className="nav-brand"
+          className="navbar-brand-wrap"
           onClick={(e) => handleNavClick(e, 'hero')} 
-          style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.75rem' }}
+          aria-label="IN WEST TAMP - PPK Ormawa Himagi Untidar"
         >
           <img 
             src="/images/logos/ppk-ormawa-himagi.png" 
-            alt="Logo PPK Ormawa Himagi Untidar" 
-            style={{ height: '36px', width: 'auto', objectFit: 'contain' }}
+            alt="PPK Ormawa Himagi Untidar" 
+            className="navbar-brand-logo"
             onError={(e) => {
               e.currentTarget.src = '/images/logos/untidar.png';
             }}
           />
-          <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.15 }}>
-            <span style={{ 
-              fontFamily: 'var(--font-heading)', 
-              fontWeight: 800, 
-              fontSize: '0.9375rem', 
-              letterSpacing: '0.04em',
-              color: 'var(--text-primary)'
-            }}>
-              IN WEST TAMP
-            </span>
-            <span style={{ 
-              fontSize: '0.6875rem', 
-              color: 'var(--text-muted)',
-              fontWeight: 600,
-              letterSpacing: '0.02em'
-            }}>
-              PPK ORMAWA HIMAGI UNTIDAR
-            </span>
-          </div>
         </a>
 
-        {/* Mobile Toggle Button */}
-        <button 
-          className="mobile-nav-toggle"
-          onClick={toggleMenu}
-          aria-label={mobileMenuOpen ? 'Tutup menu navigasi' : 'Buka menu navigasi'}
-          aria-expanded={mobileMenuOpen}
-        >
-          {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
-
-        {/* Desktop & Mobile Navigation Links */}
-        <nav className={`nav-links ${mobileMenuOpen ? 'mobile-open' : ''}`}>
+        {/* Desktop Center Links */}
+        <nav className="navbar-clean-center" aria-label="Navigasi Utama">
           {navItems.map((item) => (
             <a
               key={item.id}
               href={`#${item.id}`}
-              className={`nav-link-item ${activeSection === item.id ? 'active' : ''}`}
+              className="navbar-clean-link-item"
               onClick={(e) => handleNavClick(e, item.id)}
             >
               {item.label}
             </a>
           ))}
+        </nav>
 
-          {/* Forest Green Pill Button */}
+        {/* Right CTA Button (Desktop) */}
+        <div className="navbar-clean-right">
           <a 
             href="#tur-360" 
-            className="btn-pill-forest"
+            className="navbar-pill-btn"
             onClick={(e) => handleNavClick(e, 'tur-360')}
           >
-            <span>Jelajahi Paket</span>
-            <ArrowUpRight size={15} />
+            <span>JELAJAHI 360°</span>
+            <ArrowUpRight size={14} />
           </a>
-        </nav>
+
+          {/* Mobile Toggle Button */}
+          <button 
+            className="mobile-clean-toggle"
+            onClick={toggleMenu}
+            aria-label={mobileMenuOpen ? 'Tutup menu' : 'Buka menu'}
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
+
+        {/* Mobile Navigation Drawer */}
+        {mobileMenuOpen && (
+          <div className="navbar-mobile-drawer">
+            {navItems.map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className="navbar-mobile-link"
+                onClick={(e) => handleNavClick(e, item.id)}
+              >
+                {item.label}
+              </a>
+            ))}
+            <a 
+              href="#tur-360" 
+              className="navbar-pill-btn mobile-pill-btn"
+              onClick={(e) => handleNavClick(e, 'tur-360')}
+            >
+              <span>JELAJAHI 360°</span>
+              <ArrowUpRight size={14} />
+            </a>
+          </div>
+        )}
       </div>
     </header>
   );
