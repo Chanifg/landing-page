@@ -343,3 +343,200 @@
     padding-bottom: 5.5rem;
   }
 }
+
+/* ==========================================================================
+   Editorial Bento Grid Gallery (New Mockup Spec)
+   ========================================================================== */
+.bento-gallery-section {
+  padding: 5rem 0;
+  background-color: var(--bg-main);
+}
+
+.bento-gallery-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+}
+
+.bento-header-desc {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.bento-grid-container {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 1.25rem;
+}
+
+.bento-middle-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.bento-card-panorama {
+  grid-column: 1 / -1;
+  max-height: 280px;
+}
+
+.bento-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background-color: var(--surface);
+  box-shadow: var(--shadow-editorial);
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+.bento-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(22, 34, 25, 0.12);
+  border-color: rgba(30, 58, 36, 0.3);
+}
+
+.bento-card .bento-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-smooth);
+}
+
+.bento-card:hover .bento-img {
+  transform: scale(1.04);
+}
+
+.bento-card-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(18, 23, 20, 0.1) 0%, rgba(18, 23, 20, 0.85) 100%);
+  pointer-events: none;
+}
+
+.bento-card-gradient-overlay-subtle {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(18, 23, 20, 0.05) 40%, rgba(18, 23, 20, 0.8) 100%);
+  pointer-events: none;
+}
+
+.bento-card-badge-top {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+}
+
+.bento-card-badge-top .badge-tag {
+  background: rgba(250, 247, 242, 0.92);
+  color: var(--primary);
+  backdrop-filter: blur(8px);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid rgba(230, 226, 216, 0.8);
+}
+
+.bento-card-caption-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  z-index: 2;
+  color: #FFFFFF;
+}
+
+.bento-card-caption-bottom.compact {
+  padding: 1rem;
+}
+
+.bento-eyebrow {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+}
+
+.bento-caption-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #FFFFFF;
+  margin-bottom: 0.4rem;
+}
+
+.bento-caption-title-sm {
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #FFFFFF;
+}
+
+.bento-caption-desc {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: #DDE5DF;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.bento-hover-indicator {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: all var(--transition-fast);
+  z-index: 3;
+}
+
+.bento-card:hover .bento-hover-indicator {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (max-width: 991px) {
+  .bento-grid-container {
+    grid-template-columns: 1fr;
+  }
+  .bento-gallery-header {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .bento-middle-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
