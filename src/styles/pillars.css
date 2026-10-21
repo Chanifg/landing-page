@@ -239,8 +239,10 @@
    Editorial 4 Pillars Interactive Accordion (New Mockup Spec)
    ========================================================================== */
 .pillars-editorial-section {
-  padding: 5rem 0;
-  background-color: var(--bg-main);
+  padding: 5.5rem 0;
+  background-color: var(--bg-section-alt);
+  border-top: 1px solid rgba(22, 34, 25, 0.04);
+  border-bottom: 1px solid rgba(22, 34, 25, 0.04);
 }
 
 .pillars-editorial-header {

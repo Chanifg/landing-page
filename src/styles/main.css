@@ -6,12 +6,12 @@
 
 :root {
   /* Brand Palette : Warm Ivory Editorial Canvas */
-  --bg-main: #FAF7F2;
-  --bg-section-alt: #F3EFE6;
+  --bg-main: #FAF8F3;
+  --bg-section-alt: #F5F2EA;
   --surface: #FFFFFF;
-  --surface-alt: #F6F3EB;
-  --surface-glass: rgba(250, 247, 242, 0.94);
-  --surface-dark: #121714;
+  --surface-alt: #F5F2EA;
+  --surface-glass: rgba(250, 248, 243, 0.94);
+  --surface-dark: #141312;
 
   /* Primary : Deep Pine Forest Green */
   --primary: #1E3A24;
