@@ -234,3 +234,250 @@
   font-weight: 700;
   color: var(--text-primary);
 }
+
+/* ==========================================================================
+   Editorial 4 Pillars Interactive Accordion (New Mockup Spec)
+   ========================================================================== */
+.pillars-editorial-section {
+  padding: 5rem 0;
+  background-color: var(--bg-main);
+}
+
+.pillars-editorial-header {
+  margin-bottom: 3.5rem;
+  max-width: 800px;
+}
+
+.pillars-split-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+/* Accordion Column */
+.pillars-accordion-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.pillar-accordion-card {
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  background-color: var(--surface);
+  transition: all var(--transition-smooth);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.pillar-accordion-card.collapsed:hover {
+  border-color: rgba(30, 58, 36, 0.3);
+  transform: translateX(4px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Active State: Deep Forest Green (#1E3A24) */
+.pillar-accordion-card.active {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 12px 30px rgba(30, 58, 36, 0.18);
+  cursor: default;
+}
+
+.pillar-accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.35rem 1.75rem;
+}
+
+.pillar-header-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.pillar-badge-num {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pillar-accordion-card.active .pillar-badge-num {
+  color: #B5D2B9;
+}
+
+.pillar-accordion-card.collapsed .pillar-badge-num {
+  color: var(--accent);
+}
+
+.pillar-name-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.pillar-accordion-card.active .pillar-name-title {
+  color: #FFFFFF;
+}
+
+.pillar-accordion-card.collapsed .pillar-name-title {
+  color: var(--text-primary);
+}
+
+.pillar-toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+}
+
+.pillar-accordion-card.active .pillar-toggle-icon {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+}
+
+.pillar-accordion-card.collapsed .pillar-toggle-icon {
+  background: var(--surface-alt);
+  color: var(--text-muted);
+}
+
+.pillar-accordion-body {
+  padding: 0 1.75rem 1.75rem 1.75rem;
+}
+
+.pillar-accordion-card.active .pillar-desc-text {
+  color: #E2ECE3;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+.pillar-highlights-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.pillar-highlight-chip {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.pillar-highlight-chip .chip-label {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #C1DCC5;
+  margin-bottom: 0.2rem;
+}
+
+.pillar-highlight-chip .chip-value {
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+/* Right Showcase Card */
+.pillar-showcase-card {
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-editorial);
+  position: sticky;
+  top: 90px;
+}
+
+.pillar-showcase-image-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: var(--surface-alt);
+}
+
+.pillar-showcase-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pillar-showcase-content {
+  padding: 1.75rem;
+}
+
+.pillar-showcase-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.showcase-badge {
+  background: var(--accent-light);
+  color: var(--accent);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.showcase-date {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.pillar-showcase-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+}
+
+.pillar-showcase-impact {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.pillar-showcase-footer {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1rem;
+}
+
+.footer-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.78125rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 991px) {
+  .pillars-split-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .pillar-showcase-card {
+    position: static;
+  }
+}
+
