@@ -234,3 +234,181 @@
   }
 }
 
+/* ==========================================================================
+   Editorial Dark Footer (New Mockup Spec)
+   ========================================================================== */
+.editorial-dark-footer {
+  background-color: var(--surface-dark);
+  color: #FFFFFF;
+  padding: 5rem 0 2rem;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dark-footer-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1.15fr;
+  gap: 3.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.dark-footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-brand-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.footer-brand-logo {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+}
+
+.footer-brand-heading {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
+  line-height: 1.1;
+}
+
+.footer-brand-sub {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+}
+
+.dark-footer-desc {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: #A1ABA3;
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+.footer-sk-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(197, 138, 67, 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(197, 138, 67, 0.25);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  align-self: flex-start;
+}
+
+.dark-footer-heading {
+  font-family: var(--font-heading);
+  font-size: 0.9375rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 1.25rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.dark-footer-heading::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background-color: var(--accent);
+}
+
+.dark-footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.dark-footer-links a {
+  color: #A1ABA3;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: all var(--transition-fast);
+}
+
+.dark-footer-links a:hover {
+  color: #FFFFFF;
+  padding-left: 4px;
+}
+
+.admin-link-li {
+  margin-top: 0.5rem;
+}
+
+.dark-footer-admin-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--accent) !important;
+  font-weight: 700;
+  font-size: 0.8125rem;
+}
+
+.dark-footer-partners-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  color: #A1ABA3;
+  font-size: 0.84375rem;
+  line-height: 1.5;
+}
+
+.dark-footer-bottom-row {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78125rem;
+  color: #6C7A6F;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.dark-footer-watermark {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 11vw, 8.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.04);
+  text-align: center;
+  line-height: 0.9;
+  margin-top: 2rem;
+  letter-spacing: 0.06em;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (max-width: 991px) {
+  .dark-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Lock } from 'lucide-react';
+import { Lock, ShieldCheck, ExternalLink } from 'lucide-react';
 
 export default function Footer() {
   const handleScroll = (e, id) => {
@@ -13,63 +13,81 @@ export default function Footer() {
   };
 
   return (
-    <footer className="site-footer">
-      <div className="container">
-        <div className="footer-top-grid">
-          {/* Kolom Identitas & Program */}
-          <div className="footer-brand">
-            <h3>IN WEST TAMP</h3>
-            <p>
-              Program Penguatan Kapasitas Organisasi Kemahasiswaan (PPK Ormawa) Himpunan Mahasiswa Gizi (Himagi), 
-              Fakultas Ilmu Kesehatan, Universitas Tidar 2025. Mengintegrasikan keselamatan wisata air Westtamp Tubing, 
-              ruang wellness TOGA, edukasi olahan lele, dan kelembagaan POKDARWIS resmi di Desa Tampirkulon.
+    <footer className="editorial-dark-footer">
+      <div className="editorial-container">
+        {/* 3-Column Grid */}
+        <div className="dark-footer-grid">
+          {/* Column 1: Brand & Program */}
+          <div className="dark-footer-col brand-col">
+            <div className="footer-brand-title-wrap">
+              <img
+                src="/images/logos/ppk-ormawa-himagi.png"
+                alt="Logo Himagi Untidar"
+                className="footer-brand-logo"
+                onError={(e) => {
+                  e.currentTarget.src = '/images/logos/untidar.png';
+                }}
+              />
+              <div>
+                <h3 className="footer-brand-heading">IN WEST TAMP</h3>
+                <span className="footer-brand-sub">PPK ORMAWA HIMAGI UNTIDAR 2025</span>
+              </div>
+            </div>
+            <p className="dark-footer-desc">
+              Integrated Wellness-Tourism Area Tampirkulon. Program Penguatan Kapasitas Organisasi Kemahasiswaan Himpunan Mahasiswa Gizi, Fakultas Ilmu Kesehatan, Universitas Tidar di Desa Tampirkulon, Candimulyo, Magelang.
             </p>
-            <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-              <span className="badge badge-dusun">
-                Kategori: Poster Paling Kreatif
-              </span>
-              <span className="badge badge-category">
-                Desa Tampirkulon, Magelang
-              </span>
-              <span className="badge" style={{ background: 'rgba(48, 65, 21, 0.08)', color: 'var(--primary)', border: '1px solid rgba(48, 65, 21, 0.2)' }}>
-                SK No. 188.45/14/KEP/2025
-              </span>
+            <div className="footer-sk-badge">
+              <ShieldCheck size={14} />
+              <span>SK Kades No. 188.45/14/KEP/2025</span>
             </div>
           </div>
 
-          {/* Kolom Tautan & Pelaksana */}
-          <div className="footer-credits">
-            <h4>Navigasi &amp; Pengelola:</h4>
-            <ul>
-              <li>• <a href="#hero" onClick={(e) => handleScroll(e, 'hero')} style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Beranda Utama</a></li>
-              <li>• <a href="#tur-360" onClick={(e) => handleScroll(e, 'tur-360')} style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Hub Tur Virtual 360°</a></li>
-              <li>• <a href="#tentang" onClick={(e) => handleScroll(e, 'tentang')} style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Profil &amp; Latar Belakang Desa</a></li>
-              <li>• <a href="#pilar" onClick={(e) => handleScroll(e, 'pilar')} style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Capaian 4 Pilar &amp; Standar K3</a></li>
-              <li>• <a href="#luaran" onClick={(e) => handleScroll(e, 'luaran')} style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Katalog Luaran &amp; Dokumen SK</a></li>
-              <li>• <a href="#galeri" onClick={(e) => handleScroll(e, 'galeri')} style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Galeri Dokumentasi Lapangan</a></li>
-              <li>• <a href="#tim" onClick={(e) => handleScroll(e, 'tim')} style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Susunan 15 Mahasiswa Pelaksana</a></li>
-              <li>• <a href="#lokasi" onClick={(e) => handleScroll(e, 'lokasi')} style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Akses Wilayah &amp; Narahubung</a></li>
-              <li style={{ marginTop: '0.5rem' }}>
-                • <Link to="/admin" style={{ color: 'var(--primary)', fontWeight: 700, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
-                  <Lock size={12} />
+          {/* Column 2: Quick Links */}
+          <div className="dark-footer-col">
+            <h4 className="dark-footer-heading">Navigasi Utama</h4>
+            <ul className="dark-footer-links">
+              <li><a href="#hero" onClick={(e) => handleScroll(e, 'hero')}>Beranda Utama</a></li>
+              <li><a href="#tentang" onClick={(e) => handleScroll(e, 'tentang')}>Latar Belakang &amp; Potensi</a></li>
+              <li><a href="#pilar" onClick={(e) => handleScroll(e, 'pilar')}>4 Pilar Intervensi</a></li>
+              <li><a href="#tur-360" onClick={(e) => handleScroll(e, 'tur-360')}>Tur Virtual 360°</a></li>
+              <li><a href="#galeri" onClick={(e) => handleScroll(e, 'galeri')}>Dokumentasi Kegiatan</a></li>
+              <li><a href="#tim" onClick={(e) => handleScroll(e, 'tim')}>15 Mahasiswa Pelaksana</a></li>
+              <li className="admin-link-li">
+                <Link to="/admin" className="dark-footer-admin-link">
+                  <Lock size={13} />
                   <span>Panel Admin Koordinator</span>
                 </Link>
               </li>
             </ul>
           </div>
+
+          {/* Column 3: Mitra & Dukungan Resmi */}
+          <div className="dark-footer-col">
+            <h4 className="dark-footer-heading">Mitra Kolaborasi</h4>
+            <ul className="dark-footer-partners-list">
+              <li>• Ditjen Diktiristek Kemendikbudristek (Belmawa)</li>
+              <li>• Universitas Tidar (Fakultas Ilmu Kesehatan)</li>
+              <li>• Pemerintah Desa Tampirkulon, Candimulyo</li>
+              <li>• Basarnas Kantor SAR Magelang (Standarisasi K3)</li>
+              <li>• Palang Merah Indonesia / PMI (Pelatihan P3K)</li>
+              <li>• Puskesmas Candimulyo (Health Screening Day)</li>
+              <li>• POKDARWIS &amp; Warga Desa Wisata Tampirkulon</li>
+            </ul>
+          </div>
         </div>
 
-        <div className="footer-bottom">
+        {/* Bottom Copyright Row */}
+        <div className="dark-footer-bottom-row">
           <div>
-            &copy; 2025 PPK Ormawa Himagi Untidar. Hak Cipta Dilindungi.
+            &copy; 2025–2026 PPK Ormawa Himagi Universitas Tidar. Hak Cipta Dilindungi.
           </div>
           <div>
-            Sistem Informasi &amp; Hub Tur Virtual Terpadu Desa Wisata Tampirkulon
+            Integrated Wellness-Tourism Area Tampirkulon, Candimulyo, Magelang
           </div>
         </div>
 
-        {/* Giant Watermark Footer (DESIGN.md Section 5G) */}
-        <div className="footer-watermark" aria-hidden="true">
+        {/* Giant Watermark Typography */}
+        <div className="dark-footer-watermark" aria-hidden="true">
           IN WEST TAMP
         </div>
       </div>
