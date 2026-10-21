@@ -12,19 +12,19 @@ export const siteImages = {
   },
   narrative: {
     lele: {
-      src: '/images/documentation/edukasi-olahan-lele.jpg',
-      alt: 'Budidaya Ikan Lele & Diversifikasi Pangan',
-      label: 'Budidaya Ikan Lele & Edukasi Gizi'
+      src: '/images/narrative/potensi-lele.png',
+      alt: 'Budidaya Ikan Lele Desa Tampirkulon',
+      label: 'Budidaya Ikan Lele'
     },
     tubing: {
-      src: '/images/documentation/aksi-wisata-tubing.jpg',
-      alt: 'West Tamp Tubing Susur Sungai Gono',
-      label: 'Wisata Air Susur Sungai Gono'
+      src: '/images/narrative/potensi-tubing.png',
+      alt: 'Wisata Air Susur Sungai Gono (West Tamp Tubing)',
+      label: 'West Tamp Tubing'
     },
     umkm: {
-      src: '/images/documentation/sosialisasi-umkm.jpg',
-      alt: 'Sentra UMKM Pangan Lokal Tampirkulon',
-      label: 'Sentra UMKM Keripik Tempe & Gula Jawa'
+      src: '/images/narrative/potensi-umkm.png',
+      alt: 'Sentra UMKM Olahan Pangan Lokal Tampirkulon',
+      label: 'Sentra UMKM Pangan Lokal'
     }
   },
   pillars: {

@@ -143,94 +143,129 @@
 }
 
 /* ==========================================================================
-   Narrative Section
+   Narrative Section (Mockup Spec: Eyebrow Pill, Two-Tone Lead, 3 Photo Showcase)
    ========================================================================== */
 .narrative-section {
-  padding: 4.5rem 0 5rem;
+  padding: 3.5rem 0 5.5rem;
   background-color: var(--bg-main);
+  text-align: center;
 }
 
 .narrative-text-wrapper {
-  max-width: 860px;
+  max-width: 920px;
   margin: 0 auto 3.5rem;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.narrative-lead-paragraph {
+.narrative-eyebrow-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FDF4E7;
+  border: 1px solid #F6D6AE;
+  color: #B66912;
   font-family: var(--font-heading);
-  font-size: clamp(1.1rem, 2vw, 1.35rem);
-  color: var(--text-primary);
-  line-height: 1.6;
-  margin: 1.5rem 0 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.35rem 1.15rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 2rem;
+}
+
+.narrative-editorial-paragraph {
+  font-family: var(--font-body);
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  line-height: 1.75;
+  margin: 0;
+  text-align: center;
   letter-spacing: -0.01em;
 }
 
-.narrative-body-paragraph {
-  font-family: var(--font-body);
-  font-size: 0.9375rem;
-  color: var(--text-secondary);
-  line-height: 1.75;
-  margin: 0 auto;
+.narrative-highlight {
+  color: #1A201B;
+  font-weight: 700;
 }
 
-.narrative-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.75rem;
-  max-width: 980px;
-  margin: 0 auto;
+.narrative-secondary {
+  color: #727E74;
+  font-weight: 450;
 }
 
-.narrative-card {
-  background: var(--surface);
-  border: 1px solid var(--border-color);
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: var(--shadow-editorial);
-  transition: all var(--transition-smooth);
+/* 3-Photo Showcase: Side portrait cards + Center dominant landscape card */
+.narrative-cards-showcase {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  max-width: 1040px;
+  margin: 0 auto;
 }
 
-.narrative-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(22, 34, 25, 0.08);
-  border-color: rgba(30, 58, 36, 0.25);
-}
-
-.narrative-card-image-wrap {
-  width: 100%;
-  aspect-ratio: 4 / 3;
+.narrative-showcase-card {
+  border-radius: 20px;
   overflow: hidden;
-  background-color: var(--surface-alt);
+  background-color: var(--surface);
+  box-shadow: 0 10px 24px rgba(22, 34, 25, 0.07);
+  transition: all var(--transition-smooth);
+  flex-shrink: 0;
 }
 
-.narrative-card-img {
+.narrative-showcase-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(22, 34, 25, 0.12);
+}
+
+.narrative-showcase-side {
+  width: 220px;
+  height: 290px;
+}
+
+.narrative-showcase-center {
+  width: 440px;
+  height: 330px;
+  box-shadow: 0 14px 34px rgba(22, 34, 25, 0.11);
+}
+
+.narrative-showcase-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
   transition: transform var(--transition-smooth);
 }
 
-.narrative-card:hover .narrative-card-img {
-  transform: scale(1.05);
+.narrative-showcase-card:hover .narrative-showcase-img {
+  transform: scale(1.03);
 }
 
-.narrative-card-caption {
-  padding: 0.85rem 1rem;
-  text-align: center;
-  font-family: var(--font-heading);
-  font-size: 0.8125rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  background: var(--surface);
-  border-top: 1px solid var(--border-subtle);
+@media (max-width: 960px) {
+  .narrative-showcase-side {
+    width: 180px;
+    height: 250px;
+  }
+  .narrative-showcase-center {
+    width: 350px;
+    height: 280px;
+  }
+  .narrative-cards-showcase {
+    gap: 0.85rem;
+  }
 }
 
-@media (max-width: 768px) {
-  .narrative-cards-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 640px) {
+  .narrative-cards-showcase {
+    flex-direction: column;
     gap: 1.25rem;
+  }
+  .narrative-showcase-side,
+  .narrative-showcase-center {
+    width: 100%;
+    max-width: 380px;
+    height: 260px;
   }
 }
 
