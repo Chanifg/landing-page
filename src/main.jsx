@@ -11,6 +11,7 @@ import './styles/viewer360.css';
 import './styles/pillars.css';
 import './styles/counter.css';
 import './styles/gallery.css';
+import './styles/team.css';
 import './styles/dock.css';
 import './styles/pages.css';
 import './styles/admin.css';
