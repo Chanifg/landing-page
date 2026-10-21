@@ -1,21 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Compass } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 
 const navItems = [
-  { id: 'hero', label: 'Beranda' },
-  { id: 'tur-360', label: 'Tur 360°' },
   { id: 'tentang', label: 'Tentang' },
-  { id: 'pilar', label: '4 Pilar & K3' },
-  { id: 'metrik', label: 'Capaian' },
-  { id: 'luaran', label: 'Luaran & SK' },
+  { id: 'pilar', label: '4 Pilar' },
+  { id: 'tur-360', label: 'Tur 360°' },
   { id: 'galeri', label: 'Dokumentasi' },
-  { id: 'tim', label: 'Tim' },
-  { id: 'lokasi', label: 'Lokasi & Kontak' }
+  { id: 'tim', label: 'Tim Pelaksana' }
 ];
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero');
+  const [activeSection, setActiveSection] = useState('');
 
   const toggleMenu = () => setMobileMenuOpen(prev => !prev);
   const closeMenu = () => setMobileMenuOpen(false);
@@ -59,18 +55,39 @@ export default function Navbar() {
   return (
     <header className="navbar">
       <div className="container navbar-container">
-        {/* Brand Logos */}
+        {/* Brand Logo & Tag */}
         <a 
           href="#hero" 
-          className="nav-logos" 
+          className="nav-brand"
           onClick={(e) => handleNavClick(e, 'hero')} 
-          style={{ textDecoration: 'none' }}
+          style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.75rem' }}
         >
-          <img src="/images/logos/untidar.png" alt="Logo Universitas Tidar" title="Universitas Tidar" />
-          <img src="/images/logos/blu.png" alt="Logo BLU" title="BLU Unggul Berbudaya" />
-          <img src="/images/logos/desa-wisata.png" alt="Desa Wisata Tampirkulon" title="Desa Wisata Tampirkulon" />
-          <div className="nav-logo-team" title="PPK Ormawa Himagi Untidar">
-            <img src="/images/logos/ppk-ormawa-himagi.png" alt="Logo PPK Ormawa Himagi Untidar" />
+          <img 
+            src="/images/logos/ppk-ormawa-himagi.png" 
+            alt="Logo PPK Ormawa Himagi Untidar" 
+            style={{ height: '36px', width: 'auto', objectFit: 'contain' }}
+            onError={(e) => {
+              e.currentTarget.src = '/images/logos/untidar.png';
+            }}
+          />
+          <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.15 }}>
+            <span style={{ 
+              fontFamily: 'var(--font-heading)', 
+              fontWeight: 800, 
+              fontSize: '0.9375rem', 
+              letterSpacing: '0.04em',
+              color: 'var(--text-primary)'
+            }}>
+              IN WEST TAMP
+            </span>
+            <span style={{ 
+              fontSize: '0.6875rem', 
+              color: 'var(--text-muted)',
+              fontWeight: 600,
+              letterSpacing: '0.02em'
+            }}>
+              PPK ORMAWA HIMAGI UNTIDAR
+            </span>
           </div>
         </a>
 
@@ -81,7 +98,7 @@ export default function Navbar() {
           aria-label={mobileMenuOpen ? 'Tutup menu navigasi' : 'Buka menu navigasi'}
           aria-expanded={mobileMenuOpen}
         >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
 
         {/* Desktop & Mobile Navigation Links */}
@@ -97,14 +114,14 @@ export default function Navbar() {
             </a>
           ))}
 
+          {/* Forest Green Pill Button */}
           <a 
             href="#tur-360" 
-            className="btn btn-primary nav-cta-btn" 
+            className="btn-pill-forest"
             onClick={(e) => handleNavClick(e, 'tur-360')}
-            style={{ padding: '0.55rem 1.25rem', fontSize: '0.8125rem', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}
           >
-            <Compass size={16} />
-            <span>Jelajahi 360°</span>
+            <span>Jelajahi Paket</span>
+            <ArrowUpRight size={15} />
           </a>
         </nav>
       </div>
