@@ -100,7 +100,6 @@ export default function App() {
       </main>
 
       {!isAdminRoute && <Footer />}
-      {!isAdminRoute && <FloatingDock />}
     </>
   );
 }
