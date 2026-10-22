@@ -54,12 +54,14 @@ export const siteImages = {
     }
   },
   gallery: [
+    // Cluster 1 (Kegiatan Kelembagaan & Lapangan)
     {
       id: 'bento-1',
       title: 'Pelatihan Water Rescue & Standarisasi Keselamatan Basarnas',
       caption: 'Simulasi tanggap darurat kecelakaan air di Sungai Gono bersama instruktur bersertifikat Basarnas.',
       src: '/images/documentation/pelatihan-k3-basarnas.jpg',
       tag: 'K3 & Water Rescue',
+      type: 'hero',
       isHero: true
     },
     {
@@ -67,28 +69,32 @@ export const siteImages = {
       title: 'Musyawarah Desa & SK Legalitas POKDARWIS',
       caption: 'Penyerahan SK Kepala Desa atas pengesahan kelompok sadar wisata Tampirkulon.',
       src: '/images/documentation/pembentukan-pokdarwis.jpg',
-      tag: 'Kelembagaan Desa'
+      tag: 'Kelembagaan Desa',
+      type: 'medium'
     },
     {
       id: 'bento-3',
       title: 'Pembangunan Ruang Sehat Taman TOGA',
       caption: 'Revitalisasi lahan tidur di area basecamp menjadi kebun tanaman obat keluarga produktif.',
       src: '/images/documentation/taman-sehat-toga.jpg',
-      tag: 'Green Wellness'
+      tag: 'Green Wellness',
+      type: 'medium'
     },
     {
       id: 'bento-4',
       title: 'Pelatihan Diversifikasi Olahan Lele Ibu PKK',
       caption: 'Inovasi pembuatan bakso dan nugget lele bernutrisi tinggi untuk pencegahan stunting.',
       src: '/images/documentation/edukasi-olahan-lele.jpg',
-      tag: 'Gizi & Pangan'
+      tag: 'Gizi & Pangan',
+      type: 'medium'
     },
     {
       id: 'bento-5',
       title: 'Pendampingan Standarisasi & Labeling Kemasan UMKM',
       caption: 'Peningkatan daya saing produk keripik tempe dan gula jawa alami Tampirkulon.',
       src: '/images/documentation/sosialisasi-umkm.jpg',
-      tag: 'Pemberdayaan UMKM'
+      tag: 'Pemberdayaan UMKM',
+      type: 'medium'
     },
     {
       id: 'bento-6',
@@ -96,6 +102,59 @@ export const siteImages = {
       caption: 'Panorama alam terasering pegunungan yang terintegrasi dalam paket tur wisata.',
       src: '/images/360/sunset-persawahan.jpg',
       tag: 'Pesona Alam Tampirkulon',
+      type: 'panorama',
+      isPanorama: true
+    },
+
+    // Cluster 2 (Dokumentasi Layanan & Penguatan Komunitas)
+    {
+      id: 'bento-7',
+      title: 'Pemeriksaan Kesehatan & Skrining Kebugaran Warga',
+      caption: 'Pelayanan cek tensi, gula darah, dan konsultasi kesehatan berkala untuk warga lansia.',
+      src: '/images/documentation/health-screening.jpg',
+      tag: 'Layanan Kesehatan',
+      type: 'hero',
+      isHero: true
+    },
+    {
+      id: 'bento-8',
+      title: 'Pelatihan Pertolongan Pertama Gawat Darurat (PMI)',
+      caption: 'Edukasi kesiapsiagaan penanganan cedera wisata dan evakuasi dasar bersama PMI.',
+      src: '/images/documentation/pelatihan-p3k-pmi.jpg',
+      tag: 'K3 & Keselamatan',
+      type: 'medium'
+    },
+    {
+      id: 'bento-9',
+      title: 'Aksi Wisata Susur Sungai Tubing Tampirkulon',
+      caption: 'Uji coba jalur river tubing dan pemantauan titik jeram aman oleh pemandu lokal.',
+      src: '/images/documentation/aksi-wisata-tubing.jpg',
+      tag: 'Wisata Sungai',
+      type: 'medium'
+    },
+    {
+      id: 'bento-10',
+      title: 'Workshop Pengemasan Pangan Sehat & Higienitas',
+      caption: 'Praktek higienitas sanitasi dan inovasi kemasan ramah lingkungan produk unggulan desa.',
+      src: '/images/documentation/placeholder-10.jpg',
+      tag: 'Pengembangan UMKM',
+      type: 'medium'
+    },
+    {
+      id: 'bento-11',
+      title: 'Kerja Bakti Bersih Sungai & Konservasi Sempadan',
+      caption: 'Aksi gotong royong karang taruna menjaga keasrian aliran sungai dan bantaran hijau.',
+      src: '/images/documentation/placeholder-11.jpg',
+      tag: 'Konservasi Lingkungan',
+      type: 'medium'
+    },
+    {
+      id: 'bento-12',
+      title: 'Pentas Seni Budaya & Atraksi Warga Tampirkulon',
+      caption: 'Dokumentasi kolaborasi kesenian tari dan karawitan lokal memeriahkan pagelaran desa.',
+      src: '/images/documentation/placeholder-12.jpg',
+      tag: 'Atraksi Budaya',
+      type: 'panorama',
       isPanorama: true
     }
   ],
