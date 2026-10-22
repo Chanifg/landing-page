@@ -119,7 +119,8 @@ const DELIVERABLES_6_CARDS = [
     link: 'https://youtube.com',
     linkText: 'Tonton Dokumenter',
     image: '/images/luaran/Kampanye media sosial.png',
-    imageAlt: 'Dokumentasi Kampanye Media Sosial, Video Dokumenter dan Leaflet'
+    imageAlt: 'Dokumentasi Kampanye Media Sosial, Video Dokumenter dan Leaflet',
+    imageZoom: true
   }
 ];
 
@@ -546,25 +547,13 @@ export default function DeliverablesSection() {
                   <div className="card-top-content">
                     {/* Visual Preview Box with Real Mockup Photo from public/images/luaran */}
                     <div className="ref-preview-box">
-                      {/* Real Mockup Image Display */}
                       <div className="ref-preview-img-wrap">
                         <img 
                           src={item.image} 
                           alt={item.imageAlt || item.judulKartu}
-                          className="ref-preview-img"
+                          className={`ref-preview-img ${item.imageZoom ? 'img-zoom-social' : ''}`}
                           loading="lazy"
                         />
-                        <div className="ref-preview-overlay" />
-                      </div>
-
-                      <div className="ref-preview-header">
-                        <span className="ref-cat-badge">
-                          {item.badgeKategori}
-                        </span>
-                        <span className="ref-verified-badge">
-                          <Check size={12} strokeWidth={3} />
-                          <span>Terverifikasi</span>
-                        </span>
                       </div>
                     </div>
 
