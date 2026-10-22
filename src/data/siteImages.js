@@ -6,7 +6,7 @@
 
 export const siteImages = {
   hero: {
-    mainTeam: '',
+    mainTeam: '/images/hero/hero-team.jpg',
     alt: 'Tim 15 Mahasiswa PPK Ormawa Himagi Universitas Tidar 2025',
     label: 'Foto Tim Utama PPK Ormawa Himagi Untidar (15 Mahasiswa)'
   },

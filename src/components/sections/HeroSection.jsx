@@ -25,8 +25,7 @@ export default function HeroSection({ onExploreTour }) {
               src={siteImages.hero.mainTeam}
               alt={siteImages.hero.alt}
               label={siteImages.hero.label}
-              aspectRatio="16/9.5"
-              height="500px"
+              aspectRatio="1078/596"
               className="hero-editorial-img"
             />
           </div>

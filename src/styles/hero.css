@@ -559,44 +559,55 @@
 }
 
 .hero-editorial-title {
-  font-family: var(--font-heading);
-  font-size: clamp(2.75rem, 5.5vw, 4.25rem);
-  font-weight: 900;
-  letter-spacing: 0.16em;
+  font-family: 'Plus Jakarta Sans', var(--font-heading);
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 72px;
+  letter-spacing: 7.2px;
   text-transform: uppercase;
   color: #161B18;
-  line-height: 1;
   margin-bottom: 0.65rem;
 }
 
 .hero-editorial-subtitle {
-  font-family: var(--font-body);
-  font-size: clamp(0.8125rem, 1.3vw, 1rem);
-  font-weight: 500;
+  font-family: 'Plus Jakarta Sans', var(--font-heading);
+  font-size: 16px;
+  font-weight: 600;
   color: #4A554C;
-  letter-spacing: 0.22em;
+  line-height: 24px;
+  letter-spacing: 5.4px;
   margin: 0;
 }
 
 .hero-editorial-frame-wrapper {
   position: relative;
-  max-width: 1060px;
+  max-width: 1078px;
   margin: 0 auto;
 }
 
 .hero-editorial-frame {
+  width: 100%;
+  max-width: 1078px;
+  height: 596px;
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 16px 40px rgba(22, 34, 25, 0.06);
-  border: 1px solid var(--border-color);
+  border: none;
   background-color: var(--surface);
 }
 
 .hero-editorial-img {
   width: 100%;
-  max-height: 520px;
+  height: 100%;
   object-fit: cover;
   display: block;
+}
+
+@media (max-width: 1120px) {
+  .hero-editorial-frame {
+    height: auto;
+    aspect-ratio: 1078 / 596;
+  }
 }
 
 /* Cutout Notch (Kotak latar belakang #FAF8F3 dengan radius 24px di belakang 4 card) */
@@ -678,7 +689,30 @@
   background-color: var(--border-subtle);
 }
 
+@media (max-width: 960px) {
+  .hero-editorial-title {
+    font-size: 52px;
+    line-height: 56px;
+    letter-spacing: 5px;
+  }
+  .hero-editorial-subtitle {
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3.5px;
+  }
+}
+
 @media (max-width: 640px) {
+  .hero-editorial-title {
+    font-size: 32px;
+    line-height: 38px;
+    letter-spacing: 2px;
+  }
+  .hero-editorial-subtitle {
+    font-size: 11px;
+    line-height: 18px;
+    letter-spacing: 1.5px;
+  }
   .hero-cutout-notch {
     margin-top: 1.5rem;
     width: 100%;

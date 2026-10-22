@@ -13,6 +13,7 @@ import './styles/counter.css';
 import './styles/gallery.css';
 import './styles/team.css';
 import './styles/dock.css';
+import './styles/deliverables.css';
 import './styles/pages.css';
 import './styles/admin.css';
 

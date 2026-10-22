@@ -177,22 +177,23 @@
 }
 
 .narrative-editorial-paragraph {
-  font-family: var(--font-body);
-  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
-  line-height: 1.75;
+  font-family: 'Plus Jakarta Sans', var(--font-heading);
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: 2px;
   margin: 0;
   text-align: center;
-  letter-spacing: -0.01em;
 }
 
 .narrative-highlight {
   color: #1A201B;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .narrative-secondary {
   color: #727E74;
-  font-weight: 450;
+  font-weight: 600;
 }
 
 /* 3-Photo Showcase: Side portrait cards + Center dominant landscape card */
@@ -208,7 +209,7 @@
 .narrative-showcase-card {
   border-radius: 20px;
   overflow: hidden;
-  background-color: var(--surface);
+  background-color: transparent;
   box-shadow: 0 10px 24px rgba(22, 34, 25, 0.07);
   transition: all var(--transition-smooth);
   flex-shrink: 0;
@@ -243,6 +244,11 @@
 }
 
 @media (max-width: 960px) {
+  .narrative-editorial-paragraph {
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 1.5px;
+  }
   .narrative-showcase-side {
     width: 180px;
     height: 250px;
@@ -257,6 +263,11 @@
 }
 
 @media (max-width: 640px) {
+  .narrative-editorial-paragraph {
+    font-size: 19px;
+    line-height: 27px;
+    letter-spacing: 0.75px;
+  }
   .narrative-cards-showcase {
     flex-direction: column;
     gap: 1.25rem;

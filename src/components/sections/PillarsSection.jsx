@@ -1,92 +1,86 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, CheckCircle, ArrowRight } from 'lucide-react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 import { siteImages } from '../../data/siteImages.js';
 import ImagePlaceholder from '../shared/ImagePlaceholder.jsx';
 
-const defaultPillars = [
+const pillarsData = [
   {
-    id: 'integrated-ecosystem',
-    pillarNumber: 'Pilar 1',
-    category: 'Kelembagaan & Digitalisasi',
-    name: 'West Integrated Ecosystem',
-    tagline: 'Kelembagaan POKDARWIS & Ekosistem Digital Terpadu',
-    description: 'Menyatukan tata kelola pariwisata yang terfragmentasi melalui pembentukan POKDARWIS resmi, penerbitan SK desa, serta digitalisasi sistem informasi paket wisata.',
-    highlights: [
-      { label: 'SK Legalitas', value: 'SK Kades No. 188.45/14/KEP/2025' },
-      { label: 'Kelembagaan', value: '19 Anggota Pokdarwis Terpilih' }
-    ],
-    imageKey: 'pilar1',
-    activityTitle: 'Penetapan SK POKDARWIS & Digitalisasi Desa Wisata',
-    impactText: 'Menghubungkan 13 dusun dan pengelola lokal dalam satu struktur koordinasi resmi berpayung hukum, mendongkrak kunjungan wisatawan hingga 95%.'
+    id: 'pilar-1',
+    labelAtas: 'PILAR 01 • KELEMBAGAAN & DIGITALISASI',
+    judulPilar: 'West Integrated Ecosystem',
+    deskripsi: 'Pembentukan kelembagaan formal POKDARWIS sebagai penggerak utama wisata, revitalisasi sarana basecamp West Tamp Tubing serta area Tuk Putri, dan peluncuran website pemesanan tiket terintegrasi.',
+    sebelumIntervensi: 'Pengelolaan belum berbadan formal, promosi masih manual dan terbatas.',
+    hasilTerukur: 'POKDARWIS Resmi Terbentuk (SK Desa), Website Ber-HKI & Sistem Reservasi Tiket.',
+    subLabel: 'TATA KELOLA & SMART MANAGEMENT',
+    judulCard: 'Kelembagaan POKDARWIS & Digitalisasi Tiket',
+    deskripsiCard: 'Dilengkapi dokumen legalitas SK Pencanangan Desa Wisata, buku panduan pengoperasian website pemesanan tiket, profil video, serta penataan ulang fasilitas kebersihan basecamp.',
+    footerLabel: 'Legalitas & Luaran',
+    footerText: 'SK Desa Wisata •  Website Reservasi',
+    imageKey: 'pilar1'
   },
   {
-    id: 'tubing-care',
-    pillarNumber: 'Pilar 2',
-    category: 'Standarisasi Keselamatan K3 & Kesehatan',
-    name: 'Tubing Care & Safety',
-    tagline: 'Standar Keselamatan K3 & Layanan Kesehatan Wisata Air',
-    description: 'Pelatihan teknis water rescue dan pertolongan pertama (P3K) bersama instruktur Basarnas & PMI, serta standarisasi SOP kelayakan pengunjung.',
-    highlights: [
-      { label: 'Sertifikasi K3', value: '25 Pemuda Tersertifikasi Basarnas' },
-      { label: 'Pos Kesehatan', value: 'Screening Tensi & Kelayakan Fisik' }
-    ],
-    imageKey: 'pilar2',
-    activityTitle: 'Simulasi Tanggap Darurat & Pelatihan Basarnas',
-    impactText: 'Meningkatkan rasa aman wisatawan secara drastis melalui ketersediaan tim pemandu terlatih, pelampung standar, dan protokol darurat sungai.'
+    id: 'pilar-2',
+    labelAtas: 'PILAR 02 • STANDAR K3 & LAYANAN KESEHATAN',
+    judulPilar: 'Tubing Care',
+    deskripsi: 'Peningkatan kapasitas pemandu melalui pelatihan K3 dan P3K wisata air bersama PMI Kabupaten Magelang dan BASARNAS Unit Siaga Borobudur, penyusunan SOP keselamatan, edukasi PHBS, serta layanan pemeriksaan kesehatan dasar (Health Screening Day) bagi wisatawan.',
+    sebelumIntervensi: 'Pemandu belum terlatih P3K/K3 wisata air & belum ada layanan skrining kesehatan.',
+    hasilTerukur: 'SOP Tubing Terbit, Pengelola Terlatih K3/P3K & Pos Skrining Kesehatan Aktif.',
+    subLabel: 'MITIGASI RISIKO & PROMOTIF KESEHATAN',
+    judulCard: 'Pelatihan K3, P3K bersama PMI, dan Health Screening Day',
+    deskripsiCard: 'Dilengkapi Standar Operasional Pelaksanaan (SOP) wisata tubing, kotak P3K, tensimeter digital, alat cek GCU (gula darah, kolesterol, asam urat), serta media edukasi PHBS di area wisata.',
+    footerLabel: 'Kemitraan & Fasilitas',
+    footerText: 'PMI Kab. Magelang • BASARNAS Unit Siaga Borobudur • SOP',
+    imageKey: 'pilar2'
   },
   {
-    id: 'local-creative',
-    pillarNumber: 'Pilar 3',
-    category: 'Hilirisasi Pangan Lokal & Gizi',
-    name: 'Local Creative Innovation',
-    tagline: 'Pemberdayaan Ekonomi Ibu PKK & Inovasi Gizi Olahan Lele',
-    description: 'Pelatihan diversifikasi pangan lele menjadi bakso dan nugget kaya protein bagi ibu PKK, serta pendampingan sertifikasi kemasan higienis UMKM.',
-    highlights: [
-      { label: 'Pemberdayaan', value: '34 Ibu PKK Terlatih Inovasi' },
-      { label: 'Hilirisasi', value: 'Bakso Lele & Kemasan Tempe' }
-    ],
-    imageKey: 'pilar3',
-    activityTitle: 'Pelatihan Diversifikasi Produk Olahan Lele',
-    impactText: 'Menciptakan diversifikasi pendapatan warga dan menyediakan alternatif pangan lokal bergizi tinggi guna mendukung pencegahan stunting.'
+    id: 'pilar-3',
+    labelAtas: 'PILAR 03 • HILIRISASI PANGAN & EDUWISATA',
+    judulPilar: 'Local Creative',
+    deskripsi: 'Pemberdayaan ibu-ibu PKK, KWT, dan POKDARWIS melalui pelatihan pengolahan komoditas lokal (bakso ikan lele, jamu tradisional, dan wedang jahe telang), budidaya tanaman obat, serta perancangan paket eduwisata.',
+    sebelumIntervensi: 'Hasil budidaya lele dan tanaman TOGA belum diolah menjadi produk wisata bernilai jual.',
+    hasilTerukur: 'Produk Kuliner Sehat, Paket Eduwisata & Buku Resep Ber-ISBN.',
+    subLabel: 'KEMANDIRIAN EKONOMI & GIZI',
+    judulCard: 'Hilirisasi Kuliner Lele, Jamu & Paket Eduwisata',
+    deskripsiCard: 'Mengubah bahan baku lokal menjadi sajian khas kawasan wisata seperti bakso lele dan welcome drink wedang jahe telang, didukung modul pelatihan serta buku resep ber-ISBN Universitas Tidar.',
+    footerLabel: 'Kelompok Sasaran & Luaran',
+    footerText: 'PKK & KWT • Buku Resep ISBN • Paket Eduwisata',
+    imageKey: 'pilar3'
   },
   {
-    id: 'green-wellness',
-    pillarNumber: 'Pilar 4',
-    category: 'Ruang Terbuka Hijau & Kebugaran',
-    name: 'Green Wellness Space',
-    tagline: 'Pembangunan Taman TOGA & Kawasan Terbuka Sehat',
-    description: 'Revitalisasi lahan tidur di bantaran sungai menjadi ruang terbuka hijau produktif dengan 6 varietas tanaman obat keluarga dan Angkringan Sehat.',
-    highlights: [
-      { label: 'Taman Herbal', value: '21 m² Taman TOGA Produktif' },
-      { label: 'Fasilitas', value: 'Angkringan & Sarana Kebugaran' }
-    ],
-    imageKey: 'pilar4',
-    activityTitle: 'Gotong Royong Pembangunan Taman TOGA',
-    impactText: 'Menghadirkan oasis kebugaran asri bagi wisatawan dan warga lanjut usia untuk menikmati seduhan jamu herbal segar dan udara bersih.'
+    id: 'pilar-4',
+    labelAtas: 'PILAR 04 • RUANG HIJAU & KULINER SEHAT',
+    judulPilar: 'Green Wellness Space & Angkringan Sehat',
+    deskripsi: 'Optimalisasi lahan kosong di sekitar area tubing menjadi kawasan "Taman Sehat" yang memadukan kebun edukasi TOGA, fasilitas olahraga luar ruang (outdoor gym sederhana), serta gerai kuliner West Angkringan Sehat.',
+    sebelumIntervensi: 'Lahan sekitar area tubing belum tertata dan minim fasilitas penunjang kebugaran.',
+    hasilTerukur: 'Taman TOGA, Fasilitas Gym Sederhana & Gerai West Angkringan Sehat.',
+    subLabel: 'INFRASTRUKTUR PENDUKUNG WELLNESS',
+    judulCard: 'Taman Sehat, Outdoor Gym & Angkringan Sehat',
+    deskripsiCard: 'Menyediakan instalasi kebugaran fisik berupa sepeda statis dan pull-up bar, kebun percontohan TOGA (jahe, telang, rosella, kencur, kunyit), serta gerai angkringan sehat yang dikelola masyarakat.',
+    footerLabel: 'Fasilitas Utama',
+    footerText: 'Taman TOGA • Sepeda Statis & Pull-up Bar • Angkringan Sehat',
+    imageKey: 'pilar4'
   }
 ];
 
-export default function PillarsSection({ pillars }) {
-  // Gunakan data props jika tersedia, fallback ke defaultPillars
-  const pillarsList = defaultPillars;
-  const [activeId, setActiveId] = useState(pillarsList[0].id);
+export default function PillarsSection() {
+  const [activeId, setActiveId] = useState(pillarsData[0].id);
 
-  const activePillar = pillarsList.find(p => p.id === activeId) || pillarsList[0];
+  const activePillar = pillarsData.find(p => p.id === activeId) || pillarsData[0];
   const activeImageMeta = siteImages.pillars[activePillar.imageKey] || siteImages.pillars.pilar1;
 
   return (
     <section id="pilar" className="pillars-editorial-section">
       <div className="editorial-container">
-        {/* Header */}
+        {/* Header Section */}
         <div className="pillars-editorial-header">
           <div className="editorial-eyebrow-pill">
-            [ 4 PILAR INTERVENSI PROGRAM ]
+            • 4 PILAR INOVASI PROGRAM •
           </div>
           <h2 className="editorial-title">
             Intervensi Terstruktur Menuju Ekosistem Wellness-Tourism Mandiri
           </h2>
           <p className="editorial-subtitle">
-            Transformasi multi-sektor yang dirancang bertahap untuk membangun tata kelola pariwisata terpadu, budaya keselamatan air (K3), kemandirian ekonomi gizi, serta ruang terbuka hijau desa.
+            Transformasi menyeluruh yang memadukan penguatan kelembagaan dan digitalisasi, standarisasi keselamatan wisata air, hilirisasi pangan lokal bergizi, hingga penataan ruang terbuka hijau ramah publik.
           </p>
         </div>
 
@@ -94,7 +88,7 @@ export default function PillarsSection({ pillars }) {
         <div className="pillars-split-grid">
           {/* Sisi Kiri: Accordion */}
           <div className="pillars-accordion-col">
-            {pillarsList.map((pillar) => {
+            {pillarsData.map((pillar) => {
               const isActive = pillar.id === activeId;
               return (
                 <div
@@ -105,10 +99,10 @@ export default function PillarsSection({ pillars }) {
                   <div className="pillar-accordion-header">
                     <div className="pillar-header-meta">
                       <span className="pillar-badge-num">
-                        {pillar.pillarNumber} : {pillar.category}
+                        {pillar.labelAtas}
                       </span>
                       <h3 className="pillar-name-title">
-                        {pillar.name}
+                        {pillar.judulPilar}
                       </h3>
                     </div>
                     <div className="pillar-toggle-icon">
@@ -119,15 +113,17 @@ export default function PillarsSection({ pillars }) {
                   {isActive && (
                     <div className="pillar-accordion-body">
                       <p className="pillar-desc-text">
-                        {pillar.description}
+                        {pillar.deskripsi}
                       </p>
                       <div className="pillar-highlights-row">
-                        {pillar.highlights.map((h, i) => (
-                          <div key={i} className="pillar-highlight-chip">
-                            <span className="chip-label">{h.label}</span>
-                            <span className="chip-value">{h.value}</span>
-                          </div>
-                        ))}
+                        <div className="pillar-highlight-chip">
+                          <span className="chip-label">SEBELUM INTERVENSI</span>
+                          <span className="chip-value">{pillar.sebelumIntervensi}</span>
+                        </div>
+                        <div className="pillar-highlight-chip">
+                          <span className="chip-label">HASIL TERUKUR</span>
+                          <span className="chip-value">{pillar.hasilTerukur}</span>
+                        </div>
                       </div>
                     </div>
                   )}
@@ -142,32 +138,27 @@ export default function PillarsSection({ pillars }) {
               <div className="pillar-showcase-image-wrap">
                 <ImagePlaceholder
                   src={activeImageMeta.src}
-                  alt={activeImageMeta.alt}
-                  label={activePillar.activityTitle}
+                  alt={activePillar.judulCard}
+                  label={activePillar.judulCard}
                   aspectRatio="16/10"
                   className="pillar-showcase-img"
                 />
               </div>
               <div className="pillar-showcase-content">
-                <div className="pillar-showcase-meta">
-                  <span className="showcase-badge">
-                    {activeImageMeta.badge}
-                  </span>
-                  <span className="showcase-date">
-                    {activeImageMeta.date}
-                  </span>
+                <div className="pillar-showcase-sublabel">
+                  {activePillar.subLabel}
                 </div>
                 <h4 className="pillar-showcase-title">
-                  {activePillar.activityTitle}
+                  {activePillar.judulCard}
                 </h4>
                 <p className="pillar-showcase-impact">
-                  {activePillar.impactText}
+                  {activePillar.deskripsiCard}
                 </p>
                 <div className="pillar-showcase-footer">
-                  <span className="footer-status">
-                    <CheckCircle size={15} style={{ color: 'var(--accent)' }} />
-                    <span>Terealisasi 100% pada Program PPK Ormawa 2025</span>
-                  </span>
+                  <div className="pillar-footer-item">
+                    <span className="pillar-footer-label">{activePillar.footerLabel}</span>
+                    <span className="pillar-footer-value">{activePillar.footerText}</span>
+                  </div>
                 </div>
               </div>
             </div>

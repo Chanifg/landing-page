@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { getDestinations, getPillars, getDocumentation } from '../lib/supabase.js';
+import { getDestinations, getPillars, getDocumentation, getDeliverables } from '../lib/supabase.js';
 import { siteImages } from '../data/siteImages.js';
 
 // Editorial Redesign Sections
@@ -7,6 +7,7 @@ import HeroSection from '../components/sections/HeroSection.jsx';
 import NarrativeSection from '../components/sections/NarrativeSection.jsx';
 import PillarsSection from '../components/sections/PillarsSection.jsx';
 import VirtualTourSection from '../components/sections/VirtualTourSection.jsx';
+import DeliverablesSection from '../components/sections/DeliverablesSection.jsx';
 import GallerySection from '../components/sections/GallerySection.jsx';
 import TeamSection from '../components/sections/TeamSection.jsx';
 
@@ -19,6 +20,7 @@ export default function HomePage() {
   const [activeSpot, setActiveSpot] = useState(null);
   const [pillars, setPillars] = useState([]);
   const [photos, setPhotos] = useState([]);
+  const [deliverables, setDeliverables] = useState([]);
 
   // Modals state
   const [isMapOpen, setIsMapOpen] = useState(false);
@@ -26,10 +28,11 @@ export default function HomePage() {
 
   useEffect(() => {
     async function loadData() {
-      const [destData, pillarData, docData] = await Promise.all([
+      const [destData, pillarData, docData, delivData] = await Promise.all([
         getDestinations(),
         getPillars(),
-        getDocumentation()
+        getDocumentation(),
+        getDeliverables()
       ]);
 
       setSpots(destData || []);
@@ -38,6 +41,7 @@ export default function HomePage() {
       }
       setPillars(pillarData || []);
       setPhotos(docData || []);
+      setDeliverables(delivData || []);
     }
     loadData();
   }, []);
@@ -87,7 +91,10 @@ export default function HomePage() {
         onOpenMap={() => setIsMapOpen(true)} 
       />
 
-      {/* 5. Bento Grid Galeri Dokumentasi Lapangan */}
+      {/* 5. Section Luaran (Slider Konsep Wajib & Tambahan) */}
+      <DeliverablesSection deliverables={deliverables} />
+
+      {/* 6. Bento Grid Galeri Dokumentasi Lapangan */}
       <GallerySection 
         photos={photos} 
         onSelectPhoto={(idx) => setLightboxIndex(idx)} 
