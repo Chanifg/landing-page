@@ -123,6 +123,11 @@ export default function GallerySection({ photos, onSelectPhoto }) {
     }
   };
 
+  const dragProgress = (isDragging && viewportRef.current)
+    ? (-dragOffset / viewportRef.current.offsetWidth)
+    : 0;
+  const visualIndex = Math.max(0, Math.min(maxIndex, currentIndex + dragProgress));
+
   return (
     <section id="galeri" className="bento-gallery-section" onKeyDown={handleKeyDown} tabIndex={0}>
       <div className="editorial-container">
@@ -282,18 +287,36 @@ export default function GallerySection({ photos, onSelectPhoto }) {
           </div>
         </div>
 
-        {/* Dots Pagination Indicator */}
+        {/* Carousel Dots Pagination Indicator (Sama dengan Section Luaran) */}
         {clusters.length > 1 && (
-          <div className="bento-slider-dots">
-            {clusters.map((_, dotIdx) => (
-              <button
-                key={`dot-${dotIdx}`}
-                type="button"
-                className={`bento-dot ${dotIdx === currentIndex ? 'active' : ''}`}
-                onClick={() => setCurrentIndex(dotIdx)}
-                aria-label={`Pindah ke kluster ${dotIdx + 1}`}
+          <div className="deliverables-carousel-dots-wrapper bento-carousel-dots-wrapper">
+            <div 
+              className="deliverables-carousel-dots-track bento-carousel-dots-track"
+              role="tablist"
+              aria-label="Pilih kluster dokumentasi kegiatan"
+            >
+              {clusters.map((_, idx) => (
+                <button
+                  key={`bento-dot-${idx}`}
+                  type="button"
+                  className={`deliverables-carousel-dot bento-carousel-dot ${
+                    idx === currentIndex ? 'is-active-card is-active-cluster' : ''
+                  }`}
+                  onClick={() => setCurrentIndex(idx)}
+                  aria-label={`Buka koleksi dokumentasi ke-${idx + 1}`}
+                  aria-selected={idx === currentIndex}
+                />
+              ))}
+              <div 
+                className="deliverables-carousel-active-pill bento-carousel-active-pill"
+                style={{
+                  width: '8px',
+                  transform: `translateX(${visualIndex * 16}px)`,
+                  transition: isDragging ? 'none' : 'transform 0.35s cubic-bezier(0.25, 1, 0.5, 1)'
+                }}
+                aria-hidden="true"
               />
-            ))}
+            </div>
           </div>
         )}
       </div>
