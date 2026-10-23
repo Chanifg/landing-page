@@ -192,95 +192,168 @@ export default function GallerySection({ photos, onSelectPhoto }) {
           >
             {clusters.map((cluster, clusterIdx) => (
               <div key={`bento-cluster-${clusterIdx}`} className="bento-cluster-slide">
-                <div className="bento-grid-container">
-                  {/* 1. Large Hero Vertical Card (Left) */}
-                  {cluster[0] && (
-                    <div
-                      className="bento-card bento-card-hero"
-                      onClick={() => handleCardClick(clusterIdx * 6 + 0)}
-                      role="button"
-                      tabIndex={0}
-                      onKeyDown={(e) => e.key === 'Enter' && handleCardClick(clusterIdx * 6 + 0)}
-                    >
-                      <ImagePlaceholder
-                        src={cluster[0].src}
-                        alt={cluster[0].title}
-                        label={cluster[0].title}
-                        aspectRatio="3/4"
-                        className="bento-img"
-                        style={{ height: '100%', width: '100%' }}
-                      />
-                      <div className="bento-card-gradient-overlay" />
-                      <div className="bento-card-caption-bottom">
-                        <h3 className="bento-caption-title">{cluster[0].title}</h3>
-                        <p className="bento-caption-desc">{cluster[0].caption}</p>
-                      </div>
-                      <div className="bento-hover-indicator">
-                        <Eye size={20} />
-                      </div>
-                    </div>
-                  )}
-
-                  {/* 2-5. Four Medium Cards (Center & Right 2x2) */}
-                  <div className="bento-middle-grid">
-                    {cluster.slice(1, 5).map((item, itemIdx) => {
-                      const globalIdx = clusterIdx * 6 + itemIdx + 1;
-                      return (
-                        <div
-                          key={item.id || `item-${globalIdx}`}
-                          className="bento-card bento-card-medium"
-                          onClick={() => handleCardClick(globalIdx)}
-                          role="button"
-                          tabIndex={0}
-                          onKeyDown={(e) => e.key === 'Enter' && handleCardClick(globalIdx)}
-                        >
-                          <ImagePlaceholder
-                            src={item.src}
-                            alt={item.title}
-                            label={item.title}
-                            aspectRatio="1/1"
-                            className="bento-img"
-                            style={{ height: '100%', width: '100%' }}
-                          />
-                          <div className="bento-card-gradient-overlay-subtle" />
-                          <div className="bento-card-caption-bottom compact">
-                            <h4 className="bento-caption-title-sm">{item.title}</h4>
-                          </div>
-                          <div className="bento-hover-indicator">
-                            <Eye size={18} />
-                          </div>
+                <div className="bento-3col-grid">
+                  {/* Column 1: Tall (top), Short (bottom) */}
+                  <div className="bento-col bento-col-1">
+                    {cluster[0] && (
+                      <div
+                        className="bento-card bento-card-tall"
+                        onClick={() => handleCardClick(clusterIdx * 6 + 0)}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => e.key === 'Enter' && handleCardClick(clusterIdx * 6 + 0)}
+                      >
+                        <ImagePlaceholder
+                          src={cluster[0].src}
+                          alt={cluster[0].title}
+                          label={cluster[0].title}
+                          className="bento-img"
+                          style={{ height: '100%', width: '100%' }}
+                        />
+                        <div className="bento-card-gradient-overlay" />
+                        <div className="bento-card-caption-bottom">
+                          <h3 className="bento-caption-title">{cluster[0].title}</h3>
+                          <p className="bento-caption-desc">{cluster[0].caption}</p>
                         </div>
-                      );
-                    })}
+                        <div className="bento-hover-indicator">
+                          <Eye size={18} />
+                        </div>
+                      </div>
+                    )}
+
+                    {cluster[1] && (
+                      <div
+                        className="bento-card bento-card-short"
+                        onClick={() => handleCardClick(clusterIdx * 6 + 1)}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => e.key === 'Enter' && handleCardClick(clusterIdx * 6 + 1)}
+                      >
+                        <ImagePlaceholder
+                          src={cluster[1].src}
+                          alt={cluster[1].title}
+                          label={cluster[1].title}
+                          className="bento-img"
+                          style={{ height: '100%', width: '100%' }}
+                        />
+                        <div className="bento-card-gradient-overlay-subtle" />
+                        <div className="bento-card-caption-bottom compact">
+                          <h4 className="bento-caption-title-sm">{cluster[1].title}</h4>
+                        </div>
+                        <div className="bento-hover-indicator">
+                          <Eye size={16} />
+                        </div>
+                      </div>
+                    )}
                   </div>
 
-                  {/* 6. Panorama Card (Bottom Full Width) */}
-                  {cluster[5] && (
-                    <div
-                      className="bento-card bento-card-panorama"
-                      onClick={() => handleCardClick(clusterIdx * 6 + 5)}
-                      role="button"
-                      tabIndex={0}
-                      onKeyDown={(e) => e.key === 'Enter' && handleCardClick(clusterIdx * 6 + 5)}
-                    >
-                      <ImagePlaceholder
-                        src={cluster[5].src}
-                        alt={cluster[5].title}
-                        label={cluster[5].title}
-                        aspectRatio="21/9"
-                        className="bento-img"
-                        style={{ height: '100%', width: '100%' }}
-                      />
-                      <div className="bento-card-gradient-overlay" />
-                      <div className="bento-card-caption-bottom">
-                        <h4 className="bento-caption-title">{cluster[5].title}</h4>
-                        <p className="bento-caption-desc">{cluster[5].caption}</p>
+                  {/* Column 2: Short (top), Tall (bottom) */}
+                  <div className="bento-col bento-col-2">
+                    {cluster[2] && (
+                      <div
+                        className="bento-card bento-card-short"
+                        onClick={() => handleCardClick(clusterIdx * 6 + 2)}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => e.key === 'Enter' && handleCardClick(clusterIdx * 6 + 2)}
+                      >
+                        <ImagePlaceholder
+                          src={cluster[2].src}
+                          alt={cluster[2].title}
+                          label={cluster[2].title}
+                          className="bento-img"
+                          style={{ height: '100%', width: '100%' }}
+                        />
+                        <div className="bento-card-gradient-overlay-subtle" />
+                        <div className="bento-card-caption-bottom compact">
+                          <h4 className="bento-caption-title-sm">{cluster[2].title}</h4>
+                        </div>
+                        <div className="bento-hover-indicator">
+                          <Eye size={16} />
+                        </div>
                       </div>
-                      <div className="bento-hover-indicator">
-                        <Eye size={20} />
+                    )}
+
+                    {cluster[3] && (
+                      <div
+                        className="bento-card bento-card-tall"
+                        onClick={() => handleCardClick(clusterIdx * 6 + 3)}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => e.key === 'Enter' && handleCardClick(clusterIdx * 6 + 3)}
+                      >
+                        <ImagePlaceholder
+                          src={cluster[3].src}
+                          alt={cluster[3].title}
+                          label={cluster[3].title}
+                          className="bento-img"
+                          style={{ height: '100%', width: '100%' }}
+                        />
+                        <div className="bento-card-gradient-overlay" />
+                        <div className="bento-card-caption-bottom">
+                          <h3 className="bento-caption-title">{cluster[3].title}</h3>
+                          <p className="bento-caption-desc">{cluster[3].caption}</p>
+                        </div>
+                        <div className="bento-hover-indicator">
+                          <Eye size={18} />
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
+                  </div>
+
+                  {/* Column 3: Tall (top), Short (bottom) */}
+                  <div className="bento-col bento-col-3">
+                    {cluster[4] && (
+                      <div
+                        className="bento-card bento-card-tall"
+                        onClick={() => handleCardClick(clusterIdx * 6 + 4)}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => e.key === 'Enter' && handleCardClick(clusterIdx * 6 + 4)}
+                      >
+                        <ImagePlaceholder
+                          src={cluster[4].src}
+                          alt={cluster[4].title}
+                          label={cluster[4].title}
+                          className="bento-img"
+                          style={{ height: '100%', width: '100%' }}
+                        />
+                        <div className="bento-card-gradient-overlay" />
+                        <div className="bento-card-caption-bottom">
+                          <h3 className="bento-caption-title">{cluster[4].title}</h3>
+                          <p className="bento-caption-desc">{cluster[4].caption}</p>
+                        </div>
+                        <div className="bento-hover-indicator">
+                          <Eye size={18} />
+                        </div>
+                      </div>
+                    )}
+
+                    {cluster[5] && (
+                      <div
+                        className="bento-card bento-card-short"
+                        onClick={() => handleCardClick(clusterIdx * 6 + 5)}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => e.key === 'Enter' && handleCardClick(clusterIdx * 6 + 5)}
+                      >
+                        <ImagePlaceholder
+                          src={cluster[5].src}
+                          alt={cluster[5].title}
+                          label={cluster[5].title}
+                          className="bento-img"
+                          style={{ height: '100%', width: '100%' }}
+                        />
+                        <div className="bento-card-gradient-overlay-subtle" />
+                        <div className="bento-card-caption-bottom compact">
+                          <h4 className="bento-caption-title-sm">{cluster[5].title}</h4>
+                        </div>
+                        <div className="bento-hover-indicator">
+                          <Eye size={16} />
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}
