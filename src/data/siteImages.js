@@ -119,51 +119,51 @@ export const siteImages = {
     },
     {
       id: 'bento-11',
-      title: 'Sinergi Warga dan Tim Pelaksana PPK Ormawa',
+      title: '',
       caption: '',
-      src: '/images/documentation/PXL_20260801_074623914.jpg'
+      src: '/images/documentation/IMG_3234.JPG'
     },
     {
       id: 'bento-12',
-      title: 'Aktivitas Dokumentasi Lapangan',
+      title: '',
       caption: '',
-      src: '/images/documentation/IMG_3234.JPG'
+      src: '/images/documentation/PXL_20260718_095025059.jpg'
     },
 
     // Cluster 3
     {
       id: 'bento-13',
-      title: 'Sosialisasi Program Edukasi Gizi & Wisata',
+      title: '',
       caption: '',
       src: '/images/documentation/PXL_20260730_093250375.jpg'
     },
     {
       id: 'bento-14',
-      title: 'Edukasi Pengolahan Tanaman Obat Keluarga',
+      title: '',
       caption: '',
       src: '/images/documentation/PXL_20260815_035409562.jpg'
     },
     {
       id: 'bento-15',
-      title: 'Pendampingan Produk Inovasi Lokal Desa',
+      title: '',
       caption: '',
       src: '/images/documentation/PXL_20260904_022345101.jpg'
     },
     {
       id: 'bento-16',
-      title: 'Pembangunan Sarana Kebugaran & Taman Sehat',
+      title: '',
       caption: '',
       src: '/images/documentation/PXL_20260906_064321080.jpg'
     },
     {
       id: 'bento-17',
-      title: 'Uji Kelayakan Jalur Wisata & Mitigasi Air',
+      title: '',
       caption: '',
       src: '/images/documentation/PXL_20260812_022140816.jpg'
     },
     {
       id: 'bento-18',
-      title: 'Koordinasi Kelembagaan Bersama Perangkat Desa',
+      title: '',
       caption: '',
       src: '/images/documentation/PXL_20260715_100409504.jpg'
     },
@@ -171,39 +171,39 @@ export const siteImages = {
     // Cluster 4 (Foto Tambahan Terbaru)
     {
       id: 'bento-19',
-      title: 'Dokumentasi Lapangan & Interaksi Warga',
-      caption: '',
-      src: '/images/documentation/PXL_20260718_095025059.jpg'
-    },
-    {
-      id: 'bento-20',
-      title: 'Kegiatan Kolaborasi Tim Mahasiswa',
+      title: '',
       caption: '',
       src: '/images/documentation/PXL_20260904_034511263.jpg'
     },
     {
-      id: 'bento-21',
-      title: 'Pemberdayaan Masyarakat Tampirkulon',
+      id: 'bento-20',
+      title: '',
       caption: '',
       src: '/images/documentation/IMG-20260921-WA0028.jpg'
     },
     {
-      id: 'bento-22',
-      title: 'Aktivitas Program Pengabdian Ormawa',
+      id: 'bento-21',
+      title: '',
       caption: '',
       src: '/images/documentation/PXL_20260904_030614081.jpg'
     },
     {
-      id: 'bento-23',
-      title: 'Pendampingan dan Diskusi Bersama Komunitas',
+      id: 'bento-22',
+      title: '',
       caption: '',
       src: '/images/documentation/PXL_20260715_135125017.jpg'
     },
     {
-      id: 'bento-24',
-      title: 'Kunjungan dan Pemantauan Potensi Wilayah',
+      id: 'bento-23',
+      title: '',
       caption: '',
       src: '/images/documentation/Salinan PXL_20260801_042839577.jpg'
+    },
+    {
+      id: 'bento-24',
+      title: '',
+      caption: '',
+      src: '/images/documentation/Salinan PXL_20260801_074623914.jpg'
     }
   ],
   dpl: {
