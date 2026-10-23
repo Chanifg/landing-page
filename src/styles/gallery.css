@@ -355,18 +355,21 @@
 }
 
 .bento-gallery-header {
-  display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 2.5rem;
+  display: flex;
+  justify-content: space-between;
   align-items: flex-end;
+  gap: 2rem;
   margin-bottom: 1.75rem;
+  flex-wrap: wrap;
 }
 
-.bento-header-desc {
-  font-family: var(--font-body);
-  font-size: 0.9375rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
+.bento-header-left {
+  max-width: 680px;
+}
+
+.bento-header-right {
+  display: flex;
+  align-items: flex-end;
 }
 
 .bento-gallery-viewport {
@@ -402,7 +405,7 @@
   align-items: center;
   justify-content: flex-end;
   gap: 1rem;
-  margin-top: 1rem;
+  margin-top: 0;
 }
 
 .bento-slider-counter {

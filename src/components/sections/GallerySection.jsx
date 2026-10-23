@@ -144,10 +144,6 @@ export default function GallerySection({ photos, onSelectPhoto }) {
             </h2>
           </div>
           <div className="bento-header-right">
-            <p className="bento-header-desc">
-              Dokumentasi nyata kegiatan pengabdian PPK Ormawa Himagi Untidar bersama warga, karang taruna, dan instansi profesional di Desa Tampirkulon.
-            </p>
-
             {/* Slider Navigation Controls */}
             {clusters.length > 1 && (
               <div className="bento-slider-actions">
@@ -213,9 +209,6 @@ export default function GallerySection({ photos, onSelectPhoto }) {
                           style={{ height: '100%', width: '100%' }}
                         />
                         <div className="bento-card-gradient-overlay" />
-                        <div className="bento-card-caption-bottom">
-                          <h3 className="bento-caption-title">{cluster[0].title}</h3>
-                        </div>
                         <div className="bento-hover-indicator">
                           <Eye size={18} />
                         </div>
@@ -238,9 +231,6 @@ export default function GallerySection({ photos, onSelectPhoto }) {
                           style={{ height: '100%', width: '100%' }}
                         />
                         <div className="bento-card-gradient-overlay-subtle" />
-                        <div className="bento-card-caption-bottom compact">
-                          <h4 className="bento-caption-title-sm">{cluster[1].title}</h4>
-                        </div>
                         <div className="bento-hover-indicator">
                           <Eye size={16} />
                         </div>
@@ -266,9 +256,6 @@ export default function GallerySection({ photos, onSelectPhoto }) {
                           style={{ height: '100%', width: '100%' }}
                         />
                         <div className="bento-card-gradient-overlay-subtle" />
-                        <div className="bento-card-caption-bottom compact">
-                          <h4 className="bento-caption-title-sm">{cluster[2].title}</h4>
-                        </div>
                         <div className="bento-hover-indicator">
                           <Eye size={16} />
                         </div>
@@ -291,9 +278,6 @@ export default function GallerySection({ photos, onSelectPhoto }) {
                           style={{ height: '100%', width: '100%' }}
                         />
                         <div className="bento-card-gradient-overlay" />
-                        <div className="bento-card-caption-bottom">
-                          <h3 className="bento-caption-title">{cluster[3].title}</h3>
-                        </div>
                         <div className="bento-hover-indicator">
                           <Eye size={18} />
                         </div>
@@ -319,9 +303,6 @@ export default function GallerySection({ photos, onSelectPhoto }) {
                           style={{ height: '100%', width: '100%' }}
                         />
                         <div className="bento-card-gradient-overlay" />
-                        <div className="bento-card-caption-bottom">
-                          <h3 className="bento-caption-title">{cluster[4].title}</h3>
-                        </div>
                         <div className="bento-hover-indicator">
                           <Eye size={18} />
                         </div>
@@ -344,9 +325,6 @@ export default function GallerySection({ photos, onSelectPhoto }) {
                           style={{ height: '100%', width: '100%' }}
                         />
                         <div className="bento-card-gradient-overlay-subtle" />
-                        <div className="bento-card-caption-bottom compact">
-                          <h4 className="bento-caption-title-sm">{cluster[5].title}</h4>
-                        </div>
                         <div className="bento-hover-indicator">
                           <Eye size={16} />
                         </div>
