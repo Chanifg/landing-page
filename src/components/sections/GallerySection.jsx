@@ -208,6 +208,7 @@ export default function GallerySection({ photos, onSelectPhoto }) {
                         label={cluster[0].title}
                         aspectRatio="3/4"
                         className="bento-img"
+                        style={{ height: '100%', width: '100%' }}
                       />
                       <div className="bento-card-gradient-overlay" />
                       <div className="bento-card-caption-bottom">
@@ -239,6 +240,7 @@ export default function GallerySection({ photos, onSelectPhoto }) {
                             label={item.title}
                             aspectRatio="1/1"
                             className="bento-img"
+                            style={{ height: '100%', width: '100%' }}
                           />
                           <div className="bento-card-gradient-overlay-subtle" />
                           <div className="bento-card-caption-bottom compact">
@@ -267,6 +269,7 @@ export default function GallerySection({ photos, onSelectPhoto }) {
                         label={cluster[5].title}
                         aspectRatio="21/9"
                         className="bento-img"
+                        style={{ height: '100%', width: '100%' }}
                       />
                       <div className="bento-card-gradient-overlay" />
                       <div className="bento-card-caption-bottom">
