@@ -211,7 +211,6 @@ export default function GallerySection({ photos, onSelectPhoto }) {
                       />
                       <div className="bento-card-gradient-overlay" />
                       <div className="bento-card-caption-bottom">
-                        <span className="bento-card-tag">{cluster[0].tag || 'Dokumentasi'}</span>
                         <h3 className="bento-caption-title">{cluster[0].title}</h3>
                         <p className="bento-caption-desc">{cluster[0].caption}</p>
                       </div>
@@ -243,7 +242,6 @@ export default function GallerySection({ photos, onSelectPhoto }) {
                           />
                           <div className="bento-card-gradient-overlay-subtle" />
                           <div className="bento-card-caption-bottom compact">
-                            <span className="bento-card-tag-sm">{item.tag || 'Dokumentasi'}</span>
                             <h4 className="bento-caption-title-sm">{item.title}</h4>
                           </div>
                           <div className="bento-hover-indicator">
@@ -272,7 +270,6 @@ export default function GallerySection({ photos, onSelectPhoto }) {
                       />
                       <div className="bento-card-gradient-overlay" />
                       <div className="bento-card-caption-bottom">
-                        <span className="bento-card-tag">{cluster[5].tag || 'Panorama'}</span>
                         <h4 className="bento-caption-title">{cluster[5].title}</h4>
                         <p className="bento-caption-desc">{cluster[5].caption}</p>
                       </div>
