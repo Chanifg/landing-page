@@ -42,14 +42,14 @@ export default function ImagePlaceholder({
       className={`placeholder-container ${className}`}
       style={{
         width: '100%',
-        aspectRatio: aspectRatio,
+        ...(style && style.height ? { height: '100%' } : { aspectRatio: aspectRatio || '16/9' }),
         backgroundColor: '#EAE6DC',
         color: '#758276',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '1.25rem',
+        padding: '1rem',
         borderRadius: 'inherit',
         position: 'relative',
         userSelect: 'none',
