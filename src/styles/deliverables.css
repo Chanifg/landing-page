@@ -21,69 +21,56 @@
 .deliverables-editorial-header {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: flex-start;
-  gap: 1.5rem;
-  margin-bottom: 2.25rem;
-}
-
-@media (min-width: 1024px) {
-  .deliverables-editorial-header {
-    flex-direction: row;
-    align-items: flex-start;
-  }
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .deliverables-header-left {
-  max-width: 48rem;
+  max-width: 100%;
+  width: 100%;
 }
 
-.deliverables-header-right {
-  flex-shrink: 0;
-  padding-top: 0.5rem;
-}
-
-.deliverables-summary-pill {
-  display: inline-flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.55rem;
-  background-color: var(--surface);
-  padding: 0.55rem 1.15rem;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--border-color);
-  box-shadow: var(--shadow-sm);
+.deliverables-editorial-title {
   font-family: var(--font-heading);
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--text-secondary);
-}
-
-.summary-pill-item {
+  font-size: clamp(1.65rem, 2.5vw, 2.25rem);
+  font-weight: 800;
   color: var(--text-primary);
-  white-space: nowrap;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
 }
 
-.summary-pill-dot {
-  color: var(--accent);
-  font-weight: 900;
+@media (min-width: 900px) {
+  .deliverables-editorial-title {
+    white-space: nowrap;
+  }
 }
 
-/* 2. Controls Bar (Filter Pills + Carousel Pagination) */
+.deliverables-editorial-subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: 58rem;
+}
+
+.deliverables-sub-break {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .deliverables-sub-break {
+    display: inline;
+  }
+}
+
+/* 2. Controls Bar (Carousel Arrows) */
 .deliverables-ref-controls-bar {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: flex-end;
+  align-items: center;
   gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-@media (min-width: 640px) {
-  .deliverables-ref-controls-bar {
-    flex-direction: row;
-    align-items: center;
-  }
+  margin-bottom: 1.25rem;
 }
 
 .deliverables-ref-filter-group {
@@ -178,14 +165,82 @@
 .deliverables-ref-slider-viewport {
   overflow: hidden;
   width: 100%;
-  margin-bottom: 2.75rem;
+  margin-bottom: 1.5rem;
   outline: none;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.deliverables-ref-slider-viewport.is-dragging {
+  cursor: grabbing;
 }
 
 .deliverables-ref-slider-track {
   display: flex;
-  transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
   will-change: transform;
+}
+
+/* Carousel Dots Pagination Indicator (3 Active Cards merge into 1 unified pill) */
+.deliverables-carousel-dots-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.deliverables-carousel-dots-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 8px;
+}
+
+.deliverables-carousel-dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background-color: rgba(30, 58, 36, 0.18);
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.deliverables-carousel-dot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+}
+
+.deliverables-carousel-dot:hover {
+  background-color: var(--accent);
+  transform: scale(1.15);
+}
+
+.deliverables-carousel-dot:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.deliverables-carousel-active-pill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  pointer-events: none;
+  box-shadow: 0 2px 6px rgba(30, 58, 36, 0.28);
+  will-change: transform, width;
 }
 
 .deliverables-ref-slide-item {
@@ -1235,9 +1290,25 @@
 }
 
 .cell-title {
-  font-weight: 500;
   color: var(--text-primary);
   line-height: 1.4;
+  vertical-align: top;
+}
+
+.ref-matrix-title-bold {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.845rem;
+  color: var(--text-primary);
+  line-height: 1.35;
+  margin-bottom: 0.25rem;
+}
+
+.ref-matrix-desc-sub {
+  font-size: 0.765rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  font-weight: 400;
 }
 
 .cell-status {
@@ -1261,6 +1332,11 @@
 
 .status-accepted {
   background-color: #2a4e37;
+  color: #FFFFFF;
+}
+
+.status-terwujud {
+  background-color: #1b4d2e;
   color: #FFFFFF;
 }
 

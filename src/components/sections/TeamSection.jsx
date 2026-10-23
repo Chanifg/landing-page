@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, Award, UserCheck } from 'lucide-react';
+import { User } from 'lucide-react';
 import { siteImages } from '../../data/siteImages.js';
 
 export default function TeamSection() {
@@ -12,7 +12,7 @@ export default function TeamSection() {
         {/* Section Header */}
         <div className="team-editorial-header">
           <div className="editorial-eyebrow-pill">
-            [ TIM PELAKSANA PROGRAM ]
+            • TIM PELAKSANA PROGRAM •
           </div>
           <h2 className="editorial-title">
             15 Mahasiswa Pelaksana Program
@@ -22,18 +22,38 @@ export default function TeamSection() {
           </p>
         </div>
 
-        {/* DPL Banner Card */}
-        <div className="dpl-banner-card">
-          <div className="dpl-avatar-circle">
-            <GraduationCap size={28} className="dpl-icon" />
-          </div>
-          <div className="dpl-content">
-            <div className="dpl-header-row">
-              <span className="dpl-badge">SUPERVISI AKADEMIK &amp; DPL</span>
-              <h3 className="dpl-name">{dpl.name}</h3>
+        {/* DPL Centered Card */}
+        <div className="dpl-centered-wrapper">
+          <div className="team-member-card dpl-standalone-card">
+            <div className="team-card-image-wrap">
+              {dpl.image ? (
+                <img 
+                  src={dpl.image} 
+                  alt={dpl.name} 
+                  className="team-card-image"
+                  loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    if (e.currentTarget.nextElementSibling) {
+                      e.currentTarget.nextElementSibling.style.display = 'flex';
+                    }
+                  }} 
+                />
+              ) : null}
+              <div 
+                className="team-fallback-initials"
+                style={{ display: dpl.image ? 'none' : 'flex' }}
+              >
+                <span>{dpl.initial || 'MD'}</span>
+              </div>
             </div>
-            <p className="dpl-affiliation">{dpl.affiliation}</p>
-            <p className="dpl-quote">"{dpl.quote}"</p>
+            <div className="team-card-body">
+              <h4 className="team-member-name">{dpl.name}</h4>
+              <div className="team-member-role-badge dpl-role-badge">
+                <span>{dpl.role || 'Dosen Pembimbing Lapangan'}</span>
+              </div>
+              <span className="team-member-dept">{dpl.affiliation}</span>
+            </div>
           </div>
         </div>
 
@@ -41,14 +61,40 @@ export default function TeamSection() {
         <div className="team-cards-grid">
           {teamList.map((member, index) => (
             <div key={index} className="team-member-card">
-              <div className="team-avatar-initials">
-                <span>{member.initial}</span>
+              <div className={`team-card-image-wrap ${member.isPlaceholder ? 'is-placeholder' : ''}`}>
+                {member.isPlaceholder ? (
+                  <div className="team-placeholder-inner">
+                    <User size={38} className="placeholder-avatar-icon" />
+                    <span className="placeholder-text">{member.initial}</span>
+                  </div>
+                ) : member.image ? (
+                  <img 
+                    src={member.image} 
+                    alt={member.name} 
+                    className="team-card-image"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                      if (e.currentTarget.nextElementSibling) {
+                        e.currentTarget.nextElementSibling.style.display = 'flex';
+                      }
+                    }}
+                  />
+                ) : null}
+                <div 
+                  className="team-fallback-initials"
+                  style={{ display: member.image || member.isPlaceholder ? 'none' : 'flex' }}
+                >
+                  <span>{member.initial}</span>
+                </div>
               </div>
-              <h4 className="team-member-name">{member.name}</h4>
-              <div className="team-member-role-badge">
-                <span>{member.role}</span>
+              <div className="team-card-body">
+                <h4 className="team-member-name">{member.name}</h4>
+                <div className="team-member-role-badge">
+                  <span>{member.role}</span>
+                </div>
+                <span className="team-member-dept">{member.dept}</span>
               </div>
-              <span className="team-member-dept">{member.dept}</span>
             </div>
           ))}
         </div>

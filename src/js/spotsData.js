@@ -51,21 +51,6 @@ export const spotsData = [
   },
   {
     id: 'spot-4',
-    name: 'Sentra Pembuatan Gula Jawa',
-    category: 'Eduwisata Pangan Tradisional',
-    dusun: 'Dusun Pandean Tampirkulon',
-    pillarId: 'local-creative',
-    pillarName: 'Local Creative Heritage',
-    pillarColor: '#D97706',
-    image: '/images/360/gula-jawa.jpg',
-    thumbnail: '/images/360/gula-jawa.jpg',
-    description: 'Edukasi autentik proses memasak nira kelapa murni di atas tungku kayu bakar tradisional hingga mengental dan dicetak menjadi gula jawa kelapa murni tanpa bahan pengawet.',
-    isAvailable: false,
-    coordinates: { x: 38, y: 68 },
-    highlights: ['Tungku Kayu Tradisional', 'Nira Kelapa Organik', 'Cicip Gula Hangat Segar']
-  },
-  {
-    id: 'spot-5',
     name: 'Wisata Budaya Karawitan',
     category: 'Warisan Seni Tradisional',
     dusun: 'Balai Warga Tampirkulon',
@@ -80,7 +65,7 @@ export const spotsData = [
     highlights: ['Gamelan Pelog & Slendro', 'Harmoni Warga Lintas Generasi', 'Pengalaman Budaya Imersif']
   },
   {
-    id: 'spot-6',
+    id: 'spot-5',
     name: 'Tuk Putri (Mata Air Alami)',
     category: 'Wisata Konservasi Air',
     dusun: 'Kawasan Mata Air Tampirkulon',
@@ -93,20 +78,5 @@ export const spotsData = [
     isAvailable: false,
     coordinates: { x: 80, y: 55 },
     highlights: ['Air Alami Segar & Sejuk', 'Suasana Rindang Asri', 'Konservasi Lingkungan Hidup']
-  },
-  {
-    id: 'spot-7',
-    name: 'Jalur Susur Sungai Tubing',
-    category: 'Petualangan Wisata Air',
-    dusun: 'Bantaran Sungai Tampirkulon',
-    pillarId: 'tubing-care',
-    pillarName: 'Tubing Care & Keselamatan',
-    pillarColor: '#E58B24',
-    image: '/images/360/tubing-river.jpg',
-    thumbnail: '/images/360/tubing-river.jpg',
-    description: 'Jalur wisata air arung jeram ban (tubing) dengan variasi jeram alami yang menantang namun aman, dikawal oleh pengelola yang telah lulus uji kompetensi K3 Basarnas & P3K PMI.',
-    isAvailable: false,
-    coordinates: { x: 30, y: 82 },
-    highlights: ['Standard SOP K3 Basarnas', 'Peralatan Pelampung & Helm SNI', 'Sensasi Arung Jeram Alami']
   }
 ];

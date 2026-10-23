@@ -1,20 +1,19 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { 
-  FileText, 
-  ShieldCheck, 
-  Globe, 
-  BookOpen, 
-  Video, 
-  Newspaper, 
+import {
+  FileText,
+  ShieldCheck,
+  Globe,
+  BookOpen,
+  Video,
+  Newspaper,
   Check,
-  ChevronLeft, 
-  ChevronRight, 
-  ChevronDown, 
+  ChevronLeft,
+  ChevronRight,
+  ChevronDown,
   ChevronUp,
-  Eye, 
-  ArrowUpRight, 
-  X, 
-  CheckCircle2
+  Eye,
+  ArrowUpRight,
+  X
 } from 'lucide-react';
 
 // 6 Kartu Utama yang Menggunakan Foto Dokumentasi Asli di folder public/images/luaran
@@ -130,210 +129,237 @@ const DELIVERABLES_MATRIX_20 = [
     no: '01',
     kategori: 'Luaran Wajib',
     isWajib: true,
-    judul: 'Sublaporan Akhir Program PPK Ormawa',
-    status: 'Terbit',
+    judul: 'Sublaporan Akhir PPK Ormawa',
+    deskripsi: 'Dokumen pertanggungjawaban akhir pelaksanaan program IN WEST TAMP.',
     target: '2026',
-    aksi: 'Unduh',
-    link: '#'
+    status: 'Terbit',
+    aksi: 'Lihat Dokumen',
+    link: 'https://drive.google.com/file/d/1_5yxaxJg-Swe0UtnDYk1s1Uk7-8TGXZK/view?usp=sharing'
   },
   {
     no: '02',
     kategori: 'Luaran Wajib',
     isWajib: true,
-    judul: 'Media Sosial Resmi Tim PPK Ormawa (@ppkormawahimagi26 & @ppkormawa.himagiuntidar)',
-    status: 'Terbit',
+    judul: 'Media Sosial Tim Pelaksana',
+    deskripsi: 'Publikasi kegiatan melalui TikTok (@ppkormawahimagi26) & Instagram (@ppkormawa.himagiuntidar).',
     target: '2026',
-    aksi: 'Lihat',
-    link: 'https://instagram.com'
+    status: 'Terbit',
+    aksi: 'Kunjungi Akun',
+    link: 'https://drive.google.com/drive/u/6/folders/1sXT--V3zm6diNO-2pdYXNXsLZuphJtc9?usp=drive_link'
   },
   {
     no: '03',
     kategori: 'Luaran Wajib',
     isWajib: true,
-    judul: 'Buku Refleksi Ormawa: Implementasi Soft & Hard Skills',
-    status: 'Terbit',
+    judul: 'Buku Refleksi Ormawa (Ber-ISBN)',
+    deskripsi: 'Dokumentasi implementasi soft skills dan hard skills mahasiswa dalam pemberdayaan warga (cetak & elektronik).',
     target: '2026',
-    aksi: 'Lihat',
-    link: '#'
+    status: 'Terbit',
+    aksi: 'Baca Buku',
+    link: 'https://drive.google.com/drive/folders/1d5H0InlYGcz8h6IiCku_R6a5-JwhnRNW?usp=drive_link'
   },
   {
     no: '04',
     kategori: 'Luaran Wajib',
     isWajib: true,
-    judul: 'Video Dokumenter Kegiatan di YouTube (@himagiuntidar)',
-    status: 'Terbit',
+    judul: 'Video Dokumenter Pelaksanaan',
+    deskripsi: 'Dokumentasi visual perjalanan program yang diunggah melalui kanal YouTube (@himagiuntidar).',
     target: '2026',
-    aksi: 'Tonton',
-    link: 'https://youtube.com'
+    status: 'Terbit',
+    aksi: 'Tonton Video',
+    link: 'https://drive.google.com/drive/folders/1TKAep2knUlQaBoP_6R3ixvhZUb5ooh8c?usp=drive_link'
   },
   {
     no: '05',
     kategori: 'Luaran Wajib',
     isWajib: true,
-    judul: 'Poster Hasil Pelaksanaan Program IN WEST TAMP',
-    status: 'Terbit',
+    judul: 'Poster Hasil Pelaksanaan Program',
+    deskripsi: 'Rangkuman visual capaian pengabdian masyarakat IN WEST TAMP (hardfile & softfile).',
     target: '2026',
-    aksi: 'Unduh',
-    link: '#'
+    status: 'Terbit',
+    aksi: 'Lihat Poster',
+    link: 'https://drive.google.com/drive/folders/11I4gIzG7x-gZfD2OMXGIDFbE9atZ0qZQ?usp=drive_link'
   },
   {
     no: '06',
     kategori: 'Luaran Tambahan',
     isWajib: false,
-    judul: 'Terbentuknya POKDARWIS Mandiri Desa Tampirkulon (Legalitas SK)',
-    status: 'Terbit',
+    judul: 'Kelembagaan POKDARWIS Desa Tampirkulon',
+    deskripsi: 'Pembentukan Kelompok Sadar Wisata resmi sebagai penggerak utama ekosistem desa wisata.',
     target: '2026',
-    aksi: 'Lihat',
-    link: '#'
+    status: 'Terbit',
+    aksi: 'Bukti Pembentukan',
+    link: 'https://drive.google.com/file/d/1NLLCbN_LvMrTSeVx9j0bc_qAEdfVskG6/view?usp=drive_link'
   },
   {
     no: '07',
     kategori: 'Luaran Tambahan',
     isWajib: false,
-    judul: 'Website Pemesanan Tiket Wisata West Tamp Tubing (Ber-HKI)',
-    status: 'Terbit',
+    judul: 'Website Pemesanan Tiket & HKI Website',
+    deskripsi: 'Portal resmi reservasi West Tamp Tubing dilengkapi video profil wisata terdaftar HKI.',
     target: '2026',
-    aksi: 'Kunjungi',
-    link: '#tur-360'
+    status: 'Terbit',
+    aksi: 'Web & Sertifikat HKI',
+    link: 'wisatatampirkulon.com'
   },
   {
     no: '08',
     kategori: 'Luaran Tambahan',
     isWajib: false,
-    judul: 'Taman Sehat (Kawasan TOGA, Gym Sederhana, & West Angkringan Sehat)',
-    status: 'Terbit',
+    judul: 'Kawasan Taman Sehat & Produk Pangan Lokal',
+    deskripsi: 'Fasilitas kebun TOGA, outdoor gym sederhana, dan West Angkringan Sehat (bakso lele, wedang jahe telang, kelapa jeruk).',
     target: '2026',
-    aksi: 'Lihat',
-    link: '#'
+    status: 'Terwujud',
+    aksi: 'Lihat Dokumentasi',
+    link: 'https://drive.google.com/drive/folders/1T38JBhLQnB-MtPiiwlTuKmprLrGXOzuV?usp=drive_link'
   },
   {
     no: '09',
     kategori: 'Luaran Tambahan',
     isWajib: false,
-    judul: 'Artikel Ilmiah Pengabdian Masyarakat di Jurnal E-DIMAS',
-    status: 'Accepted',
+    judul: 'Leaflet Edukasi PHBS',
+    deskripsi: 'Media cetak edukasi Perilaku Hidup Bersih dan Sehat bagi pengunjung di area wisata tubing.',
     target: '2026',
-    aksi: 'Baca',
-    link: '#'
+    status: 'Terbit',
+    aksi: 'Lihat Leaflet',
+    link: 'https://drive.google.com/file/d/1tRZOnXHOToiybtnCTHjr2Ve_fiN2-PEv/view?usp=drive_link'
   },
   {
     no: '10',
     kategori: 'Luaran Tambahan',
     isWajib: false,
-    judul: 'Buku Resep Pangan Lokal & Olahan Potensi Desa (Ber-ISBN)',
-    status: 'Terbit',
+    judul: 'Poster Langkah Cuci Tangan',
+    deskripsi: 'Media visual panduan menjaga kebersihan tangan di lokasi wisata untuk pencegahan penyakit.',
     target: '2026',
-    aksi: 'Lihat',
-    link: '#'
+    status: 'Terbit',
+    aksi: 'Lihat Poster',
+    link: 'https://drive.google.com/file/d/105TxWdrtIlbm6Qd30QjkGJah5dcU7wWv/view?usp=drive_link'
   },
   {
     no: '11',
     kategori: 'Luaran Tambahan',
     isWajib: false,
-    judul: 'Video Profil Destinasi & Edukasi West Tamp Tubing',
-    status: 'Terbit',
+    judul: 'Banner Larangan Membuang Sampah',
+    deskripsi: 'Media kampanye pelestarian kebersihan dan kenyamanan lingkungan sekitar aliran sungai tubing.',
     target: '2026',
-    aksi: 'Tonton',
-    link: 'https://youtube.com'
+    status: 'Terbit',
+    aksi: 'Lihat Banner',
+    link: 'https://drive.google.com/file/d/1Adhhsoj_cpBkrWzG_tKchRBh5WkFSxi5/view?usp=drive_link'
   },
   {
     no: '12',
     kategori: 'Luaran Tambahan',
     isWajib: false,
-    judul: 'Buku Pedoman SOP Keselamatan Tubing & P3K Air Berstandar Basarnas',
-    status: 'Terbit',
+    judul: 'Publikasi Media Massa Lokal & Nasional',
+    deskripsi: 'Liputan program di Jawa Pos (Radar Magelang), Magelang News, iNews, dan Kompasiana.',
     target: '2026',
-    aksi: 'Baca',
-    link: '#'
+    status: 'Terbit',
+    aksi: 'Kliping Berita',
+    link: 'https://drive.google.com/drive/folders/1bMvCyf1zjyA_o8zRNPLnit2lP06cb78r?usp=drive_link'
   },
   {
     no: '13',
     kategori: 'Luaran Tambahan',
     isWajib: false,
-    judul: 'Liputan Media Massa (Jawa Pos Radar Magelang & iNews)',
-    status: 'Terbit',
+    judul: 'Buku Resep Pangan Lokal (Ber-ISBN)',
+    deskripsi: 'Kumpulan resep inovasi olahan ikan lele, TOGA, dan kelapa ber-ISBN Universitas Tidar.',
     target: '2026',
-    aksi: 'Lihat',
-    link: '#'
+    status: 'Terbit',
+    aksi: 'Baca Buku Resep',
+    link: 'https://drive.google.com/drive/folders/1zGdBuc5kMTXUsZbdHjTAtoioNsVGBda6?usp=drive_link'
   },
   {
     no: '14',
     kategori: 'Luaran Tambahan',
     isWajib: false,
-    judul: 'Leaflet & Brosur Wisata Edukasi Desa Tampirkulon',
-    status: 'Terbit',
+    judul: 'Artikel Ilmiah Jurnal Pengabdian',
+    deskripsi: 'Publikasi artikel pengabdian masyarakat pada Jurnal Nasional E-DIMAS.',
     target: '2026',
-    aksi: 'Unduh',
-    link: '#'
+    status: 'Accepted',
+    aksi: 'Buka Jurnal',
+    link: 'https://journal.upgris.ac.id/index.php/e-dimas/article/view/28328'
   },
   {
     no: '15',
     kategori: 'Luaran Tambahan',
     isWajib: false,
-    judul: 'Poster Informasi Tanaman Obat Keluarga (TOGA) & Khasiat Herbal',
-    status: 'Terbit',
+    judul: 'Video Pelaksanaan Program Ber-HKI',
+    deskripsi: 'Karya rekaman video implementasi program yang telah tercatat Hak Kekayaan Intelektual (HKI).',
     target: '2026',
-    aksi: 'Unduh',
-    link: '#'
+    status: 'Terbit',
+    aksi: 'Video & HKI',
+    link: 'https://drive.google.com/drive/folders/1_A0EG6hFDtREn0lCNa0nGWhQP7kmQyuP?usp=drive_link'
   },
   {
     no: '16',
     kategori: 'Luaran Tambahan',
     isWajib: false,
-    judul: 'Rambu & Banner Keselamatan K3 serta Jalur Evakuasi Sungai',
-    status: 'Terbit',
+    judul: 'Media Sosial Resmi Desa Wisata',
+    deskripsi: 'Kanal promosi digital Desa Wisata Tampirkulon melalui Instagram (@pesona.tampirkulon).',
     target: '2026',
-    aksi: 'Lihat',
-    link: '#'
+    status: 'Terbit',
+    aksi: 'Buka Instagram',
+    link: 'https://instagram.com/pesona.tampirkulon'
   },
   {
     no: '17',
     kategori: 'Luaran Tambahan',
     isWajib: false,
-    judul: 'Modul Pelatihan Diversifikasi Olahan Pangan Lele KWT',
-    status: 'Terbit',
+    judul: 'SK Pencanangan Desa Wisata',
+    deskripsi: 'Surat Keputusan (SK) resmi penetapan dan pencanangan Desa Wisata Tampirkulon.',
     target: '2026',
-    aksi: 'Baca',
-    link: '#'
+    status: 'Terbit',
+    aksi: 'Lihat SK Resmi',
+    link: 'https://drive.google.com/file/d/1cyZ0EQVrmvPc56tiGR5zewUc0wF4uhtu/view?usp=drive_link'
   },
   {
     no: '18',
     kategori: 'Luaran Tambahan',
     isWajib: false,
-    judul: 'Berita Acara Serah Terima (BAST) Sarana & Aset Wisata Rp9,7+ Juta',
-    status: 'Terbit',
+    judul: 'SOP Keselamatan Wisata Tubing',
+    deskripsi: 'Dokumen Standar Operasional Pelaksanaan (SOP) wisata air West Tamp Tubing.',
     target: '2026',
-    aksi: 'Lihat',
-    link: '#'
+    status: 'Terbit',
+    aksi: 'Lihat SOP',
+    link: 'https://drive.google.com/file/d/12f2jBqxc4dSpttqNOAP3spOPn4SWo37e/view?usp=drive_link'
   },
   {
     no: '19',
     kategori: 'Luaran Tambahan',
     isWajib: false,
-    judul: 'Sertifikasi Water Rescue 25 Pemuda Desa bersama Basarnas',
-    status: 'Terbit',
+    judul: 'Leaflet Promosi Manfaat Wisata Tubing',
+    deskripsi: 'Brosur informasi paket dan manfaat kesehatan aktivitas wisata susur sungai.',
     target: '2026',
-    aksi: 'Lihat',
-    link: '#'
+    status: 'Terbit',
+    aksi: 'Lihat Leaflet',
+    link: 'https://drive.google.com/file/d/1Uhd_3kSBgbRY9KP6wUpnGaLTgH6V1FS8/view?usp=drive_link'
   },
   {
     no: '20',
     kategori: 'Luaran Tambahan',
     isWajib: false,
-    judul: 'Surat Pencatatan Ciptaan Hak Kekayaan Intelektual (HKI) Kemenkumham RI',
-    status: 'Terbit',
+    judul: 'Video Tutorial Operasional Website',
+    deskripsi: 'Panduan visual penggunaan dan manajemen website desa wisata bagi pengelola POKDARWIS.',
     target: '2026',
-    aksi: 'Unduh',
-    link: '#'
+    status: 'Terbit',
+    aksi: 'Tonton Tutorial',
+    link: 'https://drive.google.com/file/d/1qJj7RN5Geh5IV7g0W9CLMJdHZd5LmkH_/view?usp=drive_link'
   }
 ];
 
 export default function DeliverablesSection() {
-  const [activeFilter, setActiveFilter] = useState('all');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardsPerView, setCardsPerView] = useState(3);
   const [selectedDoc, setSelectedDoc] = useState(null);
   const [isTableExpanded, setIsTableExpanded] = useState(false);
+  const [dragOffset, setDragOffset] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+
+  const dragStartXRef = useRef(0);
+  const currentDragOffsetRef = useRef(0);
+  const isDraggingRef = useRef(false);
+  const hasDraggedRef = useRef(false);
+  const viewportRef = useRef(null);
 
   // Responsive cards per view
   useEffect(() => {
@@ -353,26 +379,14 @@ export default function DeliverablesSection() {
     return () => window.removeEventListener('resize', updateCardsPerView);
   }, []);
 
-  const validFilters = ['all', 'digital', 'publikasi', 'tata-kelola'];
-  const currentFilter = validFilters.includes(activeFilter) ? activeFilter : 'all';
-
-  const filteredItems = DELIVERABLES_6_CARDS.filter(item => {
-    if (currentFilter === 'all') return true;
-    return item.categoryGroup === currentFilter;
-  });
-
-  const maxIndex = Math.max(0, filteredItems.length - cardsPerView);
+  const items = DELIVERABLES_6_CARDS;
+  const maxIndex = Math.max(0, items.length - cardsPerView);
 
   useEffect(() => {
     if (currentIndex > maxIndex) {
       setCurrentIndex(maxIndex);
     }
   }, [maxIndex, currentIndex]);
-
-  const handleFilterChange = (filter) => {
-    setActiveFilter(filter);
-    setCurrentIndex(0);
-  };
 
   const handlePrev = () => {
     setCurrentIndex(prev => Math.max(0, prev - 1));
@@ -389,6 +403,81 @@ export default function DeliverablesSection() {
     } else if (e.key === 'ArrowRight') {
       e.preventDefault();
       handleNext();
+    }
+  };
+
+  // Drag and swipe handling for cards slider
+  const handlePointerDown = (e) => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+
+    isDraggingRef.current = true;
+    hasDraggedRef.current = false;
+    dragStartXRef.current = e.clientX;
+    currentDragOffsetRef.current = 0;
+    setIsDragging(true);
+    setDragOffset(0);
+  };
+
+  useEffect(() => {
+    if (!isDragging) return;
+
+    const onPointerMove = (e) => {
+      if (!isDraggingRef.current) return;
+      const diff = e.clientX - dragStartXRef.current;
+      if (Math.abs(diff) > 5) {
+        hasDraggedRef.current = true;
+      }
+
+      // Add boundary resistance
+      let adjusted = diff;
+      if ((currentIndex === 0 && diff > 0) || (currentIndex >= maxIndex && diff < 0)) {
+        adjusted = diff * 0.25;
+      }
+      currentDragOffsetRef.current = adjusted;
+      setDragOffset(adjusted);
+    };
+
+    const onPointerUp = () => {
+      if (!isDraggingRef.current) return;
+      isDraggingRef.current = false;
+      setIsDragging(false);
+
+      const finalOffset = currentDragOffsetRef.current;
+      const viewportWidth = viewportRef.current ? viewportRef.current.offsetWidth : 900;
+      const cardWidth = viewportWidth / cardsPerView;
+      const threshold = Math.min(60, cardWidth * 0.2);
+
+      if (finalOffset < -threshold && currentIndex < maxIndex) {
+        const slides = Math.max(1, Math.round(Math.abs(finalOffset) / cardWidth));
+        setCurrentIndex(prev => Math.min(maxIndex, prev + slides));
+      } else if (finalOffset > threshold && currentIndex > 0) {
+        const slides = Math.max(1, Math.round(Math.abs(finalOffset) / cardWidth));
+        setCurrentIndex(prev => Math.max(0, prev - slides));
+      }
+
+      setDragOffset(0);
+      currentDragOffsetRef.current = 0;
+
+      setTimeout(() => {
+        hasDraggedRef.current = false;
+      }, 80);
+    };
+
+    window.addEventListener('pointermove', onPointerMove);
+    window.addEventListener('pointerup', onPointerUp);
+    window.addEventListener('pointercancel', onPointerUp);
+
+    return () => {
+      window.removeEventListener('pointermove', onPointerMove);
+      window.removeEventListener('pointerup', onPointerUp);
+      window.removeEventListener('pointercancel', onPointerUp);
+    };
+  }, [isDragging, currentIndex, maxIndex, cardsPerView]);
+
+  const handleCaptureClick = (e) => {
+    if (hasDraggedRef.current) {
+      e.preventDefault();
+      e.stopPropagation();
     }
   };
 
@@ -417,13 +506,14 @@ export default function DeliverablesSection() {
     }
   };
 
-  const formatIndex = (val) => String(val).padStart(2, '0');
-  const currentSlideDisplay = formatIndex(currentIndex + 1);
-  const totalDisplay = formatIndex(filteredItems.length);
-
-  const displayedTableRows = isTableExpanded 
-    ? DELIVERABLES_MATRIX_20 
+  const displayedTableRows = isTableExpanded
+    ? DELIVERABLES_MATRIX_20
     : DELIVERABLES_MATRIX_20.slice(0, 10);
+
+  const dragProgress = (isDragging && viewportRef.current)
+    ? (-dragOffset / (viewportRef.current.offsetWidth / cardsPerView))
+    : 0;
+  const visualIndex = Math.max(0, Math.min(maxIndex, currentIndex + dragProgress));
 
   return (
     <section id="luaran" className="deliverables-ref-section" data-purpose="outputs-deliverables">
@@ -434,74 +524,19 @@ export default function DeliverablesSection() {
             <div className="editorial-eyebrow-pill">
               • BUKTI NYATA &amp; DAMPAK PROGRAM •
             </div>
-            <h2 className="editorial-title">
+            <h2 className="editorial-title deliverables-editorial-title">
               Capaian Luaran, Publikasi Ilmiah &amp; Hak Cipta
             </h2>
-            <p className="editorial-subtitle">
-              Selama 5 bulan pelaksanaan di Desa Tampirkulon, program IN WEST TAMP telah menghasilkan 5 luaran wajib dan 15 luaran tambahan yang teruji secara akademik, legal, dan berdampak langsung bagi warga.
+            <p className="editorial-subtitle deliverables-editorial-subtitle">
+              Selama 5 bulan pelaksanaan di Desa Tampirkulon, program IN WEST TAMP telah menghasilkan 5 luaran wajib dan<br className="deliverables-sub-break" /> 15 luaran tambahan yang teruji secara akademik, legal, dan berdampak langsung bagi warga.
             </p>
-          </div>
-
-          {/* Top Right Metric Pill Capsule */}
-          <div className="deliverables-header-right">
-            <div className="deliverables-summary-pill" aria-label="Ringkasan Capaian">
-              <span className="summary-pill-item">2 HKI Terbit</span>
-              <span className="summary-pill-dot">•</span>
-              <span className="summary-pill-item">2 Buku/ISBN</span>
-              <span className="summary-pill-dot">•</span>
-              <span className="summary-pill-item">1 Jurnal Nasional</span>
-              <span className="summary-pill-dot">•</span>
-              <span className="summary-pill-item">3 Media Massa</span>
-            </div>
           </div>
         </div>
 
-        {/* 2. Controls Bar (Filter Pills + Carousel Pagination) */}
+        {/* 2. Controls Bar (Carousel Arrows) */}
         <div className="deliverables-ref-controls-bar">
-          <div className="deliverables-ref-filter-group" role="tablist" aria-label="Filter Kelompok Luaran">
-            <button 
-              type="button"
-              role="tab"
-              aria-selected={currentFilter === 'all'}
-              className={`ref-filter-pill ${currentFilter === 'all' ? 'active' : ''}`}
-              onClick={() => handleFilterChange('all')}
-            >
-              Semua Luaran (6)
-            </button>
-            <button 
-              type="button"
-              role="tab"
-              aria-selected={currentFilter === 'digital'}
-              className={`ref-filter-pill ${currentFilter === 'digital' ? 'active' : ''}`}
-              onClick={() => handleFilterChange('digital')}
-            >
-              HKI &amp; Media Promosi
-            </button>
-            <button 
-              type="button"
-              role="tab"
-              aria-selected={currentFilter === 'publikasi'}
-              className={`ref-filter-pill ${currentFilter === 'publikasi' ? 'active' : ''}`}
-              onClick={() => handleFilterChange('publikasi')}
-            >
-              Publikasi Buku &amp; Jurnal
-            </button>
-            <button 
-              type="button"
-              role="tab"
-              aria-selected={currentFilter === 'tata-kelola'}
-              className={`ref-filter-pill ${currentFilter === 'tata-kelola' ? 'active' : ''}`}
-              onClick={() => handleFilterChange('tata-kelola')}
-            >
-              Regulasi &amp; Infrastruktur Fisik
-            </button>
-          </div>
-
           <div className="deliverables-ref-nav-controls">
-            <span className="ref-counter-box" aria-live="polite">
-              <strong className="ref-counter-active">{currentSlideDisplay}</strong> / {totalDisplay}
-            </span>
-            <button 
+            <button
               type="button"
               className="ref-arrow-btn"
               onClick={handlePrev}
@@ -510,7 +545,7 @@ export default function DeliverablesSection() {
             >
               <ChevronLeft size={16} />
             </button>
-            <button 
+            <button
               type="button"
               className="ref-arrow-btn"
               onClick={handleNext}
@@ -523,23 +558,27 @@ export default function DeliverablesSection() {
         </div>
 
         {/* 3. Featured Cards Carousel */}
-        <div 
-          className="deliverables-ref-slider-viewport"
+        <div
+          ref={viewportRef}
+          className={`deliverables-ref-slider-viewport ${isDragging ? 'is-dragging' : ''}`}
           tabIndex={0}
           role="region"
           aria-roledescription="carousel"
           aria-label="Katalog Luaran Unggulan Slider"
           onKeyDown={handleKeyDown}
+          onPointerDown={handlePointerDown}
+          onClickCapture={handleCaptureClick}
         >
-          <div 
+          <div
             className="deliverables-ref-slider-track"
             style={{
-              transform: `translateX(-${currentIndex * (100 / cardsPerView)}%)`
+              transform: `translateX(calc(-${currentIndex * (100 / cardsPerView)}% + ${dragOffset}px))`,
+              transition: isDragging ? 'none' : 'transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1)'
             }}
           >
-            {filteredItems.map((item) => (
-              <div 
-                key={item.id} 
+            {items.map((item) => (
+              <div
+                key={item.id}
                 className="deliverables-ref-slide-item"
                 style={{ flex: `0 0 ${100 / cardsPerView}%` }}
               >
@@ -548,11 +587,12 @@ export default function DeliverablesSection() {
                     {/* Visual Preview Box with Real Mockup Photo from public/images/luaran */}
                     <div className="ref-preview-box">
                       <div className="ref-preview-img-wrap">
-                        <img 
-                          src={item.image} 
+                        <img
+                          src={item.image}
                           alt={item.imageAlt || item.judulKartu}
                           className={`ref-preview-img ${item.imageZoom ? 'img-zoom-social' : ''}`}
                           loading="lazy"
+                          draggable={false}
                         />
                       </div>
                     </div>
@@ -575,7 +615,7 @@ export default function DeliverablesSection() {
 
                   {/* Buttons Bottom */}
                   <div className="ref-card-actions">
-                    <button 
+                    <button
                       type="button"
                       className="ref-btn-primary"
                       onClick={() => setSelectedDoc(item)}
@@ -586,7 +626,7 @@ export default function DeliverablesSection() {
                     </button>
 
                     {item.link && (
-                      <a 
+                      <a
                         href={item.link}
                         target={item.link.startsWith('http') ? '_blank' : '_self'}
                         rel={item.link.startsWith('http') ? 'noopener noreferrer' : undefined}
@@ -604,9 +644,39 @@ export default function DeliverablesSection() {
           </div>
         </div>
 
+        {/* Carousel Dots Pagination Indicator */}
+        <div className="deliverables-carousel-dots-wrapper">
+          <div
+            className="deliverables-carousel-dots-track"
+            role="tablist"
+            aria-label="Pilih kartu luaran"
+          >
+            {items.map((item, idx) => (
+              <button
+                key={item.id}
+                type="button"
+                className={`deliverables-carousel-dot ${idx >= currentIndex && idx < currentIndex + cardsPerView ? 'is-active-card' : ''
+                  }`}
+                onClick={() => setCurrentIndex(Math.min(maxIndex, idx))}
+                aria-label={`Buka kartu luaran ke-${idx + 1}: ${item.judulKartu}`}
+                aria-selected={idx >= currentIndex && idx < currentIndex + cardsPerView}
+              />
+            ))}
+            <div
+              className="deliverables-carousel-active-pill"
+              style={{
+                width: `${cardsPerView * 8 + (cardsPerView - 1) * 8}px`,
+                transform: `translateX(${visualIndex * 16}px)`,
+                transition: isDragging ? 'none' : 'transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), width 0.3s ease'
+              }}
+              aria-hidden="true"
+            />
+          </div>
+        </div>
+
         {/* 4. Expandable Table / Matriks Card */}
         <div className="deliverables-ref-table-card">
-          <div 
+          <div
             className="ref-table-card-header"
             onClick={() => setIsTableExpanded(prev => !prev)}
             role="button"
@@ -622,9 +692,9 @@ export default function DeliverablesSection() {
             <h3 className="ref-table-card-title">
               Matriks Lengkap 20 Luaran Program (5 Luaran Wajib &amp; 15 Luaran Tambahan)
             </h3>
-            <button 
+            <button
               type="button"
-              className="ref-table-toggle-btn" 
+              className="ref-table-toggle-btn"
               aria-label={isTableExpanded ? "Tutup matriks" : "Buka seluruh matriks"}
             >
               {isTableExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
@@ -637,9 +707,9 @@ export default function DeliverablesSection() {
                 <tr>
                   <th className="col-no">No</th>
                   <th className="col-cat">Kategori</th>
-                  <th className="col-title">Jenis / Judul Luaran</th>
-                  <th className="col-status">Status Capaian</th>
+                  <th className="col-title">Judul Luaran &amp; Deskripsi</th>
                   <th className="col-target">Target</th>
+                  <th className="col-status">Status</th>
                   <th className="col-action">Aksi</th>
                 </tr>
               </thead>
@@ -649,24 +719,32 @@ export default function DeliverablesSection() {
                     <td className="cell-no">{row.no}</td>
                     <td className="cell-cat">
                       <span className="ref-cat-pill-wrap">
-                        <span 
+                        <span
                           className={`ref-cat-dot ${row.isWajib ? 'dot-wajib' : 'dot-tambahan'}`}
                         />
                         <span className="ref-cat-text">{row.kategori}</span>
                       </span>
                     </td>
                     <td className="cell-title">
-                      {row.judul}
+                      <div className="ref-matrix-title-bold">{row.judul}</div>
+                      {row.deskripsi && (
+                        <div className="ref-matrix-desc-sub">{row.deskripsi}</div>
+                      )}
                     </td>
+                    <td className="cell-target">{row.target}</td>
                     <td className="cell-status">
-                      <span className={`ref-status-tag ${row.status === 'Accepted' ? 'status-accepted' : 'status-terbit'}`}>
+                      <span className={`ref-status-tag ${row.status === 'Accepted'
+                        ? 'status-accepted'
+                        : row.status === 'Terwujud'
+                          ? 'status-terwujud'
+                          : 'status-terbit'
+                        }`}>
                         {row.status}
                       </span>
                     </td>
-                    <td className="cell-target">{row.target}</td>
                     <td className="cell-action">
-                      <a 
-                        href={row.link} 
+                      <a
+                        href={row.link}
                         target={row.link.startsWith('http') ? '_blank' : '_self'}
                         rel={row.link.startsWith('http') ? 'noopener noreferrer' : undefined}
                         className="ref-table-action-btn"
@@ -683,7 +761,7 @@ export default function DeliverablesSection() {
           </div>
 
           <div className="ref-table-card-footer">
-            <button 
+            <button
               type="button"
               className="ref-table-footer-btn"
               onClick={() => setIsTableExpanded(prev => !prev)}
@@ -693,35 +771,19 @@ export default function DeliverablesSection() {
             </button>
           </div>
         </div>
-
-        {/* 5. Bottom Summary Notes */}
-        <div className="deliverables-ref-bottom-notes">
-          <div className="ref-note-left">
-            <CheckCircle2 size={18} className="ref-verify-icon" />
-            <span className="ref-note-text">
-              Seluruh berkas luaran wajib dan tambahan telah diverifikasi oleh Tim Belmawa Kemendikbudristek RI.
-            </span>
-          </div>
-          <div className="ref-note-right">
-            <a href="#tur-360" className="ref-note-link">
-              <span>Eksplorasi Tur Virtual 360°</span>
-              <ArrowUpRight size={14} />
-            </a>
-          </div>
-        </div>
       </div>
 
       {/* Modal Detail Luaran */}
       {selectedDoc && (
-        <div 
-          className="deliverable-modal-backdrop" 
-          onClick={() => setSelectedDoc(null)} 
-          role="dialog" 
+        <div
+          className="deliverable-modal-backdrop"
+          onClick={() => setSelectedDoc(null)}
+          role="dialog"
           aria-modal="true"
           aria-labelledby="modal-luaran-title"
         >
-          <div 
-            className="deliverable-modal-dialog" 
+          <div
+            className="deliverable-modal-dialog"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="deliverable-modal-header">
@@ -733,10 +795,10 @@ export default function DeliverablesSection() {
                   {selectedDoc.judulKartu}
                 </h3>
               </div>
-              <button 
+              <button
                 type="button"
-                className="deliverable-modal-close" 
-                onClick={() => setSelectedDoc(null)} 
+                className="deliverable-modal-close"
+                onClick={() => setSelectedDoc(null)}
                 aria-label="Tutup jendela rincian"
               >
                 <X size={18} />
@@ -747,10 +809,10 @@ export default function DeliverablesSection() {
               {/* Modal Visual Photo Preview */}
               {selectedDoc.image && (
                 <div className="deliverable-modal-img-container">
-                  <img 
-                    src={selectedDoc.image} 
+                  <img
+                    src={selectedDoc.image}
                     alt={selectedDoc.imageAlt || selectedDoc.judulKartu}
-                    className="deliverable-modal-img" 
+                    className="deliverable-modal-img"
                   />
                 </div>
               )}
@@ -790,9 +852,9 @@ export default function DeliverablesSection() {
             </div>
 
             <div className="deliverable-modal-footer">
-              <button 
-                type="button" 
-                className="btn-pill-outline" 
+              <button
+                type="button"
+                className="btn-pill-outline"
                 onClick={() => setSelectedDoc(null)}
                 style={{ fontSize: '0.8125rem', padding: '0.5rem 1.25rem' }}
               >
@@ -800,7 +862,7 @@ export default function DeliverablesSection() {
               </button>
 
               {selectedDoc.link && (
-                <a 
+                <a
                   href={selectedDoc.link}
                   target={selectedDoc.link.startsWith('http') ? '_blank' : '_self'}
                   rel={selectedDoc.link.startsWith('http') ? 'noopener noreferrer' : undefined}
