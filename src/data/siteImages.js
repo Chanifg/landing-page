@@ -125,9 +125,9 @@ export const siteImages = {
     },
     {
       id: 'bento-12',
-      title: 'Pelatihan Pertolongan Pertama Gawat Darurat',
+      title: 'Aktivitas Dokumentasi Lapangan',
       caption: '',
-      src: '/images/documentation/pelatihan-p3k-pmi.jpg'
+      src: '/images/documentation/IMG_3234.JPG'
     },
 
     // Cluster 3
@@ -166,15 +166,54 @@ export const siteImages = {
       title: 'Koordinasi Kelembagaan Bersama Perangkat Desa',
       caption: '',
       src: '/images/documentation/PXL_20260715_100409504.jpg'
+    },
+
+    // Cluster 4 (Foto Tambahan Terbaru)
+    {
+      id: 'bento-19',
+      title: 'Dokumentasi Lapangan & Interaksi Warga',
+      caption: '',
+      src: '/images/documentation/PXL_20260718_095025059.jpg'
+    },
+    {
+      id: 'bento-20',
+      title: 'Kegiatan Kolaborasi Tim Mahasiswa',
+      caption: '',
+      src: '/images/documentation/PXL_20260904_034511263.jpg'
+    },
+    {
+      id: 'bento-21',
+      title: 'Pemberdayaan Masyarakat Tampirkulon',
+      caption: '',
+      src: '/images/documentation/IMG-20260921-WA0028.jpg'
+    },
+    {
+      id: 'bento-22',
+      title: 'Aktivitas Program Pengabdian Ormawa',
+      caption: '',
+      src: '/images/documentation/PXL_20260904_030614081.jpg'
+    },
+    {
+      id: 'bento-23',
+      title: 'Pendampingan dan Diskusi Bersama Komunitas',
+      caption: '',
+      src: '/images/documentation/PXL_20260715_135125017.jpg'
+    },
+    {
+      id: 'bento-24',
+      title: 'Kunjungan dan Pemantauan Potensi Wilayah',
+      caption: '',
+      src: '/images/documentation/Salinan PXL_20260801_042839577.jpg'
     }
   ],
   dpl: {
-    name: 'Dosen Pembimbing Lapangan (DPL)',
+    name: 'Mira Dian Naufalina, S.Gz., M.Gz.',
+    role: 'Dosen Pembimbing Lapangan',
     title: 'Pembimbing Akademik & Supervisi Program',
-    affiliation: 'Program Studi S1 Gizi, Fakultas Ilmu Kesehatan, Universitas Tidar',
-    quote: 'Mengarahkan pendekatan Wellness-Tourism berbasis intervensi gizi terapan dan pemberdayaan masyarakat yang terukur serta berkelanjutan.',
-    image: null,
-    isPlaceholder: true
+    affiliation: 'Program Studi S1 Gizi, Fakultas Pertanian, Universitas Tidar',
+    initial: 'MD',
+    image: '/images/team/Mira Dian Naufalina S.Gz., M.Gz_Dosen Pendamping.jpeg',
+    isPlaceholder: false
   },
   team: [
     { 
@@ -192,12 +231,11 @@ export const siteImages = {
       image: '/images/team/Meisy Muliasa Insani_S1 Gizi 2024_Sekretaris.png'
     },
     { 
-      name: 'Sekretaris Tim Pelaksana', 
-      role: 'Sekretaris Program', 
-      dept: 'S1 Gizi Universitas Tidar', 
-      initial: 'ST',
-      image: null,
-      isPlaceholder: true
+      name: 'Zita Tsani Suraya', 
+      role: 'Bendahara', 
+      dept: 'S1 Gizi 2024', 
+      initial: 'ZT',
+      image: '/images/team/Zita Tsani Suraya_S1 Gizi 2024_Bendahara.png'
     },
     { 
       name: 'Achmad Chanif Rahmatullah', 
@@ -277,12 +315,11 @@ export const siteImages = {
       image: '/images/team/Dina Rohadatul Aisy_S1 Gizi 2024_Nutrilocal.png'
     },
     { 
-      name: 'Tim Nutri Local', 
+      name: 'Hardinatasya Salva M', 
       role: 'Nutri Local', 
-      dept: 'S1 Gizi Universitas Tidar', 
-      initial: 'NL',
-      image: null,
-      isPlaceholder: true
+      dept: 'S1 Gizi 2024', 
+      initial: 'HS',
+      image: '/images/team/Hardinatasya Salva M_S1 Gizi 2024-Nutrilocal.png'
     }
   ]
 };
