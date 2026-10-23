@@ -54,131 +54,235 @@ export const siteImages = {
     }
   },
   gallery: [
-    // Cluster 1 (Kegiatan Kelembagaan & Lapangan)
+    // Cluster 1
     {
       id: 'bento-1',
-      title: 'Pelatihan Water Rescue & Standarisasi Keselamatan Basarnas',
-      caption: 'Simulasi tanggap darurat kecelakaan air di Sungai Gono bersama instruktur bersertifikat Basarnas.',
-      src: '/images/documentation/pelatihan-k3-basarnas.jpg',
-      tag: 'K3 & Water Rescue',
-      type: 'hero',
-      isHero: true
+      title: 'Pelatihan Water Rescue & Standarisasi Basarnas',
+      caption: '',
+      src: '/images/documentation/pelatihan-k3-basarnas.jpg'
     },
     {
       id: 'bento-2',
       title: 'Musyawarah Desa & SK Legalitas POKDARWIS',
-      caption: 'Penyerahan SK Kepala Desa atas pengesahan kelompok sadar wisata Tampirkulon.',
-      src: '/images/documentation/pembentukan-pokdarwis.jpg',
-      tag: 'Kelembagaan Desa',
-      type: 'medium'
+      caption: '',
+      src: '/images/documentation/pembentukan-pokdarwis.jpg'
     },
     {
       id: 'bento-3',
       title: 'Pembangunan Ruang Sehat Taman TOGA',
-      caption: 'Revitalisasi lahan tidur di area basecamp menjadi kebun tanaman obat keluarga produktif.',
-      src: '/images/documentation/taman-sehat-toga.jpg',
-      tag: 'Green Wellness',
-      type: 'medium'
+      caption: '',
+      src: '/images/documentation/taman-sehat-toga.jpg'
     },
     {
       id: 'bento-4',
       title: 'Pelatihan Diversifikasi Olahan Lele Ibu PKK',
-      caption: 'Inovasi pembuatan bakso dan nugget lele bernutrisi tinggi untuk pencegahan stunting.',
-      src: '/images/documentation/edukasi-olahan-lele.jpg',
-      tag: 'Gizi & Pangan',
-      type: 'medium'
+      caption: '',
+      src: '/images/documentation/edukasi-olahan-lele.jpg'
     },
     {
       id: 'bento-5',
-      title: 'Pendampingan Standarisasi & Labeling Kemasan UMKM',
-      caption: 'Peningkatan daya saing produk keripik tempe dan gula jawa alami Tampirkulon.',
-      src: '/images/documentation/sosialisasi-umkm.jpg',
-      tag: 'Pemberdayaan UMKM',
-      type: 'medium'
+      title: 'Aksi Wisata Susur Sungai Tubing Tampirkulon',
+      caption: '',
+      src: '/images/documentation/aksi-wisata-tubing.jpg'
     },
     {
       id: 'bento-6',
-      title: 'Lanskap Persawahan & Sunset Alami Desa Tampirkulon',
-      caption: 'Panorama alam terasering pegunungan yang terintegrasi dalam paket tur wisata.',
-      src: '/images/360/sunset-persawahan.jpg',
-      tag: 'Pesona Alam Tampirkulon',
-      type: 'panorama',
-      isPanorama: true
+      title: 'Pendampingan Standarisasi & Kemasan UMKM',
+      caption: '',
+      src: '/images/documentation/sosialisasi-umkm.jpg'
     },
 
-    // Cluster 2 (Dokumentasi Layanan & Penguatan Komunitas)
+    // Cluster 2
     {
       id: 'bento-7',
-      title: 'Pemeriksaan Kesehatan & Skrining Kebugaran Warga',
-      caption: 'Pelayanan cek tensi, gula darah, dan konsultasi kesehatan berkala untuk warga lansia.',
-      src: '/images/documentation/health-screening.jpg',
-      tag: 'Layanan Kesehatan',
-      type: 'hero',
-      isHero: true
+      title: 'Kesenian Tradisional Jathilan Warga',
+      caption: '',
+      src: '/images/documentation/Jathilan.JPG'
     },
     {
       id: 'bento-8',
-      title: 'Pelatihan Pertolongan Pertama Gawat Darurat (PMI)',
-      caption: 'Edukasi kesiapsiagaan penanganan cedera wisata dan evakuasi dasar bersama PMI.',
-      src: '/images/documentation/pelatihan-p3k-pmi.jpg',
-      tag: 'K3 & Keselamatan',
-      type: 'medium'
+      title: 'Pemberdayaan Produk Olahan Jamu Herbal',
+      caption: '',
+      src: '/images/documentation/Jual Jamu.JPG'
     },
     {
       id: 'bento-9',
-      title: 'Aksi Wisata Susur Sungai Tubing Tampirkulon',
-      caption: 'Uji coba jalur river tubing dan pemantauan titik jeram aman oleh pemandu lokal.',
-      src: '/images/documentation/aksi-wisata-tubing.jpg',
-      tag: 'Wisata Sungai',
-      type: 'medium'
+      title: 'Pemeriksaan Kesehatan & Skrining Kebugaran',
+      caption: '',
+      src: '/images/documentation/health-screening.jpg'
     },
     {
       id: 'bento-10',
-      title: 'Workshop Pengemasan Pangan Sehat & Higienitas',
-      caption: 'Praktek higienitas sanitasi dan inovasi kemasan ramah lingkungan produk unggulan desa.',
-      src: '/images/documentation/placeholder-10.jpg',
-      tag: 'Pengembangan UMKM',
-      type: 'medium'
+      title: 'Aktivitas Pemberdayaan Masyarakat Lapangan',
+      caption: '',
+      src: '/images/documentation/PXL_20260904_014732319.jpg'
     },
     {
       id: 'bento-11',
-      title: 'Kerja Bakti Bersih Sungai & Konservasi Sempadan',
-      caption: 'Aksi gotong royong karang taruna menjaga keasrian aliran sungai dan bantaran hijau.',
-      src: '/images/documentation/placeholder-11.jpg',
-      tag: 'Konservasi Lingkungan',
-      type: 'medium'
+      title: 'Sinergi Warga dan Tim Pelaksana PPK Ormawa',
+      caption: '',
+      src: '/images/documentation/PXL_20260801_074623914.jpg'
     },
     {
       id: 'bento-12',
-      title: 'Pentas Seni Budaya & Atraksi Warga Tampirkulon',
-      caption: 'Dokumentasi kolaborasi kesenian tari dan karawitan lokal memeriahkan pagelaran desa.',
-      src: '/images/documentation/placeholder-12.jpg',
-      tag: 'Atraksi Budaya',
-      type: 'panorama',
-      isPanorama: true
+      title: 'Pelatihan Pertolongan Pertama Gawat Darurat',
+      caption: '',
+      src: '/images/documentation/pelatihan-p3k-pmi.jpg'
+    },
+
+    // Cluster 3
+    {
+      id: 'bento-13',
+      title: 'Sosialisasi Program Edukasi Gizi & Wisata',
+      caption: '',
+      src: '/images/documentation/PXL_20260730_093250375.jpg'
+    },
+    {
+      id: 'bento-14',
+      title: 'Edukasi Pengolahan Tanaman Obat Keluarga',
+      caption: '',
+      src: '/images/documentation/PXL_20260815_035409562.jpg'
+    },
+    {
+      id: 'bento-15',
+      title: 'Pendampingan Produk Inovasi Lokal Desa',
+      caption: '',
+      src: '/images/documentation/PXL_20260904_022345101.jpg'
+    },
+    {
+      id: 'bento-16',
+      title: 'Pembangunan Sarana Kebugaran & Taman Sehat',
+      caption: '',
+      src: '/images/documentation/PXL_20260906_064321080.jpg'
+    },
+    {
+      id: 'bento-17',
+      title: 'Uji Kelayakan Jalur Wisata & Mitigasi Air',
+      caption: '',
+      src: '/images/documentation/PXL_20260812_022140816.jpg'
+    },
+    {
+      id: 'bento-18',
+      title: 'Koordinasi Kelembagaan Bersama Perangkat Desa',
+      caption: '',
+      src: '/images/documentation/PXL_20260715_100409504.jpg'
     }
   ],
   dpl: {
     name: 'Dosen Pembimbing Lapangan (DPL)',
     title: 'Pembimbing Akademik & Supervisi Program',
     affiliation: 'Program Studi S1 Gizi, Fakultas Ilmu Kesehatan, Universitas Tidar',
-    quote: 'Mengarahkan pendekatan Wellness-Tourism berbasis intervensi gizi terapan dan pemberdayaan masyarakat yang terukur serta berkelanjutan.'
+    quote: 'Mengarahkan pendekatan Wellness-Tourism berbasis intervensi gizi terapan dan pemberdayaan masyarakat yang terukur serta berkelanjutan.',
+    image: null,
+    isPlaceholder: true
   },
   team: [
-    { name: 'Rian Pratama', role: 'Ketua Tim Pelaksana', dept: 'S1 Gizi Universitas Tidar', initial: 'RP' },
-    { name: 'Nabila Azzahra', role: 'Sekretaris Program', dept: 'S1 Gizi Universitas Tidar', initial: 'NA' },
-    { name: 'Fikri Haikal', role: 'Bendahara & Logistik', dept: 'S1 Gizi Universitas Tidar', initial: 'FH' },
-    { name: 'Dina Kusuma', role: 'Koordinator Pilar Tubing Care & K3', dept: 'S1 Gizi Universitas Tidar', initial: 'DK' },
-    { name: 'Bayu Saputra', role: 'Koordinator Pilar Green Space', dept: 'S1 Gizi Universitas Tidar', initial: 'BS' },
-    { name: 'Siti Rahmawati', role: 'Koordinator Pilar Local Creative (Gizi/UMKM)', dept: 'S1 Gizi Universitas Tidar', initial: 'SR' },
-    { name: 'Aditya Nugroho', role: 'Koordinator Pilar West Integrated Ecosystem', dept: 'S1 Gizi Universitas Tidar', initial: 'AN' },
-    { name: 'Lestari Wulandari', role: 'Divisi Skrining Kesehatan Wisatawan', dept: 'S1 Gizi Universitas Tidar', initial: 'LW' },
-    { name: 'Dimas Anggoro', role: 'Divisi Pelatihan Water Rescue & P3K', dept: 'S1 Gizi Universitas Tidar', initial: 'DA' },
-    { name: 'Anisa Putri', role: 'Divisi Edukasi Pangan TOGA & Herbal', dept: 'S1 Gizi Universitas Tidar', initial: 'AP' },
-    { name: 'Rizky Kurniawan', role: 'Divisi Media Informasi & Tur 360°', dept: 'S1 Gizi Universitas Tidar', initial: 'RK' },
-    { name: 'Hani Febriana', role: 'Divisi Humas & Pendampingan POKDARWIS', dept: 'S1 Gizi Universitas Tidar', initial: 'HF' },
-    { name: 'Gilang Ramadhan', role: 'Divisi Pemetaan Rute Wisata', dept: 'S1 Gizi Universitas Tidar', initial: 'GR' },
-    { name: 'Mega Utami', role: 'Divisi Administrasi & Legalitas SK', dept: 'S1 Gizi Universitas Tidar', initial: 'MU' },
-    { name: 'Taufiq Hidayat', role: 'Divisi Pengawasan Lapangan & Evaluasi', dept: 'S1 Gizi Universitas Tidar', initial: 'TH' }
+    { 
+      name: 'Aldila Eka Syahbani', 
+      role: 'Ketua Tim Pelaksana', 
+      dept: 'S1 Gizi 2024', 
+      initial: 'AE',
+      image: '/images/team/Aldila Eka Syahbani_S1 Gizi 2024_Ketua.png'
+    },
+    { 
+      name: 'Meisy Muliasa Insani', 
+      role: 'Sekretaris Program', 
+      dept: 'S1 Gizi 2024', 
+      initial: 'MI',
+      image: '/images/team/Meisy Muliasa Insani_S1 Gizi 2024_Sekretaris.png'
+    },
+    { 
+      name: 'Sekretaris Tim Pelaksana', 
+      role: 'Sekretaris Program', 
+      dept: 'S1 Gizi Universitas Tidar', 
+      initial: 'ST',
+      image: null,
+      isPlaceholder: true
+    },
+    { 
+      name: 'Achmad Chanif Rahmatullah', 
+      role: 'West Integrated Ecosystem', 
+      dept: 'S1 Teknologi Informasi', 
+      initial: 'AC',
+      image: '/images/team/Achmad Chanif Rahmatullah_S1 Tekno Infor_West.png'
+    },
+    { 
+      name: 'Fanny Dwi Aryahman', 
+      role: 'West Integrated Ecosystem', 
+      dept: 'S1 Pariwisata 2023', 
+      initial: 'FA',
+      image: '/images/team/Fanny Dwi Aryahman_S1 Pariwisata 2023_ West.png'
+    },
+    { 
+      name: 'Marla Yuni Rahmawati', 
+      role: 'West Integrated Ecosystem', 
+      dept: 'S1 Manajemen', 
+      initial: 'MR',
+      image: '/images/team/Marla Yuni Rahmawati_S1 Manajm_West.png'
+    },
+    { 
+      name: 'Ahnaf Daffa Maulana', 
+      role: 'Tubing Care & K3', 
+      dept: 'S1 Gizi 2024', 
+      initial: 'AD',
+      image: '/images/team/Ahnaf Daffa Maulana_S1 gizi 2024_ Tubing Care.png'
+    },
+    { 
+      name: 'Amyroh Tsabitha Majid', 
+      role: 'Tubing Care & K3', 
+      dept: 'S1 Gizi 2024', 
+      initial: 'AM',
+      image: '/images/team/Amyroh Tsabitha Majid_S1 Gizi 2024_Tubing care.png'
+    },
+    { 
+      name: 'Nazwa Fesananta A', 
+      role: 'Tubing Care & K3', 
+      dept: 'S1 Gizi 2024', 
+      initial: 'NF',
+      image: '/images/team/Nazwa Fesananta A_S1 Gizi 2024_Tubing Care.png'
+    },
+    { 
+      name: 'Engelyna Novia Putri', 
+      role: 'Green Wellness Space', 
+      dept: 'S1 Gizi 2024', 
+      initial: 'EP',
+      image: '/images/team/Engelyna Novia Putri_S1 Gizi 2024_Wellness.png'
+    },
+    { 
+      name: 'Ferdiyanto', 
+      role: 'Green Wellness Space', 
+      dept: 'S1 Teknologi Informasi 2024', 
+      initial: 'FY',
+      image: '/images/team/Ferdiyanto_S1 Tekno Informa 2024_Wellness Space.png'
+    },
+    { 
+      name: 'Yushita Rima Anjani', 
+      role: 'Green Wellness Space', 
+      dept: 'S1 Gizi 2024', 
+      initial: 'YA',
+      image: '/images/team/Yushita Rima Anjani_S1 Gizi 2024_Wellness.png'
+    },
+    { 
+      name: 'Adelia Salwa Putri M', 
+      role: 'Nutri Local', 
+      dept: 'S1 Gizi 2024', 
+      initial: 'AP',
+      image: '/images/team/Adelia Salwa Putri M_S1 Gizi 2024_Nutri Local.png'
+    },
+    { 
+      name: 'Dina Rohadatul Aisy', 
+      role: 'Nutri Local', 
+      dept: 'S1 Gizi 2024', 
+      initial: 'DA',
+      image: '/images/team/Dina Rohadatul Aisy_S1 Gizi 2024_Nutrilocal.png'
+    },
+    { 
+      name: 'Tim Nutri Local', 
+      role: 'Nutri Local', 
+      dept: 'S1 Gizi Universitas Tidar', 
+      initial: 'NL',
+      image: null,
+      isPlaceholder: true
+    }
   ]
 };

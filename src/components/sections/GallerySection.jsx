@@ -4,8 +4,10 @@ import { siteImages } from '../../data/siteImages.js';
 import ImagePlaceholder from '../shared/ImagePlaceholder.jsx';
 
 export default function GallerySection({ photos, onSelectPhoto }) {
-  // Gunakan photos jika ada, fallback ke siteImages.gallery
-  const items = (photos && photos.length > 0) ? photos : siteImages.gallery;
+  // Gunakan data foto siteImages.gallery sebagai prioritas utama
+  const items = (siteImages.gallery && siteImages.gallery.length > 0) 
+    ? siteImages.gallery 
+    : (photos || []);
 
   // Bagi data ke dalam kluster bento (masing-masing 6 item)
   const clusters = [];
@@ -213,7 +215,6 @@ export default function GallerySection({ photos, onSelectPhoto }) {
                         <div className="bento-card-gradient-overlay" />
                         <div className="bento-card-caption-bottom">
                           <h3 className="bento-caption-title">{cluster[0].title}</h3>
-                          <p className="bento-caption-desc">{cluster[0].caption}</p>
                         </div>
                         <div className="bento-hover-indicator">
                           <Eye size={18} />
@@ -292,7 +293,6 @@ export default function GallerySection({ photos, onSelectPhoto }) {
                         <div className="bento-card-gradient-overlay" />
                         <div className="bento-card-caption-bottom">
                           <h3 className="bento-caption-title">{cluster[3].title}</h3>
-                          <p className="bento-caption-desc">{cluster[3].caption}</p>
                         </div>
                         <div className="bento-hover-indicator">
                           <Eye size={18} />
@@ -321,7 +321,6 @@ export default function GallerySection({ photos, onSelectPhoto }) {
                         <div className="bento-card-gradient-overlay" />
                         <div className="bento-card-caption-bottom">
                           <h3 className="bento-caption-title">{cluster[4].title}</h3>
-                          <p className="bento-caption-desc">{cluster[4].caption}</p>
                         </div>
                         <div className="bento-hover-indicator">
                           <Eye size={18} />
